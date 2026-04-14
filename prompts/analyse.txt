@@ -1,0 +1,192 @@
+ <task>
+  Proveď ultimátní, akademicky přísné review bakalářské práce a vrať výstup výhradně jako jeden
+  strukturovaný Markdown dokument v češtině. Neprováděj přepis textu ani konkrétní opravy vět;
+  poskytuj pouze hodnotící komentáře, zjištění, varování a doporučení. Při identifikaci problémů
+  přímo cituj relevantní problematické pasáže z práce a následně je popiš a vyhodnoť.
+  </task>
+
+  <inputs>
+  - primary_document: PDF bakalářské práce /input/bp.pdf
+  - faculty_guidelines_url: https://www.prf.jcu.cz/cz/fakulta/dokumenty/opatreni-prodekanu/p5
+  - citation_style_target: Harvardský styl, vzor typu (Liang & Dai, 2024)
+  - review_mode: čistě kvalitativní
+  - rigor_level: vysoká akademická přísnost
+  - output_language: čeština
+  </inputs>
+
+  <output_verbosity_spec>
+  - Buď důkladný, konkrétní a přísný.
+  - Nezahlcuj obecnými poučkami; soustřeď se na zjištění vztahující se ke konkrétním pasážím práce.
+  - U každé hlavní kategorie uveď dostatek detailu, aby podle review šla práce systematicky
+  revidovat před odevzdáním nebo obhajobou.
+  - Silné stránky zmiňuj stručně; těžiště výstupu mají tvořit nedostatky, rizika a doporučení.
+  </output_verbosity_spec>
+
+  <design_and_scope_constraints>
+  - Hodnocení musí být čistě kvalitativní. Nepoužívej body, procenta, známky ani numerické škály.
+  - Výstup musí být organizovaný primárně podle hodnotících kategorií, ne podle pořadí kapitol v
+  práci.
+  - V každé kategorii:
+    - stručně shrň stav,
+    - uveď konkrétní zjištění,
+    - přímo cituj problematické pasáže, pokud jsou relevantní,
+    - vysvětli, proč jde o problém nebo proč je dané řešení v pořádku,
+    - přiřaď závažnost: nízká / střední / vysoká / kritická,
+    - navrhni doporučení k opravě.
+  - Neprováděj jazykový rewrite ani přepis odstavců.
+  - Nepiš vágní formulace typu „mohlo by být lepší“ bez vysvětlení.
+  - Posuzuj nejen text, ale i formální stránku práce, včetně tabulek, obrázků, popisků, příloh,
+  odkazů v textu a celkové sazby, pokud je z PDF zjistitelná.
+  </design_and_scope_constraints>
+
+  <evaluation_categories>
+  1. Soulad se zadáním a akademickým účelem práce
+  2. Struktura práce a logická návaznost
+  3. Formální náležitosti bakalářské práce
+  4. Soulad s fakultními / školními pokyny
+  5. Dodržení citačního stylu (Harvard)
+  6. Kvalita citací a práce se zdroji
+  7. Rizika plagiátorství, nepřiznané parafráze a nadměrné podobnosti
+  8. Znaky AI-generovaného textu a jejich viditelnost
+  9. Gramatika, pravopis a interpunkce
+  10. Plynulost vět, styl a akademický registr
+  11. Terminologická přesnost a konzistence pojmů
+  12. Argumentace a opora tvrzení
+  13. Hloubka analýzy a kritické myšlení
+  14. Fact-checking a věcná správnost tvrzení
+  15. Metodologická přesnost a reprodukovatelnost (je-li relevantní)
+  16. Kvalita abstraktu, úvodu a závěru
+  17. Kvalita závěrů a jejich opora v textu
+  18. Formální prvky: tabulky, obrázky, popisky, odkazy, přílohy
+  19. Vnitřní konzistence napříč dokumentem
+  20. Rizika pro oponenturu a obhajobu
+  </evaluation_categories>
+
+  <uncertainty_and_ambiguity>
+  - Pokud nelze něco bezpečně určit z PDF nebo z dostupných pokynů, výslovně to označ.
+  - U každého sporného zjištění rozlišuj:
+    - prokázaná chyba,
+    - pravděpodobný problém,
+    - podezření vyžadující ověření.
+  - U AI-signálů nikdy netvrď definitivně, že text je generovaný AI; uváděj pouze indikátory,
+  symptomy a důvody podezření.
+  - U podobnosti s jinými pracemi nerozhoduj kategoricky bez dostatečné opory; rozlišuj běžnou
+  akademickou podobnost, problematickou blízkost formulací a potenciálně nepůvodní pasáže.
+  - U fact-checkingu vždy uváděj míru jistoty závěru.
+  </uncertainty_and_ambiguity>
+
+  <high_risk_self_check>
+  Před finálním výstupem interně ověř:
+  - že jsou pokryty všechny hodnotící kategorie,
+  - že jsou odděleny jazykové, formální, obsahové a metodologické problémy,
+  - že jsou konzistentně posouzeny in-text citace i bibliografie podle harvardského stylu,
+  - že jsou zhodnoceny i formální prvky práce,
+  - že fact-checking obsahuje míru jistoty a rozlišení mezi zjevnou chybou a neověřeným podezřením,
+  - že jsou explicitně popsány pasáže působící AI-generovaně,
+  - že jsou identifikována rizika plagiátorství a podobnosti bez nepodložených definitivních
+  obvinění,
+  - že všechny citované pasáže z práce jsou skutečně relevantní k hodnotícímu bodu.
+  </high_risk_self_check>
+
+  <long_context_handling>
+  - Zpracuj celý dokument po sekcích.
+  - Nejprve vytvoř interní mapu struktury práce.
+  - Poté proveď detailní review po kategoriích.
+  - Nakonec proveď cross-document pass se zaměřením na:
+    - konzistenci pojmů,
+    - konzistenci citací,
+    - konzistenci tvrzení,
+    - návaznost úvod–metodika–výsledky–závěr,
+    - soulad abstraktu a závěrů se skutečným obsahem práce.
+  - Pokud je práce dlouhá, pracuj systematicky a zabraň tomu, aby se review opíralo jen o lokální
+  nebo nahodilé pasáže.
+  </long_context_handling>
+
+  <tool_usage_rules>
+  - Primárním vstupem je PDF bakalářské práce.
+  - Použij také obsah fakultních pokynů z uvedeného URL jako normativní referenci pro formální
+  soulad práce.
+  - Pro hlubší fact-checking ověřuj tvrzení proti důvěryhodným a autoritativním zdrojům.
+  - Preferuj primární nebo institucionálně silné zdroje.
+  - Nepoužívej neověřené domněnky tam, kde je možné externí ověření.
+  - Pokud externí ověření není možné nebo je neúplné, explicitně to uveď.
+  </tool_usage_rules>
+
+  <extraction_spec>
+  Z PDF nejprve interně vytěž:
+  - název práce,
+  - abstrakt,
+  - seznam kapitol / strukturu práce,
+  - seznam literatury,
+  - typické vzory in-text citací,
+  - přítomnost a kvalitu tabulek, obrázků, příloh a popisků,
+  - pasáže s vysokou hustotou tvrzení,
+  - pasáže stylisticky nehomogenní nebo podezřelé z AI,
+  - místa s možnou nekonzistencí terminologie,
+  - místa s podezřením na chybné nebo neúplné citování.
+  </extraction_spec>
+
+  <final_markdown_structure>
+  # Review bakalářské práce
+
+  ## Executive summary
+  - Stručné celkové zhodnocení práce
+  - Hlavní silné stránky
+  - Hlavní slabiny
+  - Celkový dojem z akademické připravenosti textu
+
+  ## Největší rizika
+  - Seznam nejzávažnějších problémů, které mohou poškodit hodnocení práce
+
+  ## Top priority fixes
+  - Nejurgentnější opravy, které by měly být provedeny před odevzdáním / obhajobou
+
+  ## 1. Soulad se zadáním a akademickým účelem práce
+  ## 2. Struktura a logika práce
+  ## 3. Formální náležitosti a soulad s fakultními pokyny
+  ## 4. Citační styl a bibliografie
+  ## 5. Práce se zdroji
+  ## 6. Plagiátorství, podobnost a AI-signály
+  ## 7. Jazyková a stylistická kvalita
+  ## 8. Terminologie a konzistence
+  ## 9. Argumentace a analytická úroveň
+  ## 10. Fact-checking a věcná správnost
+  ## 11. Metodologie
+  ## 12. Kvalita abstraktu, úvodu a závěru
+  ## 13. Závěry a jejich opora v textu
+  ## 14. Formální prvky (obrázky, tabulky, popisky, přílohy)
+  ## 15. Rizika pro oponenturu / obhajobu
+
+  ## Celkové kvalitativní hodnocení
+  - Celkové shrnutí akademické kvality práce
+
+  ## Verdict on readiness
+  - Jasné slovní vyjádření, zda je práce:
+    - připravená k odevzdání,
+    - podmíněně připravená po zásadních úpravách,
+    - nepřipravená a vyžadující rozsáhlou revizi
+
+  ## Otevřené nejistoty a co ještě ověřit
+  - Body, které nebylo možné bezpečně rozhodnout
+  - Co by vyžadovalo manuální nebo externí doplnění
+  </final_markdown_structure>
+
+  <review_method>
+  Pro každou kategorii:
+  1. Stručně popiš celkový stav.
+  2. Uveď konkrétní zjištění.
+  3. Kde je to užitečné, přímo cituj problematickou pasáž.
+  4. Vysvětli, proč je to problém nebo proč je to v pořádku.
+  5. Uveď závažnost.
+  6. Navrhni konkrétní doporučení k opravě.
+  7. Odděl jistá zjištění od podezření a od bodů vyžadujících externí ověření.
+  </review_method>
+
+  <assistant_behavior>
+  - Buď přísný, forenzní a akademicky orientovaný.
+  - Nevytvářej falešnou jistotu.
+  - Nevynechávej drobné formální chyby, pokud se opakují nebo signalizují systémový problém.
+  - Neomezuj se na jazykovou korekturu; těžištěm má být skutečné odborné review.
+  - Nepiš omluvné nebo nadměrně diplomatické formulace.
+  - Výstup musí být použitelný jako podklad pro tvrdou předodevzdávací revizi.
+  </assistant_behavior> bp najdeš v /downloads

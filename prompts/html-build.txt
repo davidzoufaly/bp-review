@@ -1,0 +1,151 @@
+<task>
+Převeď Markdown metaanalýzu (output/meta-analyse.md) a všechny 4 externí analýzy na samostatné HTML dokumenty.
+Zachovej veškerý obsah, strukturu a význam. Nic nepřidávej, neodstraňuj ani nepřepisuj.
+
+Hlavní stránka (metaanalýza) musí obsahovat prokliknutelné odkazy na jednotlivé analýzy.
+Jednotlivé analýzy musí obsahovat odkaz zpět na hlavní stránku.
+
+Výstupy:
+- output/meta-analyse.html (hlavní stránka)
+- output/review_bp_1.html
+- output/review_bp_2.html
+- output/review_bp_3.html
+- output/review_bp_4.html
+</task>
+
+<inputs>
+- main_source: output/meta-analyse.md
+- analysis_sources:
+  - input/analysis/review_bp_1.md → output/review_bp_1.html
+  - input/analysis/review_bp_2.md → output/review_bp_2.html
+  - input/analysis/review_bp_3.md → output/review_bp_3.html
+  - input/analysis/review_bp_4.md → output/review_bp_4.html
+  - input/analysis/review_bp_5.md → output/review_bp_5.html
+- output_language: čeština
+</inputs>
+
+<conversion_rules>
+- Vstupní MD soubor je autoritativní zdroj obsahu. Nepřidávej vlastní text, hodnocení ani komentáře.
+- Převeď MD strukturu 1:1 na sémantický HTML:
+  - h1 → <h1>, h2 → <h2>, h3 → <h3>
+  - blockquoty → <blockquote>
+  - seznamy → <ul>/<ol>
+  - tučné/kurzíva → <strong>/<em>
+  - horizontální pravidla (---) → <hr>
+  - inline kód → <code>
+- Severity badges **[KRITICKÁ]**, **[VYSOKÁ]**, **[STŘEDNÍ]**, **[NÍZKÁ]** převeď na:
+  <span class="badge badge-critical">KRITICKÁ</span>
+  <span class="badge badge-high">VYSOKÁ</span>
+  <span class="badge badge-medium">STŘEDNÍ</span>
+  <span class="badge badge-low">NÍZKÁ</span>
+- Pokud MD obsahuje tabulky, převeď na <table> s <thead>/<tbody>.
+</conversion_rules>
+
+<linking_rules>
+Na hlavní stránce (meta-analyse.html):
+- Všude, kde se odkazuje na "Analýza 1/2/3/4" nebo "externí analýza N", přidej odkaz na příslušný review_bp_N.html.
+- Přidej sekci "Zdrojové analýzy" (před TOC nebo jako součást TOC) se seznamem odkazů:
+  - <a href="review_bp_1.html">Analýza 1</a>
+  - <a href="review_bp_2.html">Analýza 2</a>
+  - <a href="review_bp_3.html">Analýza 3</a>
+  - <a href="review_bp_4.html">Analýza 4</a>
+  - <a href="review_bp_5.html">Analýza 5</a>
+
+Na stránkách jednotlivých analýz (review_bp_N.html):
+- Přidej navigační lištu nahoře: odkaz zpět "← Zpět na metaanalýzu" (href="meta-analyse.html") + odkazy na ostatní analýzy.
+- Použij stejný CSS design jako hlavní stránka (sdílený <style> blok).
+- Každá analýza = samostatný HTML5 dokument se stejnou strukturou (header, main, footer).
+- Header: <h1>Analýza N — Review bakalářské práce</h1>
+</linking_rules>
+
+<html_requirements>
+- Vrať jeden samostatný validní HTML5 dokument.
+- Sémantická struktura: <header>, <main>, <section>, <footer>.
+- Veškeré CSS inline ve <style> tagu v <head>.
+- Nepoužívej externí assety, frameworky, fonty ani JavaScript.
+- Výstup čitelný i bez CSS (sémantický fallback).
+- Vizuálně střídmý, profesionální, tiskově přátelský vzhled.
+- Responzivní layout (max-width, viewport meta).
+</html_requirements>
+
+<css_design_spec>
+Akademický, formální, střídmý styl. Konkrétně:
+
+Typografie:
+- Font stack: system-ui, -apple-system, "Segoe UI", sans-serif
+- Základ: 16px/1.6
+- Nadpisy: tužší řez, přiměřená hierarchie velikostí
+- Blockquoty: levý border, šedé pozadí, kurzíva
+
+Barvy:
+- Pozadí: bílá (#fff) nebo velmi světle šedá (#fafafa)
+- Text: tmavě šedá (#1a1a1a)
+- Akcentní: tlumená modrá pro odkazy a nadpisy (#2c5282)
+- Badge barvy:
+  - critical: #c53030 bg, #fff text
+  - high: #dd6b20 bg, #fff text
+  - medium: #d69e2e bg, #1a1a1a text
+  - low: #38a169 bg, #fff text
+
+Layout:
+- max-width: 900px, margin: 0 auto
+- Sekce vizuálně oddělené (margin, padding, jemný border-bottom)
+- Tabulky: border-collapse, střídavé řádky (zebra)
+
+Forenzní annex:
+- Kontrastnější pozadí (#fff5f5 nebo #fef2f2)
+- Výraznější levý border (#c53030)
+- Úvodní upozornění na tvrdší diagnostickou vrstvu
+
+Tisk:
+- @media print: skryj navigaci, uprav okraje, zachovej čitelnost
+- page-break-before na hlavních sekcích
+</css_design_spec>
+
+<section_mapping>
+Každou h2 sekci z MD zabal do <section> s id odvozeným z názvu:
+- "Executive summary" → id="executive-summary"
+- "Finální verdikt" → id="final-verdict"
+- "Souhrnné vyhodnocení kvality externích analýz" → id="ranking-of-analyses"
+- "Vyhodnocení externí analýzy N" → id="analysis-N-review" (N = 1–5)
+- "Porovnání všech 5 externích analýz" → id="cross-analysis-comparison"
+- "Metaanalýza a finální syntéza" → id="meta-analysis"
+- "Top priority fixes" → id="priority-fixes"
+- "Rizika pro oponenturu a obhajobu" → id="defense-risks"
+- "Otevřené nejistoty a co ještě ověřit" → id="open-uncertainties"
+- "Forenzní annex" → id="forensic-annex"
+
+Přidej navigační TOC (<nav>) na začátek <main> s kotvami na všechny sekce.
+</section_mapping>
+
+<header_spec>
+<header>
+  <h1>Metaanalýza review bakalářské práce</h1>
+  <p class="subtitle">Komparativní a syntetické vyhodnocení čtyř externích analýz bakalářské práce</p>
+  <p class="meta">Generováno: [datum generování]</p>
+</header>
+</header_spec>
+
+<quality_checks>
+Před výstupem ověř:
+- Validní HTML5 (doctype, charset, lang="cs", viewport) — všech 6 souborů.
+- Každá h2 sekce z MD má odpovídající <section> s id.
+- Všechny severity badges převedeny na <span class="badge">.
+- Žádný obsah ztracen ani přidán oproti MD vstupu.
+- Blockquoty zachovány jako <blockquote>.
+- Forenzní annex vizuálně odlišen od hlavního reportu.
+- TOC navigace funkční (kotvy odpovídají id sekcí).
+- CSS netřeba externě — vše v <style>.
+- Tiskový stylesheet přítomen.
+- Odkazy mezi stránkami funkční (relativní cesty, všechny soubory ve stejném adresáři output/).
+- Každá review_bp_N.html obsahuje navigaci zpět na metaanalýzu + na ostatní analýzy.
+- Vizuální konzistence napříč všemi 5 HTML soubory (stejný CSS).
+</quality_checks>
+
+<assistant_behavior>
+- Toto je čistě konverzní úloha: MD → HTML. Nepřidávej vlastní analýzu ani hodnocení.
+- Zachovej přesný obsah. Pokud je v MD překlep, neopravuj ho — převeď jak je.
+- Jediné přidané elementy: CSS styling, TOC navigace, sémantické HTML obálky, badge třídy, navigační odkazy mezi stránkami.
+- Pokud je MD struktura nejednoznačná, preferuj věrný převod před interpretací.
+- Generuj všech 6 HTML souborů. Začni hlavní stránkou, pak analýzy 1–5.
+</assistant_behavior>

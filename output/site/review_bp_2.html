@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analýza 2 — Review bakalářské práce</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 16px; line-height: 1.6; color: #1a1a1a; background: #fafafa; margin: 0; padding: 0; }
+header, main, footer { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+header { padding-top: 3rem; padding-bottom: 2rem; border-bottom: 2px solid #2c5282; margin-bottom: 2rem; }
+header h1 { font-size: 1.85rem; font-weight: 700; color: #2c5282; margin: 0 0 0.5rem; }
+header .subtitle { font-size: 1.05rem; color: #4a5568; margin: 0 0 0.25rem; }
+header .meta { font-size: 0.85rem; color: #718096; margin: 0; }
+nav.page-nav { max-width: 900px; margin: 0 auto; padding: 1rem 1.5rem; font-size: 0.9rem; border-bottom: 1px solid #e2e8f0; }
+nav.page-nav a { color: #2c5282; text-decoration: none; margin-right: 0.5rem; }
+nav.page-nav a:hover { text-decoration: underline; }
+nav.page-nav a.current { font-weight: 700; }
+nav.page-nav .nav-sep { color: #a0aec0; margin: 0 0.25rem; }
+nav.toc { background: #fff; border: 1px solid #e2e8f0; border-radius: 4px; padding: 1.25rem 1.5rem; margin-bottom: 2.5rem; }
+nav.toc h2 { font-size: 1rem; font-weight: 700; margin: 0 0 0.75rem; color: #2c5282; border: none; padding: 0; }
+nav.toc ol { margin: 0; padding-left: 1.25rem; }
+nav.toc li { margin-bottom: 0.3rem; }
+nav.toc a { color: #2c5282; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+section { margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid #e2e8f0; }
+section:last-of-type { border-bottom: none; }
+h2 { font-size: 1.45rem; font-weight: 700; color: #2c5282; margin: 0 0 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid #e2e8f0; }
+h3 { font-size: 1.15rem; font-weight: 600; color: #2d3748; margin: 1.5rem 0 0.75rem; }
+p { margin: 0 0 1rem; }
+ul, ol { margin: 0 0 1rem; padding-left: 1.5rem; }
+li { margin-bottom: 0.35rem; }
+blockquote { border-left: 4px solid #a0aec0; background: #f7fafc; margin: 0 0 1rem; padding: 0.75rem 1rem; font-style: italic; color: #4a5568; }
+blockquote p:last-child { margin-bottom: 0; }
+.badge { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.03em; padding: 0.15em 0.55em; border-radius: 3px; vertical-align: middle; text-transform: uppercase; }
+.badge-critical { background: #c53030; color: #fff; }
+.badge-high { background: #dd6b20; color: #fff; }
+.badge-medium { background: #d69e2e; color: #1a1a1a; }
+.badge-low { background: #38a169; color: #fff; }
+.badge-note { background: #718096; color: #fff; }
+table { width: 100%; border-collapse: collapse; margin: 0 0 1.25rem; font-size: 0.92rem; }
+thead th { background: #2c5282; color: #fff; font-weight: 600; text-align: left; padding: 0.6rem 0.75rem; }
+tbody td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; }
+tbody tr:nth-child(even) { background: #f7fafc; }
+tbody tr:hover { background: #edf2f7; }
+code { font-family: ui-monospace, "Cascadia Code", "Menlo", monospace; font-size: 0.88em; background: #edf2f7; padding: 0.15em 0.35em; border-radius: 3px; }
+hr { border: none; border-top: 1px solid #cbd5e0; margin: 2rem 0; }
+footer { padding: 1.5rem 1.5rem 3rem; font-size: 0.82rem; color: #a0aec0; text-align: center; }
+@media print { body { background: #fff; font-size: 11pt; } header, main, footer { max-width: 100%; padding: 0; } nav.toc, nav.page-nav { display: none; } section { page-break-inside: avoid; } h2 { page-break-before: always; } h2:first-of-type { page-break-before: avoid; } .badge { border: 1px solid currentColor; } a { color: #1a1a1a; text-decoration: none; } table { font-size: 9pt; } thead th { background: #e2e8f0; color: #1a1a1a; } }
+</style>
+</head>
+<body>
+
+<nav class="page-nav">
+  <a href="meta-analyse.html">&larr; Zp&#283;t na metaanal&yacute;zu</a>
+  <span class="nav-sep">|</span>
+  <a href="review_bp_1.html">Anal&yacute;za 1</a>
+  <a href="review_bp_2.html" class="current">Anal&yacute;za 2</a>
+  <a href="review_bp_3.html">Anal&yacute;za 3</a>
+  <a href="review_bp_4.html">Anal&yacute;za 4</a>
+  <a href="review_bp_5.html">Anal&yacute;za 5</a>
+</nav>
+
+<header>
+  <h1>Anal&yacute;za 2 &mdash; Review bakal&aacute;&#345;sk&eacute; pr&aacute;ce</h1>
+  <p class="meta">Generov&aacute;no: 14. dubna 2026</p>
+</header>
+
+<main>
+
+<nav class="toc">
+  <h2>Obsah</h2>
+  <ol>
+    <li><a href="#executive-summary">Executive summary</a></li>
+    <li><a href="#nejvetsi-rizika">Nejvetsi rizika</a></li>
+    <li><a href="#top-priority-fixes">Top priority fixes</a></li>
+    <li><a href="#1-soulad-se-zadanim-a-akademickym-ucelem-prace">1. Soulad se zadanim a akademickym ucelem prace</a></li>
+    <li><a href="#2-struktura-a-logika-prace">2. Struktura a logika prace</a></li>
+    <li><a href="#3-formalni-nalezitosti-a-soulad-s-fakultnimi-pokyny">3. Formalni nalezitosti a soulad s fakultnimi pokyny</a></li>
+    <li><a href="#4-citacni-styl-a-bibliografie">4. Citacni styl a bibliografie</a></li>
+    <li><a href="#5-prace-se-zdroji">5. Prace se zdroji</a></li>
+    <li><a href="#6-plagiatorsvi-podobnost-a-ai-signaly">6. Plagiatorsvi, podobnost a AI-signaly</a></li>
+    <li><a href="#7-jazykova-a-stylisticka-kvalita">7. Jazykova a stylisticka kvalita</a></li>
+    <li><a href="#8-terminologie-a-konzistence">8. Terminologie a konzistence</a></li>
+    <li><a href="#9-argumentace-a-analyticka-uroven">9. Argumentace a analyticka uroven</a></li>
+    <li><a href="#10-fact-checking-a-vecna-spravnost">10. Fact-checking a vecna spravnost</a></li>
+    <li><a href="#11-metodologie">11. Metodologie</a></li>
+    <li><a href="#12-kvalita-abstraktu-uvodu-a-zaveru">12. Kvalita abstraktu, uvodu a zaveru</a></li>
+    <li><a href="#13-zavery-a-jejich-opora-v-textu">13. Zavery a jejich opora v textu</a></li>
+    <li><a href="#14-formalni-prvky">14. Formalni prvky (obrazky, tabulky, popisky, prilohy)</a></li>
+    <li><a href="#15-rizika-pro-oponenturu-obhajobu">15. Rizika pro oponenturu / obhajobu</a></li>
+    <li><a href="#celkove-kvalitativni-hodnoceni">Celkove kvalitativni hodnoceni</a></li>
+    <li><a href="#verdict-on-readiness">Verdict on readiness</a></li>
+    <li><a href="#otevrene-nejistoty-a-co-jeste-overit">Otevrene nejistoty a co jeste overit</a></li>
+  </ol>
+</nav>
+
+<!-- Executive summary -->
+<section id="executive-summary">
+<h2>Executive summary</h2>
+
+<p><strong>Nazev:</strong> Protivirova imunitni odpoved u flaviviru a jeji mozna uskali: zamereni na protein NS1<br>
+<strong>Autorka:</strong> Lucie Novotna<br>
+<strong>Vedouci:</strong> RNDr. Martin Palus, Ph.D. | <strong>Konzultant:</strong> Mgr. Vaclav Honig, Ph.D.<br>
+<strong>Instituce:</strong> Prirodovedecka fakulta, Jihoceska univerzita v Ceskych Budejovicich, 2026<br>
+<strong>Rozsah:</strong> 52 stran (vcetne priloh), 19 obrazku, 3 tabulky, ~50 zdroju</p>
+
+<p>BP o protivirove imunitni odpovedi u flaviviru, zamereni na NS1. Kombinuje resersni cast (kap. 1-5) s experimentalni praci (kap. 6-10): optimalizace ELISA pro NS1, kvantifikace produkce NS1 u bunek neurovaskulární jednotky po infekci TBEV Neudoerfl, vyhodnoceni vztahu NS1-virovy titr.</p>
+
+<p><strong>Hlavni silne stranky:</strong></p>
+<ul>
+  <li>Solidni experimentalni prace s realnou optimalizaci metody (ne jen aplikace existujiciho protokolu)</li>
+  <li>Kvalitni diskuze propojujici vysledky s literaturou, vcetne priznani limitu (maly pocet replikatu)</li>
+  <li>Transparentni AI deklarace (ChatGPT pro jazykove korekce)</li>
+  <li>Poctiva prace se zdroji; zdrojova zakladna aktualni (2020-2025)</li>
+</ul>
+
+<p><strong>Hlavni slabiny:</strong></p>
+<ul>
+  <li>Opakovane chybny zapis &quot;ANNOVA&quot; misto &quot;ANOVA&quot;</li>
+  <li>Duplicitni cislovani obrazku (dva Obr. 10), narusi celou sekvenci</li>
+  <li>Abstrakt (Anotace) bez konkretnich vysledku experimentu</li>
+  <li>Sekce 4.5 chybi v obsahu (TOC)</li>
+  <li>Terminologicka chyba: &quot;NLP3&quot; / &quot;NLPR3&quot; misto &quot;NLRP3&quot;</li>
+</ul>
+
+<p><strong>Celkovy dojem:</strong> Obsahove velmi dobra BP s potencialem na vyborne hodnoceni. Formalni a typograficke chyby snizuji akademicky dojem, budou terchem oponentury.</p>
+</section>
+
+<!-- Nejvetsi rizika -->
+<section id="nejvetsi-rizika">
+<h2>Nejvetsi rizika</h2>
+
+<ol>
+  <li><strong>&quot;ANNOVA&quot; misto &quot;ANOVA&quot;</strong> &mdash; Opakovana chyba (radky 632, 633, 635, 718, 721, 736). Signalizuje neznalost terminologie, oponent si vsimne prvni.</li>
+  <li><strong>Duplicitni Obr. 10</strong> &mdash; Dva obrazky &quot;Obr. 10&quot;: s. 23 (barevna zmena na panelu) a s. 27 (porovnani 16 standardu). Posunuje veskere nasledujici cislovani.</li>
+  <li><strong>Abstrakt bez vysledku</strong> &mdash; Anotace popisuje tema a metodiku, zadne konkretni zjisteni. U prirodovedne prace s experimentalni casti zavazny nedostatek.</li>
+  <li><strong>Chybejici sekce 4.5 v obsahu</strong> &mdash; &quot;4.5. Imunomodulacni funkce NS1&quot; (s. 12) v tele textu, ale v TOC neuvedena.</li>
+  <li><strong>NLP3 / NLPR3 misto NLRP3</strong> &mdash; Dve ruzne chybne formy: &quot;NLP3&quot; (radek 156, seznam zkratek) a &quot;NLPR3&quot; (radek 221). Spravne NLRP3.</li>
+</ol>
+</section>
+
+<!-- Top priority fixes -->
+<section id="top-priority-fixes">
+<h2>Top priority fixes</h2>
+
+<ol>
+  <li>Nahradit vsechny &quot;ANNOVA&quot; / &quot;ANNOVY&quot; / &quot;ANNOVOU&quot; za &quot;ANOVA&quot; / &quot;ANOVY&quot; / &quot;ANOVOU&quot;.</li>
+  <li>Opravit cislovani obrazku: odstranit duplicitni Obr. 10, prenumerovat nasledujici.</li>
+  <li>Doplnit do Anotace (CZ i EN) 2-3 vety o klicovych vysledcich: optimalizace ELISA, vyssi produkce NS1 u astrocytu nez endotelu, absence vyznamne korelace NS1-titr.</li>
+  <li>Doplnit sekci 4.5 do obsahu.</li>
+  <li>Opravit &quot;NLP3&quot; a &quot;NLPR3&quot; na &quot;NLRP3&quot; v textu i seznamu zkratek.</li>
+  <li>Doplnit klicova slova (Klicova slova / Keywords) k Anotaci.</li>
+  <li>Opravit preklep &quot;flaviriry&quot; -&gt; &quot;flaviviry&quot; (radek 76).</li>
+  <li>Sjednotit &quot;endotely&quot; na &quot;endotelialni bunky&quot; vsude v textu.</li>
+</ol>
+</section>
+
+<!-- 1. Soulad se zadanim -->
+<section id="1-soulad-se-zadanim-a-akademickym-ucelem-prace">
+<h2>1. Soulad se zadanim a akademickym ucelem prace</h2>
+
+<p><strong>Stav:</strong> Naplnuje vsechny body cile prace (kap. 6): (1) shrnuti poznatku o protivirove imunitni odpovedi, (2) optimalizace ELISA, (3) stanoveni koncentrace NS1, (4) stanoveni viroveho titru, (5) vyhodnoceni vztahu NS1-titr-cas-typ kultury.</p>
+
+<p><strong>Zjisteni:</strong></p>
+<ul>
+  <li>Vsech 5 cilu adresovano a diskutovano.</li>
+  <li>Autorka presahla zadani zahrnujic vysledky dalsich buneénych kultur (mikroglie, neuroblasty, pericyty), by? experimenty provedla kolegyně Mgr. Kotounova.</li>
+</ul>
+
+<p><strong>Zavaznost:</strong> <span class="badge badge-low">N&Iacute;ZK&Aacute;</span> (bez problemu).<br>
+<strong>Doporuceni:</strong> Zadny zasah nutny.</p>
+</section>
+
+<!-- 2. Struktura a logika prace -->
+<section id="2-struktura-a-logika-prace">
+<h2>2. Struktura a logika prace</h2>
+
+<p><strong>Stav:</strong> Logicky usporadana: charakteristika flaviviru &rarr; imunitni odpoved &rarr; imunopatologicka rizika &rarr; NS1 &rarr; cile &rarr; materialy/metody &rarr; vysledky &rarr; diskuze &rarr; zaver.</p>
+
+<p><strong>Zjisteni:</strong></p>
+
+<ul>
+  <li><strong>Sekce 4.5 chybi v obsahu.</strong> &quot;4.5. Imunomodulacni funkce NS1&quot; (s. 12) v tele textu, ale v TOC neuvedena. Chyba generovani obsahu nebo manualni opomenuti.
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-high">VYSOK&Aacute;</span></li>
+      <li><strong>Doporuceni:</strong> Aktualizovat obsah.</li>
+    </ul>
+  </li>
+  <li><strong>Obsahovy prekryv sekci 4.5 a 5.2.</strong> Sekce 4.5 &quot;Imunomodulacni funkce NS1&quot; (modulace komplementu, TLR4, inhibice IFN) tematicky patri spise do kap. 5 &quot;NS1 protein&quot;, podkap. 5.2 &quot;Funkce&quot;. Nejasne, proc imunomodulace NS1 pod &quot;Imunopatologicka rizika&quot; a ne pod &quot;NS1 protein&quot;.
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-medium">ST&#344;EDN&Iacute;</span></li>
+      <li><strong>Doporuceni:</strong> Zvazit presun do kap. 5 nebo vysvetlit zarazeni.</li>
+    </ul>
+  </li>
+  <li><strong>Zaver ve forme odrazek.</strong> Kap. 10 jako seznam odrazek, ne plynuly text. Neobvykle, ale akceptovatelne pokud pokyny nezakazuji.
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-low">N&Iacute;ZK&Aacute;</span></li>
+    </ul>
+  </li>
+</ul>
+</section>
+
+<!-- 3. Formalni nalezitosti -->
+<section id="3-formalni-nalezitosti-a-soulad-s-fakultnimi-pokyny">
+<h2>3. Formalni nalezitosti a soulad s fakultnimi pokyny</h2>
+
+<p><strong>Stav:</strong> Vetsina splnena; existuji odchylky.</p>
+
+<p><strong>Zjisteni:</strong></p>
+
+<ul>
+  <li><strong>Zneni prohlaseni.</strong> Fakultni pokyny: <em>&quot;Prohlasuju, ze jsem autorem teto kvalifikacni prace...&quot;</em> Prace pouziva alternativni formulaci: <em>&quot;Prohlasuju, ze svou bakalarskou praci jsem vypracovala samostatne, pouze s pouzitim pramenu a literatury uvedenych v seznamu citovane literatury.&quot;</em> Vyznam ekvivalentni, presne zneni se lisi.
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-low">N&Iacute;ZK&Aacute;</span> (podezreni vyzadujici overeni)</li>
+      <li><strong>Doporuceni:</strong> Overit u studijniho oddeleni.</li>
+    </ul>
+  </li>
+  <li><strong>AI deklarace</strong> pritomna a dobre formulovana: <em>&quot;Dale prohlasuju, ze jsem nastroj/e nebo sluzbu/y generativni umele inteligence (ChatGPT) pouzila v souladu s akademickou etikou za ucelem jazykove korekce a jako nastroj pro vyhledani chyb a zlepseni textu.&quot;</em> Transparentni, prekracuje minimalni pozadavek.
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-low">N&Iacute;ZK&Aacute;</span> (kladne)</li>
+    </ul>
+  </li>
+  <li><strong>Chybejici klicova slova.</strong> Anotace bez sekce &quot;Klicova slova&quot; / &quot;Keywords&quot;, standardne vyzadovano.
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-medium">ST&#344;EDN&Iacute;</span></li>
+      <li><strong>Doporuceni:</strong> Doplnit 5-7 klicovych slov CZ i EN.</li>
+    </ul>
+  </li>
+  <li><strong>Cislovani stranek:</strong> Arabske cislice od Uvodu, predchozi necislovane. V souladu s pokyny.
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-low">N&Iacute;ZK&Aacute;</span> (OK)</li>
+    </ul>
+  </li>
+</ul>
+</section>
+
+<!-- 4. Citacni styl a bibliografie -->
+<section id="4-citacni-styl-a-bibliografie">
+<h2>4. Citacni styl a bibliografie</h2>
+
+<p><strong>Stav:</strong> Harvardsky styl s drobnymi odchylkami.</p>
+
+<p><strong>Zjisteni:</strong></p>
+
+<ul>
+  <li><strong>In-text citace</strong> vesmes spravne: (Autor, rok), (Autor &amp; Autor, rok), (Autor et al., rok). Rozliseni autoru se shodnym prijmenim spravne pomoci inicialy: &quot;(Y. Pan et al., 2022)&quot; vs. &quot;(P. Pan et al., 2019)&quot;.
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-low">N&Iacute;ZK&Aacute;</span> (OK)</li>
+    </ul>
+  </li>
+  <li><strong>Duplicitni polozka: Conde et al. (2017a) a (2017b).</strong> Obe (radky 930-935) odkazuji na tentyz clanek: &quot;The Complement System in Flavivirus Infections&quot;, Frontiers in Microbiology, 8, shodne DOI (10.3389/fmicb.2017.00213). Jedina odlisnost: pritomnost/nepritomnost cisla stranky 213. Duplicitni zaznam.
+    <blockquote><p><code>Conde, J. N., Silva, E. M., Barbosa, A. S., &amp; Mohana-Borges, R. (2017a). The Complement System in Flavivirus Infections. Frontiers in Microbiology, 8.</code> a <code>Conde, J. N., Silva, E. M., Barbosa, A. S., &amp; Mohana-Borges, R. (2017b). The Complement System in Flavivirus Infections. Frontiers in Microbiology, 8, 213.</code></p></blockquote>
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-high">VYSOK&Aacute;</span></li>
+      <li><strong>Doporuceni:</strong> Sloucit do jednoho zaznamu. Opravit vsechny in-text reference.</li>
+    </ul>
+  </li>
+  <li><strong>DOI u vsech zaznamu</strong> &mdash; dusledne uvedeno, nadstandardni a kladne.</li>
+  <li><strong>Harvardsky vs. APA format:</strong> Bibliografie formatovana spise APA (s DOI) nez cisty harvardsky styl. Moderni adaptace DOI pripousteji, neni chyba, ale vhodne overit pozadavky.
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-low">N&Iacute;ZK&Aacute;</span> (podezreni vyzadujici overeni)</li>
+    </ul>
+  </li>
+</ul>
+</section>
+
+<!-- 5. Prace se zdroji -->
+<section id="5-prace-se-zdroji">
+<h2>5. Prace se zdroji</h2>
+
+<p><strong>Stav:</strong> Solidni a aktualni zdrojova zakladna.</p>
+
+<p><strong>Zjisteni:</strong></p>
+<ul>
+  <li>~50 zdroju, vetsina 2017-2025. Obsahuje i zakladni starsi (de Madrid &amp; Porterfield, 1969; Beutler, 2004).</li>
+  <li>Prevazne impaktovane casopisy (Science, Nature Reviews Immunology, Journal of Virology, Frontiers in Microbiology).</li>
+  <li>Odkazuje i na primarni vyzkumne prace, ne jen review &mdash; kladne.</li>
+  <li>V diskuzi zdroje pouzity k interpretaci vlastnich vysledku, ne jen k popisu obecnych faktu.</li>
+</ul>
+
+<p><strong>Poznamka:</strong></p>
+<ul>
+  <li>Nekteré casti reserse (napr. 2.2 Replikacni cyklus) silne opiraji o omezeny pocet zdroju (Mukhopadhyay et al., 2005; van den Elsen et al., 2021; Barnard et al., 2021). Sirsi zakladna by posilila duverivost.
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-low">N&Iacute;ZK&Aacute;</span></li>
+    </ul>
+  </li>
+</ul>
+</section>
+
+<!-- 6. Plagiatorsvi, podobnost a AI-signaly -->
+<section id="6-plagiatorsvi-podobnost-a-ai-signaly">
+<h2>6. Plagiatorsvi, podobnost a AI-signaly</h2>
+
+<h3>Rizika plagiatorsvi</h3>
+<p><strong>Stav:</strong> Zadne prume indikatory nepůvodního textu. Text pusobi konzistentne autorsky.</p>
+
+<p><strong>Zjisteni:</strong></p>
+<ul>
+  <li>Resersni cast parafrázuje zdroje vlastni formulaci, ne copy-paste.</li>
+  <li>Experimentální cast zjevne puvodni (specifičke protokoly, optimalizace, vlastni data).
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-low">N&Iacute;ZK&Aacute;</span></li>
+    </ul>
+  </li>
+</ul>
+
+<h3>AI-signaly</h3>
+<p><strong>Stav:</strong> Autorka deklarovala ChatGPT pro jazykove korekce. Text nevykazuje silne AI-signaly.</p>
+
+<p><strong>Zjisteni:</strong></p>
+<ul>
+  <li>Teoreticke kapitoly stylisticky homogenni, bez nahlych prechodů v kvalite.</li>
+  <li>Diskuze obsahuje specificke analytickě uvazovani navazane na vlastni data &mdash; typicky indikator lidskeho autorsvi.</li>
+  <li>Nekteré pasaze hladke prechody (&quot;V neposledni rade&quot;, &quot;Celkove tak&quot;), ale bezne akademicke obraty v cestine.</li>
+  <li><strong>Zaver: Neexistuji presvedcive dukazy AI generovani nad ramec deklarovanych korekci.</strong> Indikatorove hodnoceni, ne definitivni zaver.
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-low">N&Iacute;ZK&Aacute;</span></li>
+    </ul>
+  </li>
+</ul>
+</section>
+
+<!-- 7. Jazykova a stylisticka kvalita -->
+<section id="7-jazykova-a-stylisticka-kvalita">
+<h2>7. Jazykova a stylisticka kvalita</h2>
+
+<p><strong>Stav:</strong> Vesmes solidni, opakujici se preklepy a terminologicke chyby.</p>
+
+<p><strong>Zjisteni:</strong></p>
+
+<ul>
+  <li><strong>&quot;flaviriry&quot; misto &quot;flaviviry&quot;</strong> (radek 76): <em>&quot;přenášené flaviriry (Blitvich &amp; Firth, 2015)&quot;</em>
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-medium">ST&#344;EDN&Iacute;</span> (preklep v klicovem terminu)</li>
+    </ul>
+  </li>
+  <li><strong>&quot;Spearmanova korealce&quot; misto &quot;Spearmanova korelace&quot;</strong> (radek 706)
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-medium">ST&#344;EDN&Iacute;</span></li>
+    </ul>
+  </li>
+  <li><strong>&quot;horse-raddish&quot; misto &quot;horseradish&quot;</strong> (radek 544): <em>&quot;horse-raddish peroxidazou (HRP)&quot;</em> &mdash; spravne &quot;horseradish&quot; (jedno slovo, jedno &apos;d&apos;).
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-low">N&Iacute;ZK&Aacute;</span></li>
+    </ul>
+  </li>
+  <li><strong>Chybejici mezera v popisku Obr. 17</strong> (radek 727): <em>&quot;Obr. 17:Na grafu&quot;</em>
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-low">N&Iacute;ZK&Aacute;</span></li>
+    </ul>
+  </li>
+  <li><strong>&quot;ul&quot; misto &quot;&micro;l&quot;</strong> (radek 444): <em>&quot;v celkovem objemu 50 ul&quot;</em> &mdash; vsude jinde &micro;l. Nekonzistentni.
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-low">N&Iacute;ZK&Aacute;</span></li>
+    </ul>
+  </li>
+  <li><strong>Akademicky registr</strong> celkove primereny bakalarskemu stupni. Vecne, bez superlativu.</li>
+</ul>
+
+<p><strong>Doporuceni:</strong> Globalni find-and-replace pro nejzavaznejsi preklepy + kompletni proofreading.</p>
+</section>
+
+<!-- 8. Terminologie a konzistence -->
+<section id="8-terminologie-a-konzistence">
+<h2>8. Terminologie a konzistence</h2>
+
+<p><strong>Stav:</strong> Prevazne konzistentni, nekolik zavaznych chyb.</p>
+
+<p><strong>Zjisteni:</strong></p>
+
+<ul>
+  <li><strong>&quot;ANNOVA&quot; misto &quot;ANOVA&quot;</strong> &mdash; Nejzavaznejsi terminologicka chyba. &quot;ANOVA&quot; = &quot;Analysis of Variance&quot;. Opkovane: &quot;ANNOVA&quot; (radky 632, 633, 635), &quot;ANNOVOU&quot; (632), &quot;Two-way ANNOVA&quot; (718, 721), &quot;Two-way ANNOVY&quot; (635). V textu, popiskach i vysledkove casti.
+    <blockquote><p><code>Two-way ANNOVA odhalila statisticky vyznamne rozdily mezi kulturami.</code> (radek 721)</p></blockquote>
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-critical">KRITICK&Aacute;</span></li>
+      <li><strong>Doporuceni:</strong> Opravit vsechny vyskyty vcetne sklonovanych tvaru.</li>
+    </ul>
+  </li>
+  <li><strong>&quot;NLP3&quot; a &quot;NLPR3&quot; misto &quot;NLRP3&quot;</strong> &mdash; Dve ruzne chybne formy:
+    <ul>
+      <li>Radek 156: <em>&quot;reagují aktivací NLP3 inflammasom&quot;</em></li>
+      <li>Radek 221: <em>&quot;NLPR3&quot;</em></li>
+      <li>Seznam zkratek: <em>&quot;NLP3 &mdash; Protein rodiny NLR obsahující pyrinovou domenu 3&quot;</em> (popis spravny, zkratka ne)</li>
+      <li>Spravne NLRP3 (NLR family pyrin domain containing 3).</li>
+    </ul>
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-high">VYSOK&Aacute;</span></li>
+      <li><strong>Doporuceni:</strong> Opravit vsechny vyskyty v textu i seznamu zkratek.</li>
+    </ul>
+  </li>
+  <li><strong>&quot;endotely&quot;</strong> &mdash; Slangovy vyraz misto presneho &quot;endotelialni bunky&quot;. V akademickem textu vhodnejsi presna forma.
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-medium">ST&#344;EDN&Iacute;</span></li>
+      <li><strong>Doporuceni:</strong> Sjednotit na &quot;endotelialni bunky&quot; (nebo &quot;endotelove bunky&quot;).</li>
+    </ul>
+  </li>
+  <li><strong>Nekonzistence desetinnych oddelovacu</strong> &mdash; Strida se ceská carka (&quot;5,6 &micro;g/ml&quot;) s anglickou teckou. V cesky psane praci dusledne carka.
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-medium">ST&#344;EDN&Iacute;</span></li>
+    </ul>
+  </li>
+</ul>
+</section>
+
+<!-- 9. Argumentace a analyticka uroven -->
+<section id="9-argumentace-a-analyticka-uroven">
+<h2>9. Argumentace a analyticka uroven</h2>
+
+<p><strong>Stav:</strong> Argumentacne silna, zvlaste v diskuzi.</p>
+
+<p><strong>Zjisteni:</strong></p>
+
+<ul>
+  <li>Diskuze (kap. 9) nejsilnejsi cast. Autorka systematicky prochazi vysledky, propojuje s literaturou, nabizi biologicke vysvetleni trendu.</li>
+  <li>Kvalitni argumentace: proc astrocyty produknuji vice NS1 nez endotely &mdash; rozdilna proinfikovanost bunek (Fares et al., 2020; Tavcar Verdev et al., 2022), rozdilne sekrecni funkce (Choi et al., 2014), barierova funkce endotelu (Yazdani et al., 2019).</li>
+  <li>Korektne prizna nesignifikantni korelacni koeficienty, nutnost dalsich experimentu s vetsim n (radek 815-816). Projev akademicke poctivosti.</li>
+  <li><strong>Slabe misto:</strong> Zaver o korelaci NS1-titr formulovan negativne (&quot;nebyl prokazan vztah&quot;), ale data ukazuji trendy (Spearman rho = 0.800 u astrocytu), ktere pri vetsim n mohly byt signifikantni. Diskuze reflektuje, zaver (kap. 10) nikoliv.
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-low">N&Iacute;ZK&Aacute;</span></li>
+      <li><strong>Doporuceni:</strong> V zaveru zminit pozorovane trendy, i kdyz nepotvrzeny statisticky.</li>
+    </ul>
+  </li>
+</ul>
+</section>
+
+<!-- 10. Fact-checking a vecna spravnost -->
+<section id="10-fact-checking-a-vecna-spravnost">
+<h2>10. Fact-checking a vecna spravnost</h2>
+
+<p><strong>Stav:</strong> Vecne spravna, male nepresnosti.</p>
+
+<p><strong>Zjisteni:</strong></p>
+
+<ul>
+  <li><strong>&quot;priblizne 11 000 nukleotidu&quot;</strong> (radek 37) pro genom flaviviru &mdash; <strong>Spravne.</strong> 10 000&ndash;11 000 nt. (Jistota: vysoka)</li>
+  <li><strong>&quot;vice jak 70 ruznych viru&quot;</strong> v rodu Flavivirus (radek 29-30) &mdash; <strong>Spravne.</strong> &gt;70 druhu. (Jistota: vysoka)</li>
+  <li><strong>&quot;352-aminovy polypeptid&quot;</strong> pro NS1 (radek 314-315) &mdash; <strong>Spravne.</strong> (Jistota: vysoka)</li>
+  <li><strong>&quot;46-55 KDa&quot;</strong> pro MW NS1 (radek 315) &mdash; <strong>Spravne</strong> v zavislosti na glykosylaci. (Jistota: vysoka)</li>
+  <li><strong>&quot;Více jak 70 % infekcí...je asymptomatickych&quot;</strong> (radky 104-105) &mdash; Citovano z Pustijanac et al. (2023). Shodne s literaturou pro evropsky subtyp TBEV. (Jistota: stredni &mdash; cisla se v zdrojich lisi, 70 % v akceptovanem rozmezi)</li>
+  <li><strong>&quot;35&ndash;38 % pacientů s postencefalitickym syndromem&quot;</strong> (radek 113) &mdash; Citovano z Bogovic et al. (2010). Plausibilni. (Jistota: stredni)</li>
+  <li><strong>MOI = 5</strong> (radky 443-444) &mdash; Vysoka multiplicita infekce, ale v in vitro s TBEV akceptovatelna pro uniformni infekci. (Jistota: vysoka)</li>
+  <li><strong>&quot;ANNOVA&quot;</strong> &mdash; Prokazana chyba, terminologicka ne vecna.</li>
+</ul>
+
+<p><strong>Doporuceni:</strong> Zadne vecne opravy nutne. Terminologicke viz vyse.</p>
+</section>
+
+<!-- 11. Metodologie -->
+<section id="11-metodologie">
+<h2>11. Metodologie</h2>
+
+<p><strong>Stav:</strong> Dobre popsana a reprodukovatelna.</p>
+
+<p><strong>Zjisteni:</strong></p>
+
+<ul>
+  <li>Optimalizace ELISA detailne popsana: systematicke testovani 16 kombinaci parametru (Tab. I, II). Metodicky spravne.</li>
+  <li>Biologicke triplikaty a negativni kontroly &mdash; standard.</li>
+  <li>Plakova titrace dle standardniho protokolu (de Madrid &amp; Porterfield, 1969).</li>
+  <li>Statisticke metody primerene: Grubbsuv test pro odlehle hodnoty, Spearmuv korelacni koeficient (nepredpoklada normalni rozdeleni), two-way ANOVA s Sidakovym post-hoc testem.</li>
+  <li><strong>Zmena promyvacich cyklu z 2 na 4 behem experimentu</strong> (radky 454-456, 783-790): spravne zdokumentovano a oduvodneno, ale prvni dva experimenty za jinych podminek nez zbyle. Diskuze zminuje, nekvantifikuje dopad na srovnatelnost.
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-medium">ST&#344;EDN&Iacute;</span></li>
+      <li><strong>Doporuceni:</strong> Explicitne zhodnotit vliv zmeny na srovnatelnost vysledku.</li>
+    </ul>
+  </li>
+  <li><strong>Maly pocet datovych bodu pro korelaci</strong> &mdash; Spearmanova korelace na 4 casovych bodech (1, 3, 6, 10 dpi). S n=4 obtizne dosahnout signifikance. Autorka v diskuzi prizna (radek 815-816) &mdash; kladne.
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-low">N&Iacute;ZK&Aacute;</span> (korektne prizano)</li>
+    </ul>
+  </li>
+</ul>
+</section>
+
+<!-- 12. Kvalita abstraktu, uvodu a zaveru -->
+<section id="12-kvalita-abstraktu-uvodu-a-zaveru">
+<h2>12. Kvalita abstraktu, uvodu a zaveru</h2>
+
+<h3>Abstrakt (Anotace)</h3>
+<p><strong>Stav:</strong> Zavazne neuplny.</p>
+
+<p><strong>Zjisteni:</strong></p>
+<ul>
+  <li>Anotace (CZ i EN) popisuje tema a metodiku, <strong>neobsahuje konkretni vysledky ani zavery experimentu</strong>. U prirodovedne prace s experimentalni casti kriticke.
+    <blockquote><p><code>V ramci teto prace byly stanoveny koncentrace NS1 proteinu prodkovaneho ve vybranych bunecnych kulturach po infekci TBEV a soucasne byl zkouman vztah mezi temito koncentracemi a virovym titrem.</code> &mdash; Konci popisem co delano, ne co zjisteno.</p></blockquote>
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-critical">KRITICK&Aacute;</span></li>
+      <li><strong>Doporuceni:</strong> Doplnit 2-3 vety: astrocyty vyssi NS1 nez endotelialni bunky, optimalizace ELISA (R&sup2; = 0,9899), korelace NS1-titr neprokaz.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>Uvod (kapitola 1)</h3>
+<p><strong>Stav:</strong> Funkcni, stihly.</p>
+<ul>
+  <li>Kratky (18 radku), pro BP akceptovatelne.</li>
+  <li>Obsahuje motivaci (TBEV v CR, NS1, neurovaskulární jednotka) a naznacuje strukturu.</li>
+  <li>Chybi explicitni vyzkumna otazka/hypoteza &mdash; az v kap. 6 (Cile prace).</li>
+</ul>
+
+<h3>Zaver (kapitola 10)</h3>
+<p><strong>Stav:</strong> Funkcni, neuplny.</p>
+<ul>
+  <li>Odrazky pokryvaji hlavni zjisteni.</li>
+  <li><strong>Chybi zminka o trendech</strong> (Spearman rho = 0.800 u astrocytu) &mdash; nesignifikantni, ale biologicky zajimave.</li>
+  <li>Posledni odrazka o &quot;zakladu pro dalsi vyzkum&quot; prilis vágní.
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-medium">ST&#344;EDN&Iacute;</span></li>
+      <li><strong>Doporuceni:</strong> Konkretizovat navazujici vyzkum (mereni NS1 v pacientskych serech, zvyseni replikatu).</li>
+    </ul>
+  </li>
+</ul>
+</section>
+
+<!-- 13. Zavery a jejich opora v textu -->
+<section id="13-zavery-a-jejich-opora-v-textu">
+<h2>13. Zavery a jejich opora v textu</h2>
+
+<p><strong>Stav:</strong> Podlozene daty.</p>
+
+<p><strong>Zjisteni:</strong></p>
+<ul>
+  <li>&quot;Astrocyty vyssi produkce NS1 nez endotely&quot; &mdash; podlozeno Obr. 12 (150-200 ng/ml vs. ~10 ng/ml).</li>
+  <li>&quot;Nebyl prokazan vztah NS1-titr&quot; &mdash; podlozeno Spearmanovou korelaci (nesignifikantni).</li>
+  <li>&quot;Ruzne linie odlisne sekrecni schopnosti NS1&quot; &mdash; podlozeno Two-way ANOVA s Sidakovym testem (Obr. 18, 19).</li>
+  <li>Jediny nesoulad: zaver &quot;virovy titr u endotelu spise stabilni&quot;, ale Obr. 13B ukazuje peak 3. den a pokles. Interpretacni otazka, ne fakticky rozpor.
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-low">N&Iacute;ZK&Aacute;</span></li>
+    </ul>
+  </li>
+</ul>
+</section>
+
+<!-- 14. Formalni prvky -->
+<section id="14-formalni-prvky">
+<h2>14. Formalni prvky (obrazky, tabulky, popisky, prilohy)</h2>
+
+<p><strong>Stav:</strong> Celkove dobre, kriticka chyba v cislovani.</p>
+
+<p><strong>Zjisteni:</strong></p>
+
+<ul>
+  <li><strong>Duplicitni Obr. 10</strong> &mdash; Dva obrazky &quot;Obr. 10&quot;:
+    <ol>
+      <li>s. 23 (radek 551): <em>&quot;Obr. 10: Barevna zmena na 96ti jamkovem panelu...&quot;</em></li>
+      <li>s. 27 (radek 646): <em>&quot;Obr. 10: Porovnani 16 testovacich standardu...&quot;</em></li>
+    </ol>
+    Veskere nasledujici cislovani posunute.
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-critical">KRITICK&Aacute;</span></li>
+      <li><strong>Doporuceni:</strong> Prenumerovat od chybneho mista.</li>
+    </ul>
+  </li>
+  <li><strong>Kvalita obrazku</strong> celkove vysoka:
+    <ul>
+      <li>Vlastni schemata z BioRender (Obr. 6, 8, 9, 10a) prehledna.</li>
+      <li>Prevzate obrazky se zdrojem v popisu.</li>
+      <li>Grafy z GraphPad Prism citelne, s chybovymi useckami.</li>
+    </ul>
+  </li>
+  <li><strong>Tabulky</strong> (Tab. I, II, III) funkcni, jednoduche. Rimske cislice konzistentni.</li>
+  <li><strong>Popisky prevzatych obrazku</strong> obsahuji &quot;(upraveno dle [autor])&quot; &mdash; spravne.</li>
+  <li><strong>Obr. 17 popisek</strong> (radek 727): <em>&quot;Obr. 17:Na grafu...&quot;</em> &mdash; chybi mezera za dvojteckou.
+    <ul>
+      <li><strong>Zavaznost:</strong> <span class="badge badge-low">N&Iacute;ZK&Aacute;</span></li>
+    </ul>
+  </li>
+</ul>
+</section>
+
+<!-- 15. Rizika pro oponenturu / obhajobu -->
+<section id="15-rizika-pro-oponenturu-obhajobu">
+<h2>15. Rizika pro oponenturu / obhajobu</h2>
+
+<p><strong>Nejpravdepodobnejsi otazky oponenta:</strong></p>
+
+<ol>
+  <li><strong>&quot;Proc pisete ANNOVA?&quot;</strong> &mdash; Prvni terc. Oponent predpoklada neznalost metody.</li>
+  <li><strong>&quot;Proc abstrakt neobsahuje vysledky?&quot;</strong> &mdash; Standardni formalni vytka.</li>
+  <li><strong>&quot;Korelace NS1-titr nesignifikantni pri rho 0,800?&quot;</strong> &mdash; Pripravit diskuzi o nedostatecnem n=4, kolik replikatu by stacilo.</li>
+  <li><strong>&quot;Proc zmena promyvacich cyklu uprostred experimentu?&quot;</strong> &mdash; Diskuze zminuje, oponent muze chtit hlubsi vysvetleni dopadu.</li>
+  <li><strong>&quot;Interpretace rozdilu NS1 produkce mezi bunecnymi typy z hlediska patogeneze TBEV?&quot;</strong> &mdash; Sila prace; autorka zvladne na zaklade diskuze.</li>
+  <li><strong>&quot;Experimenty mikroglie/pericyty/neuroblasty provedla kolegyně &mdash; jak velkou cast prace provedla autorka?&quot;</strong> &mdash; Transparentne priznano (radek 724-725), ale oponent muze chtit upresnit.</li>
+</ol>
+</section>
+
+<!-- Celkove kvalitativni hodnoceni -->
+<section id="celkove-kvalitativni-hodnoceni">
+<h2>Celkove kvalitativni hodnoceni</h2>
+
+<p>Obsahove kvalitni BP demonstrujici schopnost planovat/provadet experimentalni praci, kriticky vyhodnotit vysledky a propojit s literaturou. Resersni cast ucelena a aktualni. Experimentalni cast zahrnuje netrivialni optimalizaci a systematicke vyhodnoceni.</p>
+
+<p>Hlavni slabina: souhrn formalnich a typografickych chyb, ktere neovlivnuji vedeckou podstatu, ale snizuji akademicky dojem. &quot;ANNOVA&quot; a duplicitni cislovani obrazku nemely projit predodevzdavacim proofreading.</p>
+</section>
+
+<!-- Verdict on readiness -->
+<section id="verdict-on-readiness">
+<h2>Verdict on readiness</h2>
+
+<p><strong>Podminene pripravena k odevzdani po zasadnich formalnich upravach.</strong></p>
+
+<p>Obsahove dobra bakalarska uroven. Formalni chyby (ANNOVA, cislovani obrazku, abstrakt bez vysledku, chybejici sekce v TOC, NLRP3) dostatecne zavazne pro negativni vliv na hodnoceni. Vsechny opravitelne behem 1-2 dnu systematicke revize.</p>
+
+<p>Po oprave pripravena k odevzdani bez dalsich obsahovych zasahu.</p>
+</section>
+
+<!-- Otevrene nejistoty -->
+<section id="otevrene-nejistoty-a-co-jeste-overit">
+<h2>Otevrene nejistoty a co jeste overit</h2>
+
+<ol>
+  <li><strong>Presne zneni prohlaseni</strong> &mdash; Overit u studijniho oddeleni akceptovatelnost alternativni formulace (viz sekce 3).</li>
+  <li><strong>Pozadavek na klicova slova</strong> &mdash; Overit zda pokyny explicitne vyzaduji klicova slova v Anotaci.</li>
+  <li><strong>Kompletni kontrola bibliografie</strong> &mdash; Zkontrolovany dostupne polozky; uplna kontrola vsech ~50 referenci (shoda in-text se seznamem, spravnost udaju) vyzaduje manualni pruchod.</li>
+  <li><strong>Cislovani obrazku a krizove odkazy</strong> &mdash; Po oprave duplicitniho Obr. 10 overit vsechny textove reference.</li>
+  <li><strong>Format PDF/A</strong> &mdash; Overit splneni pozadavku na PDF/A (bez vodoznaku).</li>
+  <li><strong>Pojmenovani souboru</strong> &mdash; Pokyny vyzaduji <code>Prijmeni_Jmeno_rok_BP.pdf</code>. Overit pred odevzdanim.</li>
+</ol>
+</section>
+
+</main>
+
+<footer><p>Review bakal&aacute;&#345;sk&eacute; pr&aacute;ce &mdash; Anal&yacute;za 2 &mdash; generov&aacute;no 14. dubna 2026</p></footer>
+
+</body>
+</html>
