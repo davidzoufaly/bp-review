@@ -1,34 +1,35 @@
 <task>
-Proveď ultimátní akademicky přísné review bakalářky na základě tří vrstev vstupu:
-1. bakalářka v PDF (input/bp.pdf),
-2. fakultní pokyny -> https://www.prf.jcu.cz/cz/fakulta/dokumenty/opatreni-prodekanu/p5,
-3. čtyři hotové externí analýzy (input/analysis).
+Proveď ultimátní akademicky přísné review bakalářky primárně na základě externích analýz (input/analysis).
+Plný text práce (input/bp.txt) slouží jako záložní source-of-truth — konzultuj jen při rozporu mezi analýzami
+nebo pro ověření konkrétních faktů a jazykových pasáží. Necti celou práci kvůli šetření kontextu.
 
 Dodej JEDEN integrovaný výstup:
 - jeden strukturovaný Markdown soubor v češtině (output folder),
-- obsahující:
+- obsah:
   A. hlavní formální akademický report,
-  B. forenzní annex jako závěrečnou sekci téhož dokumentu.
+  B. forenzní annex jako závěrečná sekce téhož dokumentu.
 
-Forenzní annex nesmí být oddělený soubor. Musí být integrován do stejného MD dokumentu jako zvláštní diagnosticky tvrdší sekce.
+Forenzní annex nesmí být oddělený soubor. Musí být v stejném MD dokumentu jako zvláštní diagnosticky tvrdší sekce.
 
-Nejprve důkladně přečti a pochop bakalářskou práci. Pak posuď kvalitu, spolehlivost a užitečnost každé ze 4 externích analýz. Pak všechny 4 analýzy porovnej, identifikuj shody, rozpory, slepá místa, chybné závěry, přehnaná tvrzení, nepodložené domněnky, opomenuté problémy. Nakonec vytvoř metaanalýzu syntetizující nejlepší zjištění napříč analýzami do finálního hodnocení.
+Postup: posuď kvalitu, spolehlivost, užitečnost každé externí analýzy. Pak všechny analýzy porovnej, identifikuj shody, rozpory, slepá místa, chybné závěry, přehnaná tvrzení, nepodložené domněnky, opomenuté problémy. Při rozporu o faktech nebo jazyce ověř cíleně v input/bp.txt (ne celou práci, jen relevantní pasáž). Nakonec vytvoř metaanalýzu syntetizující nejlepší zjištění napříč analýzami do finálního hodnocení.
 
 Při rozporech nerozhoduj mechanicky „kdo má pravdu". Místo toho:
 - popiš konkurenční interpretace,
-- zhodnoť jejich sílu, důkazní oporu a limity,
-- uveď, ke kterému výkladu se přikláníš a proč.
+- zhodnoť sílu, důkazní oporu, limity,
+- uveď, ke kterému výkladu přikláníš se a proč.
 
-Výstup vrať výhradně jako jeden Markdown dokument v češtině. Tento MD soubor bude sloužit jako vstup pro následný krok — sestavení HTML stránky.
+Výstup vrať výhradně jako jeden Markdown dokument v češtině. Tento MD soubor poslouží jako vstup pro další krok — sestavení HTML stránky.
 </task>
 
 <inputs>
-- primary_document: PDF bakalářky
-- faculty_guidelines_url_or_text: URL nebo text fakultních pokynů
 - external_analysis_1: input/analysis/review_bp_1.md
 - external_analysis_2: input/analysis/review_bp_2.md
 - external_analysis_3: input/analysis/review_bp_3.md
 - external_analysis_4: input/analysis/review_bp_4.md
+- external_analysis_5: input/analysis/review_bp_5.md
+- external_analysis_6: input/analysis/review_bp_6.md
+- external_analysis_7: input/analysis/review_bp_7.md
+- thesis_source_of_truth: input/bp.txt  # konzultuj jen při rozporu (fakty, jazyk), ne layout/stránkování
 - citation_style_target: harvardský styl, vzor typu (Liang & Dai, 2024)
 - output_language: čeština
 - review_mode: čistě kvalitativní
@@ -43,32 +44,31 @@ Výstup vrať výhradně jako jeden Markdown dokument v češtině. Tento MD sou
 - Soustřeď se na konkrétní zjištění, evidenci, význam, váhu.
 - Silné stránky stručně; těžiště = nedostatky, rizika, rozpory, doporučení.
 - U porovnání analýz buď explicitní: co která viděla správně, přehnala, opomněla, kde slabá.
-- Forenzní annex ostřejší a méně diplomatický než hlavní report, ale věcný a podložený.
+- Forenzní annex ostřejší, méně diplomatický než hlavní report, ale věcný a podložený.
 </output_verbosity_spec>
 
 <design_and_scope_constraints>
-- Hodnocení práce i externích analýz převážně kvalitativní.
+- Hodnocení externích analýz převážně kvalitativní.
 - Povolen slovní ranking externích analýz:
   - nejspolehlivější,
   - nejpřísnější,
   - nejpovrchnější,
   - nejlépe podložená,
   - nejslabší v interpretaci.
-- Nepoužívej numerické body, procenta ani známky, pokud nezbytné.
-- Neprováděj rewrite práce ani přepis vět; poskytuj komentáře, hodnocení, zjištění, doporučení.
+- Nepoužívej numerické body, procenta, známky, pokud nezbytné.
+- Neprováděj rewrite práce ani přepis vět; dodej komentáře, hodnocení, zjištění, doporučení.
 - Přímo cituj problematické pasáže z bakalářky tam, kde užitečné a podložené.
-- Přímo cituj problematické pasáže z externích analýz, jen pokud dospěješ k závěru, že relevantně problematické, zavádějící, přehnané, chybné nebo metodicky slabé.
+- Přímo cituj problematické pasáže z externích analýz, jen když dospěješ k závěru, že relevantně problematické, zavádějící, přehnané, chybné, metodicky slabé.
 - Necituj pasáže z externích analýz mechanicky; jen citace se skutečnou analytickou hodnotou.
-- Posuzuj obsah i formální stránku: tabulky, obrázky, popisky, přílohy, odkazy v textu, soulad s pokyny.
-- Forenzní annex musí rozšiřovat hlavní report, ne ho opakovat jinými slovy.
+- Posuzuj obsah i formu: tabulky, obrázky, popisky, přílohy, odkazy v textu, soulad s pokyny.
+- Forenzní annex musí rozšiřovat hlavní report, ne opakovat jinými slovy.
 </design_and_scope_constraints>
 
 <analysis_layers>
-1. Důkladné přečtení a pochopení bakalářky jako primárního objektu
-2. Posouzení kvality každé ze 4 externích analýz (proti textu práce)
-3. Komparace všech 4 externích analýz
-4. Metaanalýza a finální syntéza
-5. Forenzní annex jako integrovaná závěrečná sekce MD dokumentu
+1. Posouzení kvality každé ze 7 externích analýz (proti textu práce)
+2. Komparace všech 7 externích analýz
+3. Metaanalýza a finální syntéza
+4. Forenzní annex jako integrovaná závěrečná sekce MD dokumentu
 </analysis_layers>
 
 <evaluation_categories_for_thesis>
@@ -88,7 +88,7 @@ Výstup vrať výhradně jako jeden Markdown dokument v češtině. Tento MD sou
 14. Fact-checking a věcná správnost
 15. Metodologická přesnost a reprodukovatelnost (je-li relevantní)
 16. Kvalita abstraktu, úvodu, závěru
-17. Kvalita závěrů a jejich opora v textu
+17. Kvalita závěrů a opora v textu
 18. Formální prvky: tabulky, obrázky, popisky, odkazy, přílohy
 19. Vnitřní konzistence napříč dokumentem
 20. Rizika pro oponenturu a obhajobu
@@ -112,7 +112,7 @@ Každou ze 4 externích analýz posuzuj proti textu práce podle:
 
 <comparison_objectives>
 Při porovnání všech 4 externích analýz identifikuj:
-- závěry, na kterých se více analýz shoduje,
+- závěry, na kterých více analýz shoduje se,
 - závěry v rozporu,
 - oblasti, kde některé analýzy přesné a jiné selhaly,
 - oblasti přehlédnuté všemi čtyřmi analýzami,
@@ -126,8 +126,8 @@ Při porovnání všech 4 externích analýz identifikuj:
 - Upřednostňuj závěry s lepší důkazní oporou, vyšší konkrétností, menší spekulací.
 - Když interpretace v konfliktu, popiš:
   - co tvrdí jednotlivé analýzy,
-  - o jaké důkazy se opírají,
-  - jaké mají slabiny,
+  - o jaké důkazy opírají se,
+  - jaké slabiny mají,
   - která interpretace přesvědčivější a proč,
   - jaká nejistota zůstává.
 - Finální syntéza musí být lepší než kterákoli jednotlivá analýza.
@@ -135,7 +135,7 @@ Při porovnání všech 4 externích analýz identifikuj:
 </meta_analysis_rules>
 
 <uncertainty_and_ambiguity>
-- Pokud nelze bezpečně určit z PDF, pokynů nebo analýz, výslovně označ.
+- Pokud nelze bezpečně určit z txt, pokynů, analýz, výslovně označ.
 - U každého sporného bodu rozlišuj:
   - prokázaná chyba,
   - pravděpodobný problém,
@@ -152,12 +152,12 @@ Při porovnání všech 4 externích analýz identifikuj:
 
 <high_risk_self_check>
 Před finálním výstupem interně ověř:
-- že jsi důkladně přečetl a pochopil celou bakalářskou práci,
-- že jsi samostatně posoudil každou ze 4 externích analýz proti textu práce,
+- že jsi rozpory mezi analýzami o faktech/jazyce ověřil cíleně v bp.txt (ne načítáním celé práce),
+- že jsi samostatně posoudil každou externí analýzu,
 - že jsi oddělil hodnocení práce od hodnocení analýz,
 - že jsi při citování pasáží z externích analýz vybíral jen relevantně problematická místa,
 - že jsi identifikoval shody, rozpory, slepá místa, společně přehlédnuté oblasti,
-- že jsi u rozporných závěrů popsal sílu konkurenčních interpretací a ke které se přikláníš,
+- že jsi u rozporných závěrů popsal sílu konkurenčních interpretací a ke které přikláníš se,
 - že jsi nepoužil nepodložená definitivní obvinění z plagiátorství nebo AI-generování,
 - že pokryty formální, jazykové, obsahové, citační i metodologické aspekty,
 - že finální metaanalýza není jen shrnutí, ale skutečná syntéza s filtrováním kvality vstupních analýz,
@@ -165,16 +165,19 @@ Před finálním výstupem interně ověř:
 </high_risk_self_check>
 
 <long_context_handling>
-- Nejprve interně vytěž a zmapuj strukturu práce.
-- Pak zmapuj strukturu a hlavní závěry všech 4 externích analýz.
-- Pak systematické porovnání mezi všemi 4 analýzami (proti textu práce).
+- Nečti celou bakalářku předem. Šetři kontext.
+- Nejdřív zmapuj strukturu a hlavní závěry všech externích analýz.
+- Pak systematické porovnání mezi analýzami.
+- bp.txt otevírej až cíleně: při rozporu mezi analýzami o konkrétním faktu nebo jazykové pasáži, nebo když potřebuješ ověřit citaci/tvrzení z analýzy. Čti jen relevantní úsek, ne celý soubor.
 - Nakonec metaanalýza, hlavní MD report a integrovaný forenzní annex.
-- Při dlouhých vstupech pracuj systematicky po blocích, neopírej se jen o lokální části textu.
+- Při dlouhých vstupech pracuj systematicky po blocích.
 - Při komparaci sleduj, zda některá analýza neopakuje stejné chyby napříč více kategoriemi.
 </long_context_handling>
 
 <tool_usage_rules>
-- Primární vstup = PDF bakalářky.
+- Primární vstup = externí analýzy (input/analysis/*.md).
+- input/bp.txt = záložní source-of-truth. Otevírej jen při rozporu mezi analýzami nebo pro cílené ověření faktu/jazykové pasáže. Nenačítej celou práci — šetři kontext.
+- Rozpory v layoutu, stránkování, typografii, umístění prvků neřeš přes bp.txt (vyžaduje PDF). Uveď jako neověřitelné z dostupných vstupů.
 - Použij obsah fakultních pokynů jako normativní referenci pro formální soulad.
 - Pro hlubší fact-checking ověřuj tvrzení proti důvěryhodným autoritativním zdrojům.
 - Preferuj primární, institucionální, metodicky silné zdroje.
@@ -183,17 +186,11 @@ Před finálním výstupem interně ověř:
 </tool_usage_rules>
 
 <extraction_spec>
-Z bakalářky interně vytěž:
-- název práce,
-- abstrakt,
-- seznam kapitol / strukturu,
-- seznam literatury,
-- typické vzory in-text citací,
-- přítomnost a kvalitu tabulek, obrázků, příloh, popisků,
-- pasáže s vysokou hustotou tvrzení,
-- pasáže stylisticky nehomogenní nebo podezřelé z AI,
-- místa s možnou nekonzistencí terminologie,
-- místa s podezřením na chybné nebo neúplné citování.
+Z bakalářky (input/bp.txt) vytěžuj pouze cíleně a jen při potřebě — ne preventivně celou strukturu. Otevírej konkrétní pasáže pro:
+- ověření sporného faktu nebo citace, na které se analýzy neshodnou,
+- ověření jazykové pasáže (gramatika, styl, AI-signál) zmíněné konkrétně více analýzami s rozdílným verdiktem,
+- doslovné znění citátu, který chceš použít v blockquotu.
+Strukturální info (název, abstrakt, kapitoly, literatura, tabulky/obrázky) ber primárně z toho, co uvádějí externí analýzy. bp.txt konzultuj jen při konfliktu nebo když žádná analýza data nepokrývá.
 
 Z každé externí analýzy interně vytěž:
 - hlavní závěry,
@@ -219,7 +216,7 @@ Z každé externí analýzy interně vytěž:
   - oblasti přehlédnuté všemi čtyřmi analýzami,
   - forenzní annex.
 - Forenzní annex odděl horizontálním pravidlem (---) a výrazným nadpisem.
-- MD soubor bude vstupem pro následný HTML build — piš tak, aby byl strojově snadno zpracovatelný.
+- MD soubor bude vstupem pro další HTML build — piš tak, aby byl strojově snadno zpracovatelný.
 </markdown_requirements>
 
 <forensic_annex_requirements>
@@ -276,10 +273,10 @@ Tato část ostřejší, přímočařejší, méně stylisticky uhlazená než h
 
 <review_method>
 Postup:
-1. Důkladně přečti a pochop práci.
-2. Posuď každou ze 4 externích analýz samostatně (proti textu práce).
-3. Porovnej všechny 4 analýzy.
-4. Identifikuj shody, rozpory, slepá místa, přehlédnuté oblasti.
+1. Posuď každou externí analýzu samostatně (na základě jejího obsahu a vnitřní konzistence).
+2. Porovnej všechny analýzy.
+3. Identifikuj shody, rozpory, slepá místa, přehlédnuté oblasti.
+4. Při rozporu o faktu nebo jazykové pasáži otevři cíleně relevantní úsek input/bp.txt a ověř. Rozpor o layoutu/stránkování označ jako neověřitelný z dostupných vstupů.
 5. Popiš konkurenční interpretace, jejich sílu a limity.
 6. Vytvoř metaanalýzu filtrující slabé závěry, stavící na nejsilnějších zjištěních.
 7. Z metaanalýzy sestav jeden MD dokument, poslední velkou část tvoří forenzní annex.
@@ -296,11 +293,11 @@ Pro každou hlavní kategorii:
 <assistant_behavior>
 - Buď přísný, forenzní, akademicky orientovaný, metodicky disciplinovaný.
 - Nevytvářej falešnou jistotu.
-- Neber externí analýzy jako autoritu; ber je jako vstupy podléhající kritickému hodnocení.
+- Neber externí analýzy jako autoritu; ber jako vstupy podléhající kritickému hodnocení.
 - Neredukuj metaanalýzu na kompromis mezi názory analýz.
 - Preferuj důkazní sílu před rétorickou jistotou.
 - Při rozporu ukaž proč jeden výklad silnější nebo slabší, zachovej transparentnost nejistoty.
-- Nevynechávej drobné formální chyby, pokud se opakují nebo signalizují systémový problém.
+- Nevynechávej drobné formální chyby, pokud opakují se nebo signalizují systémový problém.
 - Hlavní report reprezentativní a čitelný.
 - Forenzní annex ostřejší, diagnostičtější, zaměřený na selhání, slabiny, rizika.
 - Obě vrstvy v jednom MD dokumentu, jasně odlišitelné.

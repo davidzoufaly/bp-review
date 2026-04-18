@@ -1,612 +1,615 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="cs">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Analýza 5 — Review bakalářské práce</title>
 <style>
-*, *::before, *::after { box-sizing: border-box; }
-body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 16px; line-height: 1.6; color: #1a1a1a; background: #fafafa; margin: 0; padding: 0; }
-header, main, footer { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
-header { padding-top: 3rem; padding-bottom: 2rem; border-bottom: 2px solid #2c5282; margin-bottom: 2rem; }
-header h1 { font-size: 1.85rem; font-weight: 700; color: #2c5282; margin: 0 0 0.5rem; }
-header .subtitle { font-size: 1.05rem; color: #4a5568; margin: 0 0 0.25rem; }
-header .meta { font-size: 0.85rem; color: #718096; margin: 0; }
-nav.page-nav { max-width: 900px; margin: 0 auto; padding: 1rem 1.5rem; font-size: 0.9rem; border-bottom: 1px solid #e2e8f0; }
-nav.page-nav a { color: #2c5282; text-decoration: none; margin-right: 0.5rem; }
-nav.page-nav a:hover { text-decoration: underline; }
-nav.page-nav a.current { font-weight: 700; }
-nav.page-nav .nav-sep { color: #a0aec0; margin: 0 0.25rem; }
-nav.toc { background: #fff; border: 1px solid #e2e8f0; border-radius: 4px; padding: 1.25rem 1.5rem; margin-bottom: 2.5rem; }
-nav.toc h2 { font-size: 1rem; font-weight: 700; margin: 0 0 0.75rem; color: #2c5282; border: none; padding: 0; }
-nav.toc ol { margin: 0; padding-left: 1.25rem; }
-nav.toc li { margin-bottom: 0.3rem; }
-nav.toc a { color: #2c5282; text-decoration: none; }
-nav.toc a:hover { text-decoration: underline; }
-section { margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid #e2e8f0; }
-section:last-of-type { border-bottom: none; }
-h2 { font-size: 1.45rem; font-weight: 700; color: #2c5282; margin: 0 0 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid #e2e8f0; }
-h3 { font-size: 1.15rem; font-weight: 600; color: #2d3748; margin: 1.5rem 0 0.75rem; }
-p { margin: 0 0 1rem; }
-ul, ol { margin: 0 0 1rem; padding-left: 1.5rem; }
-li { margin-bottom: 0.35rem; }
-blockquote { border-left: 4px solid #a0aec0; background: #f7fafc; margin: 0 0 1rem; padding: 0.75rem 1rem; font-style: italic; color: #4a5568; }
-blockquote p:last-child { margin-bottom: 0; }
-.badge { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.03em; padding: 0.15em 0.55em; border-radius: 3px; vertical-align: middle; text-transform: uppercase; }
-.badge-critical { background: #c53030; color: #fff; }
-.badge-high { background: #dd6b20; color: #fff; }
-.badge-medium { background: #d69e2e; color: #1a1a1a; }
-.badge-low { background: #38a169; color: #fff; }
-.badge-note { background: #718096; color: #fff; }
-table { width: 100%; border-collapse: collapse; margin: 0 0 1.25rem; font-size: 0.92rem; }
-thead th { background: #2c5282; color: #fff; font-weight: 600; text-align: left; padding: 0.6rem 0.75rem; }
-tbody td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; }
-tbody tr:nth-child(even) { background: #f7fafc; }
-tbody tr:hover { background: #edf2f7; }
-code { font-family: ui-monospace, "Cascadia Code", "Menlo", monospace; font-size: 0.88em; background: #edf2f7; padding: 0.15em 0.35em; border-radius: 3px; }
-hr { border: none; border-top: 1px solid #cbd5e0; margin: 2rem 0; }
-footer { padding: 1.5rem 1.5rem 3rem; font-size: 0.82rem; color: #a0aec0; text-align: center; }
-@media print { body { background: #fff; font-size: 11pt; } header, main, footer { max-width: 100%; padding: 0; } nav.toc, nav.page-nav { display: none; } section { page-break-inside: avoid; } h2 { page-break-before: always; } h2:first-of-type { page-break-before: avoid; } .badge { border: 1px solid currentColor; } a { color: #1a1a1a; text-decoration: none; } table { font-size: 9pt; } thead th { background: #e2e8f0; color: #1a1a1a; } }
+:root{--bg:#fff;--bg-alt:#fafafa;--text:#1a1a1a;--muted:#555;--accent:#2c5282;--border:#e2e8f0;--hr:#cbd5e0}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--bg)}
+.nav-top{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--border);padding:.6rem 1rem;font-size:.9rem}
+.nav-top .breadcrumb{color:var(--muted)}
+.nav-top .breadcrumb a{color:var(--accent);text-decoration:none}
+.nav-top .breadcrumb a:hover{text-decoration:underline}
+.nav-top .breadcrumb .sep{margin:0 .4rem;color:#a0aec0}
+.nav-top .breadcrumb strong{color:var(--text)}
+.siblings{margin-top:.4rem;display:flex;flex-wrap:wrap;gap:.5rem .9rem;font-size:.85rem}
+.siblings a{color:var(--accent);text-decoration:none}
+.siblings a:hover{text-decoration:underline}
+.siblings [aria-current=page]{font-weight:700;color:var(--text)}
+main{max-width:900px;margin:0 auto;padding:2rem 1.2rem 4rem}
+header{margin-bottom:2rem;padding-bottom:1.2rem;border-bottom:1px solid var(--border)}
+header h1{font-size:1.8rem;margin:.2rem 0;color:var(--text);line-height:1.25}
+header .subtitle{color:var(--muted);margin:.3rem 0;font-size:1.05rem}
+header .meta{color:var(--muted);font-size:.85rem;margin:.3rem 0 0}
+h2{font-size:1.4rem;color:var(--accent);margin-top:2.2rem;margin-bottom:.8rem;line-height:1.3;border-bottom:1px solid var(--border);padding-bottom:.3rem}
+h3{font-size:1.12rem;color:var(--text);margin-top:1.6rem;margin-bottom:.5rem}
+h4{font-size:1rem;margin-top:1.2rem;margin-bottom:.4rem}
+p{margin:.7rem 0}
+ul,ol{margin:.6rem 0;padding-left:1.6rem}
+li{margin:.3rem 0}
+blockquote{border-left:4px solid #cbd5e0;background:#f7fafc;margin:1rem 0;padding:.6rem 1rem;color:#2d3748;font-style:italic}
+code{background:#f1f5f9;padding:.1rem .35rem;border-radius:3px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em}
+hr{border:0;border-top:1px solid var(--hr);margin:2rem 0}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.94rem}
+th,td{border:1px solid var(--border);padding:.5rem .7rem;text-align:left;vertical-align:top}
+th{background:#f7fafc;font-weight:600}
+tbody tr:nth-child(even){background:#fafafa}
+section{margin-bottom:1.6rem;scroll-margin-top:5rem}
+.toc{background:var(--bg-alt);border:1px solid var(--border);padding:1rem 1.2rem;border-radius:4px;margin-bottom:2rem}
+.toc h2{margin-top:0;font-size:1.05rem;color:var(--text);border:0;padding:0}
+.toc ul{list-style:none;padding-left:0;columns:2;column-gap:1.6rem}
+.toc li{break-inside:avoid;margin:.25rem 0}
+.toc a{color:var(--accent);text-decoration:none;font-size:.92rem}
+.toc a:hover{text-decoration:underline}
+.badge{display:inline-block;padding:.1rem .5rem;border-radius:3px;font-size:.78rem;font-weight:700;letter-spacing:.02em;margin:0 .15rem;vertical-align:baseline}
+.badge-critical{background:#c53030;color:#fff}
+.badge-high{background:#dd6b20;color:#fff}
+.badge-medium{background:#d69e2e;color:#1a1a1a}
+.badge-low{background:#38a169;color:#fff}
+.downlinks{background:var(--bg-alt);border:1px solid var(--border);padding:1rem 1.2rem;border-radius:4px;margin:2rem 0}
+.downlinks h2{margin-top:0;font-size:1.1rem;border:0;padding:0}
+.downlinks ul{margin:.3rem 0;padding-left:1.4rem}
+.forensic{background:#fff5f5;border-left:5px solid #c53030;padding:1rem 1.2rem;margin-top:2rem;border-radius:0 4px 4px 0}
+.forensic>.intro-warning{font-size:.88rem;color:#742a2a;font-style:italic;margin:0 0 .8rem}
+footer{max-width:900px;margin:2rem auto 0;padding:1.4rem 1.2rem;border-top:1px solid var(--border);font-size:.82rem;color:var(--muted);text-align:center}
+strong{font-weight:700}
+em{font-style:italic}
+@media (max-width:640px){main{padding:1.4rem .9rem 3rem}header h1{font-size:1.45rem}h2{font-size:1.2rem}.toc ul{columns:1}}
+@media print{.nav-top,.siblings,footer,.toc{display:none}body{font-size:11pt;color:#000;background:#fff}main{max-width:none;padding:0}a{color:#000;text-decoration:none}h2{page-break-after:avoid}section{page-break-inside:avoid}.forensic{background:#fff;border-left:3px solid #000}}
 </style>
 </head>
 <body>
-
-<nav class="page-nav">
-  <a href="meta-analyse.html">&larr; Zp&#283;t na metaanal&yacute;zu</a>
-  <span class="nav-sep">|</span>
-  <a href="review_bp_1.html">Anal&yacute;za 1</a>
-  <a href="review_bp_2.html">Anal&yacute;za 2</a>
-  <a href="review_bp_3.html">Anal&yacute;za 3</a>
-  <a href="review_bp_4.html">Anal&yacute;za 4</a>
-  <a href="review_bp_5.html" class="current">Anal&yacute;za 5</a>
+<nav class="nav-top" aria-label="Navigace">
+  <div class="breadcrumb"><a href="index.html">← Meta-meta-analýza</a></div>
+  <div class="siblings" aria-label="Ostatní analýzy">
+    <a href="review_bp_1.html">Analýza 1</a>
+    <a href="review_bp_2.html">Analýza 2</a>
+    <a href="review_bp_3.html">Analýza 3</a>
+    <a href="review_bp_4.html">Analýza 4</a>
+    <a href="review_bp_5.html" aria-current="page">Analýza 5</a>
+    <a href="review_bp_6.html">Analýza 6</a>
+    <a href="review_bp_7.html">Analýza 7</a>
+  </div>
 </nav>
-
+<main>
 <header>
-  <h1>Anal&yacute;za 5 — Review bakal&aacute;řsk&eacute; pr&aacute;ce</h1>
-  <p class="meta">Generov&aacute;no: 14. dubna 2026</p>
+<h1>Analýza 5 — Review bakalářské práce</h1>
+<p class="meta"><strong>Název:</strong> Protivirová imunitní odpověď u flavivirů a její možné úskalí: zaměření na NS1 protein</p>
+<p class="meta"><strong>Autorka:</strong> Lucie Novotná</p>
+<p class="meta"><strong>Rok:</strong> 2026</p>
+<p class="meta"><strong>Pracoviště:</strong> Jihočeská univerzita v Českých Budějovicích, Přírodovědecká fakulta</p>
+<p class="meta"><strong>Vedoucí:</strong> RNDr. Martin Palus, Ph.D. | Konzultant: Mgr. Václav Hönig, Ph.D.</p>
+<p class="meta"><strong>Rozsah:</strong> 56 stran (dle bibliografického záznamu)</p>
 </header>
 
-<main>
-
-<nav class="toc">
-  <h2>Obsah</h2>
-  <ol>
-    <li><a href="#executive-summary">Executive summary</a></li>
-    <li><a href="#nejvetsi-rizika">Největší rizika</a></li>
-    <li><a href="#top-priority-fixes">Top priority fixes</a></li>
-    <li><a href="#1-soulad-se-zadanim-a-akademickym-ucelem-prace">1. Soulad se zadáním a akademickým účelem práce</a></li>
-    <li><a href="#2-struktura-a-logika-prace">2. Struktura a logika práce</a></li>
-    <li><a href="#3-formalni-nalezitosti-a-soulad-s-fakultnimi-pokyny">3. Formální náležitosti a soulad s fakultními pokyny</a></li>
-    <li><a href="#4-citacni-styl-a-bibliografie">4. Citační styl a bibliografie</a></li>
-    <li><a href="#5-prace-se-zdroji">5. Práce se zdroji</a></li>
-    <li><a href="#6-plagiatorstvi-podobnost-a-ai-signaly">6. Plagiátorství, podobnost a AI-signály</a></li>
-    <li><a href="#7-jazykova-a-stylisticka-kvalita">7. Jazyková a stylistická kvalita</a></li>
-    <li><a href="#8-terminologie-a-konzistence">8. Terminologie a konzistence</a></li>
-    <li><a href="#9-argumentace-a-analyticka-uroven">9. Argumentace a analytická úroveň</a></li>
-    <li><a href="#10-fact-checking-a-vecna-spravnost-tvrzeni">10. Fact-checking a věcná správnost tvrzení</a></li>
-    <li><a href="#11-metodologie">11. Metodologie</a></li>
-    <li><a href="#12-kvalita-abstraktu-uvodu-a-zaveru">12. Kvalita abstraktu, úvodu a závěru</a></li>
-    <li><a href="#13-zavery-a-jejich-opora-v-textu">13. Závěry a jejich opora v textu</a></li>
-    <li><a href="#14-formalni-prvky-obrazky-tabulky-popisky-prilohy">14. Formální prvky (obrázky, tabulky, popisky, přílohy)</a></li>
-    <li><a href="#15-rizika-pro-oponenturu-obhajobu">15. Rizika pro oponenturu / obhajobu</a></li>
-    <li><a href="#celkove-kvalitativni-hodnoceni">Celkové kvalitativní hodnocení</a></li>
-    <li><a href="#verdict-on-readiness">Verdict on readiness</a></li>
-    <li><a href="#otevrene-nejistoty-a-co-jeste-overit">Otevřené nejistoty a co ještě ověřit</a></li>
-  </ol>
+<nav class="toc" aria-label="Obsah">
+<h2>Obsah</h2>
+<ul>
+<li><a href="#executive-summary">Executive summary</a></li>
+<li><a href="#biggest-risks">Největší rizika</a></li>
+<li><a href="#priority-fixes">Top priority fixes</a></li>
+<li><a href="#chapter-1">1. Soulad se zadáním a akademickým účelem práce</a></li>
+<li><a href="#chapter-2">2. Struktura a logika práce</a></li>
+<li><a href="#chapter-3">3. Formální náležitosti a soulad s fakultními pokyny (P5)</a></li>
+<li><a href="#chapter-4">4. Citační styl a bibliografie</a></li>
+<li><a href="#chapter-5">5. Práce se zdroji</a></li>
+<li><a href="#chapter-6">6. Plagiátorství, podobnost a AI-signály</a></li>
+<li><a href="#chapter-7">7. Jazyková a stylistická kvalita</a></li>
+<li><a href="#chapter-8">8. Terminologie a konzistence</a></li>
+<li><a href="#chapter-9">9. Argumentace a analytická úroveň</a></li>
+<li><a href="#chapter-10">10. Fact-checking a věcná správnost</a></li>
+<li><a href="#chapter-11">11. Metodologie</a></li>
+<li><a href="#chapter-12">12. Kvalita abstraktu, úvodu a závěru</a></li>
+<li><a href="#chapter-13">13. Závěry a jejich opora v textu</a></li>
+<li><a href="#chapter-14">14. Formální prvky (obrázky, tabulky, popisky, přílohy)</a></li>
+<li><a href="#chapter-15">15. Rizika pro oponenturu / obhajobu</a></li>
+<li><a href="#overall-quality">Celkové kvalitativní hodnocení</a></li>
+<li><a href="#verdict">Verdict on readiness</a></li>
+<li><a href="#open-uncertainties">Otevřené nejistoty a co ještě ověřit</a></li>
+</ul>
 </nav>
-
-<p><strong>Práce:</strong> Protivirová imunitní odpověď u flavivirů a její možné úskalí: zaměření na protein NS1<br>
-<strong>Autorka:</strong> Lucie Novotná<br>
-<strong>Vedoucí:</strong> RNDr. Martin Palus, Ph.D.<br>
-<strong>Instituce:</strong> PřF JU České Budějovice, 2026<br>
-<strong>Rozsah:</strong> 52 stran textu + bibliografie (58 stran PDF celkem)</p>
-
-<hr>
 
 <section id="executive-summary">
 <h2>Executive summary</h2>
-
-<p>Práce se skládá ze dvou součástí: literární rešerše imunitní odpovědi na flavivirovou infekci (se zaměřením na NS1 protein) a experimentální části zahrnující optimalizaci ELISA metody, kvantifikaci NS1 proteinu a měření virového titru v buňkách neurovaskulární jednotky infikovaných TBEV. Obě složky jsou zvládnuty na solidní bakalářské úrovni. Experimentální práce je reálná, netriviální a výsledky jsou prezentovány srozumitelně.</p>
-
-<p><strong>Hlavní silné stránky:</strong> Poctivá laboratorní práce. Transparentní přiznání AI nástroje (ChatGPT) pro jazykové korekce. Diskuze kvalitně propojuje vlastní výsledky s literaturou. Statistická analýza odpovídá povaze dat (Spearman, Grubbs, Two-way ANOVA).</p>
-
-<p><strong>Hlavní slabiny:</strong> Systémová chyba v číslování obrázků (duplicitní Obr. 10 posouvá veškerá čísla o jedna). Opakovaná terminologická chyba „ANNOVA" místo „ANOVA" a „NLP3"/„NLPR3" místo „NLRP3". Tři páry duplicitních položek v bibliografii (2× stejný článek jako a/b reference). Abstrakt neobsahuje výsledky. Chybí sekce 4.5 v obsahu.</p>
-
-<p><strong>Celkový dojem:</strong> Práce má potenciál na výborné hodnocení, ale kumulace formálních a terminologických chyb je dostatečná k tomu, aby oponent snížil hodnocení nebo vyžádal revizi. Nutná korekce před odevzdáním.</p>
-</section>
-
-<section id="nejvetsi-rizika">
-<h2>Největší rizika</h2>
-
-<ol>
-  <li><strong>Systémová chyba číslování obrázků</strong> — duplicitní „Obr. 10" posouvá veškerá číslování od str. 27 o jednu pozici. Všechny křížové odkazy na obrázky v textu jsou od tohoto bodu nespolehlivé.</li>
-  <li><strong>Trojí duplicita v bibliografii</strong> — Rastogi et al. 2016a/b, Muller &amp; Young 2013a/b, Conde et al. 2017a/b jsou 3 páry, kde každý pár odkazuje dvěma různými klíči na jediný článek se stejným DOI. Oponent to může označit jako chybu citační etiky nebo jako projev nekontrolovaného procesu tvorby bibliografie.</li>
-  <li><strong>Opakovaná chyba „ANNOVA"</strong> — v textu i v metodické sekci (ř. 632–636) místo ANOVA. Signalizuje nedostatečnou odbornou korekturu.</li>
-  <li><strong>Misspelling NLRP3</strong> — ve třech místech dvěma různými způsoby (NLP3, NLPR3), včetně seznam zkratek. Klíčová molekula diskutovaná v oddílu 4.2.</li>
-  <li><strong>Abstrakt bez výsledků</strong> — pro přírodovědnou práci s experimentálními daty je to závažný nedostatek; oponent nebo komise to zpravidla namítají.</li>
-  <li><strong>Sekce 4.5 mimo obsah</strong> — oddíl „Imunomodulační funkce NS1" existuje v textu (str. 12), ale v obsahu chybí.</li>
-</ol>
-</section>
-
-<section id="top-priority-fixes">
-<h2>Top priority fixes</h2>
-
-<ol>
-  <li>Opravit číslování obrázků: druhý „Obr. 10" (str. 27, porovnání standardů) přečíslovat na Obr. 11; vše následující posunout o jednu.</li>
-  <li>Nahradit všechny výskyty „ANNOVA" → „ANOVA" (min. 4× v textu).</li>
-  <li>Opravit NLP3 → NLRP3 a NLPR3 → NLRP3 všude (text + seznam zkratek).</li>
-  <li>Do anotace (CZ i EN) doplnit 2–3 věty o klíčových výsledcích: astrocyty produkují řádově vyšší koncentrace NS1 než endoteliální buňky; statisticky signifikantní korelace NS1 vs. virový titr nebyla prokázána; buněčné linie se statisticky signifikantně liší v poměru virový titr/NS1.</li>
-  <li>Doplnit sekci 4.5 do obsahu.</li>
-  <li>Rozplést duplicity v bibliografii: Rastogi et al. 2016a = 2016b → sjednotit na jednu položku; totéž pro Muller &amp; Young 2013a/b a Conde et al. 2017a/b; přesadit in-text citace.</li>
-  <li>Doplnit přesné datum do Prohlášení (den + měsíc + rok).</li>
-</ol>
-</section>
-
-<section id="1-soulad-se-zadanim-a-akademickym-ucelem-prace">
-<h2>1. Soulad se zadáním a akademickým účelem práce</h2>
-
-<p><strong>Stav:</strong> Plný soulad s deklarovanými cíli (str. 17, kapitola 6).</p>
-
-<p><strong>Zjištění:</strong> Pět cílů práce je splněno: (1) rešerše imunitní odpovědi se zaměřením na NS1, (2) optimalizace ELISA, (3) kvantifikace NS1 v supernatantech, (4) měření virového titru, (5) hodnocení vztahu NS1 vs. virový titr/čas/typ kultury. Rešerše pokrývá dostatečný rozsah témat (flaviviry, vrozená/adaptivní imunita, imunopatologie, NS1 struktura/funkce/BBB/diagnostika).</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-low">NÍZKÁ</span></p>
-
-<p><strong>Doporučení:</strong> Bez zásahu.</p>
-</section>
-
-<section id="2-struktura-a-logika-prace">
-<h2>2. Struktura a logika práce</h2>
-
-<p><strong>Stav:</strong> Klasický IMRaD formát s rozsáhlou literární rešerší, která logicky ústí do experimentální části. Návaznost je zřetelná.</p>
-
-<p><strong>Zjištění 1 — chybějící položka v obsahu:</strong> Sekce 4.5 „Imunomodulační funkce NS1" (str. 12 textu) v obsahu absentuje. Obsah přeskakuje z 4.4 (Antibody dependent enhancement, str. 11) přímo na 5. NS1 protein (str. 12), přestože v textu sekce 4.5 existuje a zabírá přibližně jednu stranu.</p>
-
-<blockquote><p><em>Citace z obsahu:</em> „4.4. Antibody dependent enhancement ................. 11 / 5. NS1 protein ...................................... 12"</p></blockquote>
-
-<p>Problém: čtenář navigující dle obsahu sekci 4.5 nenajde, struktura práce je formálně neúplná.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-medium">STŘEDNÍ</span></p>
-
-<p><strong>Zjištění 2 — formátování obsahu:</strong> Druhá strana obsahu (kap. 9–12) má odlišný vizuální styl oproti první straně — tučná písma bez vodicích teček nebo se zkrácenými tečkami. Oponent to může zmínit jako nesrovnalost v sazbě.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-low">NÍZKÁ</span></p>
-
-<p><strong>Doporučení:</strong> Přidat sekci 4.5 do obsahu se správným číslem stránky. Unifikovat formátování obsahu.</p>
-</section>
-
-<section id="3-formalni-nalezitosti-a-soulad-s-fakultnimi-pokyny">
-<h2>3. Formální náležitosti a soulad s fakultními pokyny</h2>
-
-<p><strong>Stav:</strong> Práce splňuje minimální délkový požadavek (52 stran). Přítomny jsou: titulní strana, anotace, prohlášení, poděkování, obsah, seznam zkratek, bibliografie.</p>
-
-<h3>Zjištění 1 — Prohlášení bez přesného data</h3>
-
-<blockquote><p><em>Citace:</em> „V Českých Budějovicích, 2026 …………………………."</p></blockquote>
-
-<p>Pokyny PřF JU vyžadují podpis s datem (den, měsíc, rok). Prohlášení s pouhým rokem neodpovídá standardnímu požadavku.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-medium">STŘEDNÍ</span></p>
-
-<h3>Zjištění 2 — Přiznání AI (ChatGPT)</h3>
-
-<p>Prohlášení obsahuje správnou formulaci o použití ChatGPT k jazykové korekci a hledání chyb. Splňuje požadavek pokynů.</p>
-
-<p><strong>Závažnost (pozitivní):</strong> Bez problémů.</p>
-
-<h3>Zjištění 3 — název souboru</h3>
-
-<p>Z PDF nelze přímo ověřit, zda soubor odpovídá předepsanému vzoru <code>Novotna_Lucie_2026_BP.pdf</code>. Pokud ne, bude odmítnut při elektronickém odevzdání.</p>
-
-<p><strong>Závažnost:</strong> Podezření vyžadující ověření.</p>
-
-<p><strong>Doporučení:</strong> Doplnit datum do Prohlášení. Ověřit název souboru.</p>
-</section>
-
-<section id="4-citacni-styl-a-bibliografie">
-<h2>4. Citační styl a bibliografie</h2>
-
-<p><strong>Stav:</strong> Harvardský styl (Autor, Rok) dodržován konzistentně v hlavní části textu. Bibliografie obsahuje záznamy ve formátu APA/Harvard se správnou strukturou pro článkové záznamy.</p>
-
-<h3>Zjištění 1 — Nesprávný formát in-text citace</h3>
-
-<blockquote><p><em>Citace:</em> „(Apoorva, Kumar, A., &amp; Singh, S. K. (b.r.))"</p></blockquote>
-
-<p>Harvardský styl pro tři autory vyžaduje zkrácení na „(Apoorva et al., b.r.)". Nerozepisují se celá jména. Navíc DOI záznamu (10.1080/21688370.2024.2424628) jednoznačně potvrzuje rok 2024 — „b.r." (bez roku) je fakticky chybné.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-medium">STŘEDNÍ</span></p>
-
-<h3>Zjištění 2 — Trojice identických duplicit v bibliografii</h3>
-
-<p>Prokázaná chyba:</p>
-
+<p>Práce se pohybuje na solidní průměrné až lehce nadprůměrné úrovni pro bakalářský stupeň. Teoretická část je tematicky relevantní, pokrývá klíčové aspekty flavivirové imunologie a NS1 proteinu s adekvátní citací primární literatury. Experimentální část je metodologicky proveditelná a výsledky jsou prezentovány srozumitelně. Autorka transparentně deklaruje zapojení AI nástroje.</p>
+<p><strong>Hlavní silné stránky:</strong></p>
 <ul>
-  <li><strong>Rastogi et al. 2016a a 2016b:</strong> Totožný titul, totožný časopis (<em>Virology Journal</em>, 13(1), 131), totožný DOI (10.1186/s12985-016-0590-7). Jde o jeden článek citovaný jako dva různé záznamy. V textu se oba klíče (2016a a 2016b) skutečně odkazují na různá tvrzení, ale oba vedou na stejnou publikaci.</li>
-  <li><strong>Muller &amp; Young 2013a a 2013b:</strong> Totožný titul, <em>Antiviral Research</em>, 98(2), 192–208, totožný DOI (10.1016/j.antiviral.2013.03.008). Jeden článek, dva klíče.</li>
-  <li><strong>Conde et al. 2017a a 2017b:</strong> Totožný titul „The Complement System in Flavivirus Infections", <em>Frontiers in Microbiology</em>, 8, totožný DOI (10.3389/fmicb.2017.00213). Jeden článek, dva záznamy.</li>
+<li>Dobré propojení teoretické a experimentální části (NS1 jako pojítko)</li>
+<li>Solidní citační aparát s převahou primární literatury</li>
+<li>Transparentní deklarace AI nástrojů a podílu kolegů</li>
+<li>Metodická sekce je detailní a reprodukovatelná</li>
 </ul>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-high">VYSOKÁ</span> Oponent může tuto chybu označit za systémový problém práce se zdroji nebo za umělé navyšování počtu citací.</p>
-
-<h3>Zjištění 3 — in-text citace bez sufixu</h3>
-
-<p>Na str. 14 (ř. 338): „(Rastogi et al., 2016)" — bez sufixu a/b, přestože bibliografie má pouze 2016a a 2016b. Čtenář nemůže identifikovat, který záznam je mínín.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-medium">STŘEDNÍ</span></p>
-
-<h3>Zjištění 4 — Sabir &amp; Jan (2026)</h3>
-
-<p>Pravděpodobný problém: reference je z kontinuálně aktualizovaného zdroje StatPearls, kde 2026 může být datum poslední aktualizace. Citace živého textu (StatPearls) je v akademické práci přijatelná, ale neobvyklá. Rok 2026 (shodný s rokem obhajoby) vyvolává pozornost.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-low">NÍZKÁ</span> Podezření vyžadující ověření data přístupu.</p>
-
-<p><strong>Doporučení:</strong> Opravit Apoorva et al. na (2024); odstranit duplicity (zachovat jeden záznam z každého páru, přepsat všechny in-text citace na nový klíč); doplnit a/b sufix na str. 14.</p>
+<p><strong>Hlavní slabiny:</strong></p>
+<ul>
+<li>Čtyři duplicitní bibliografické záznamy (systémová chyba)</li>
+<li>Kritická terminologická chyba: „NK-κB" místo „NF-κB" (průběžně)</li>
+<li>Věcná chyba: CCR5 označen jako chemokin</li>
+<li>Věcná nepřesnost: CD8⁺ T-lymfocyty a „protizánětlivé cytokiny"</li>
+<li>Nesoulad roku citace Apoorva et al. (b.r. vs. 2024 v textu)</li>
+<li>Extrémně stručný úvod (jeden odstavec)</li>
+<li>Závěr formulovaný jako odrážky bez syntetizující diskuze</li>
+<li>Tematický překryv kap. 4.5 a kap. 5</li>
+</ul>
+<p><strong>Celkový dojem:</strong> Práce je kandidátem pro podmíněně úspěšné odevzdání po opravě kritických věcných a bibliografických chyb. Bez opravy „NK-κB" a duplicitních záznamů hrozí negativní hodnocení od oponenta.</p>
 </section>
 
-<section id="5-prace-se-zdroji">
+<hr>
+
+<section id="biggest-risks">
+<h2>Největší rizika</h2>
+<ol>
+<li><strong>„NK-κB" místo „NF-κB"</strong> – kritická terminologická/věcná chyba viditelná přímo v textu i Seznamu zkratek; oponent ji s jistotou zachytí.</li>
+<li><strong>Čtyři duplicitní záznamy v bibliografii</strong> – svědčí o nedůsledné správě citačního softwaru; poškozuje důvěryhodnost práce.</li>
+<li><strong>CCR5 jako „chemokin"</strong> – věcná chyba základní imunologické nomenklatury.</li>
+<li><strong>Nesoulad roku u Apoorva et al.</strong> – text (2024) vs. bibliografie (b.r.) = neprůchozí při oponentuře.</li>
+<li><strong>Napětí mezi názvem a experimentální náplní</strong> – název slibuje „protivirovou imunitní odpověď", experimentální část měří produkci NS1 (marker virové replikace). Autorka to sice přiznává v úvodu, ale při oponentuře to může být ústřední námitka.</li>
+</ol>
+</section>
+
+<hr>
+
+<section id="priority-fixes">
+<h2>Top priority fixes</h2>
+<table>
+<thead><tr><th>Priorita</th><th>Co opravit</th></tr></thead>
+<tbody>
+<tr><td>Kritická</td><td>Opravit „NK-κB" → „NF-κB" v textu (str. 13) a Seznamu zkratek</td></tr>
+<tr><td>Kritická</td><td>Opravit „Apoorva et al., b.r." → rok 2024 v bibliografii; doplnit celé jméno prvního autora</td></tr>
+<tr><td>Vysoká</td><td>Odstranit 4 duplicitní bibliografické záznamy (Conde 2017, Muller &amp; Young 2013, Lindqvist 2016, Rastogi 2016)</td></tr>
+<tr><td>Vysoká</td><td>Opravit větu o CCR5 – není chemokin, je to chemokinový receptor</td></tr>
+<tr><td>Vysoká</td><td>Opravit tvrzení o CD8⁺ T-lymfocytech a „protizánětlivých cytokinech"</td></tr>
+<tr><td>Střední</td><td>Pravopis: „I přes to" → „Přestože" (str. 4)</td></tr>
+<tr><td>Střední</td><td>Osobní formulace v diskuzi: „bych se ráda zaměřila" → neosobní vazba</td></tr>
+<tr><td>Nízká</td><td>„inkubovany" → „inkubovány" (typo)</td></tr>
+</tbody>
+</table>
+</section>
+
+<hr>
+
+<section id="chapter-1">
+<h2>1. Soulad se zadáním a akademickým účelem práce</h2>
+<p><strong>Stav:</strong> Částečně splněn, s relevantním napětím.</p>
+<p><strong>Zjištění:</strong> Název slibuje review protivirové imunitní odpovědi u flavivirů se zaměřením na NS1. Teoretická část toto plní. Experimentální část se však nevěnuje imunitní odpovědi přímo – měří koncentrace NS1 proteinu (marker virové replikace a možný imunomodulační faktor) a virový titr v buněčných kulturách BBB. NS1 je nepřímým ukazatelem, nikoliv přímou imunitní odpovědí.</p>
+<p><strong>Problematická pasáž (Úvod, str. 1):</strong></p>
+<blockquote>„Práce tedy neposuzuje protivirovou imunitní odpověď přímo, ale zaměřuje se na jeden z faktorů, který s ní může přímo souviset."</blockquote>
+<p>Autorka napětí sama identifikuje, ale řeší ho jedinou větou v úvodu. Při oponentuře to bude první námitka.</p>
+<p><strong>Závažnost:</strong> Střední. Práce má vědecký smysl, ale diskrepance název–obsah je nápadná.</p>
+<p><strong>Doporučení:</strong> V diskuzi explicitně propojit výsledky (produkce NS1, virový titr) s jejich implikacemi pro imunitní odpověď. Případně zvážit drobnou úpravu názvu: „…: zaměření na NS1 protein jako marker a modulátor imunitní odpovědi."</p>
+</section>
+
+<hr>
+
+<section id="chapter-2">
+<h2>2. Struktura a logika práce</h2>
+<p><strong>Stav:</strong> Logická, ale s dílčími strukturálními problémy.</p>
+<p><strong>Zjištění:</strong></p>
+<p><strong>a) Úvod je extrémně stručný</strong> (str. 1 – jeden odstavec, cca 180 slov). Chybí: přehled stavu poznání, zdůvodnění výběru buněčných modelů, přehled struktury práce. Úvod plní funkci abstraktu, nikoliv úvodu.</p>
+<p><strong>b) Tematický překryv kap. 4.5 a kap. 5.</strong> Kapitola 4.5 (str. 13–14) se nazývá „Imunomodulační a imunopatogenní účinky NS1" a pojednává o NS1 v kontextu komplementu, TLR4, IFN-β. Kapitola 5 (str. 15–18) se věnuje NS1 proteinu jako celku. Dochází k redundancím – mechanismy komplementu přes NS1 jsou nastíněny v kap. 4.5 a pak zčásti znovu v kap. 5.2. Logičtější uspořádání: kap. 5 (Struktura a funkce NS1) před kap. 4.5 (Imunomodulační účinky NS1 v kontextu imunopatogeneze).</p>
+<p><strong>c) Cíle práce na str. 19</strong> – zařazení po celé teoretické části je v přírodovědeckých pracích akceptovatelné (cíle = přechod teorie → metodika). V pořádku.</p>
+<p><strong>d) Závěr jako odrážky</strong> (str. 44) – nestandardní, ale v biomedicínském výzkumu tolerovatelné. Chybí syntetizující věta propojující výsledky s teoret. poznatky.</p>
+<p><strong>e) Diskuze nesyntetizuje theorii a experiment.</strong> Diskuze (str. 40–43) se věnuje výhradně experimentálním výsledkům a neodkazuje na poznatky z kap. 4.5 a 5 (NS1 jako imunomodulátor). Příležitost ke kritické syntéze je nevyužita.</p>
+<p><strong>Závažnost:</strong> Střední (strukturální nedostatky), nízká (logická správnost).</p>
+<p><strong>Doporučení:</strong> Rozšířit úvod o 1–2 odstavce. Přidat syntetizující odstavec na konci diskuze. Přepracovat závěr tak, aby poslední odrážka formulovala přínos práce pro poznání.</p>
+</section>
+
+<hr>
+
+<section id="chapter-3">
+<h2>3. Formální náležitosti a soulad s fakultními pokyny (P5)</h2>
+<p><strong>Stav:</strong> Převážně v souladu.</p>
+<p><strong>Zkontrolované parametry dle P5 (Opatření proděkana č. 5, JU PRF):</strong></p>
+<table>
+<thead><tr><th>Požadavek P5</th><th>Stav</th></tr></thead>
+<tbody>
+<tr><td>Titulní list (vzor P3a)</td><td>Přítomen, odpovídá vzoru ✓</td></tr>
+<tr><td>List s bibliografickými údaji + anotace (anglicky)</td><td>Přítomen ✓</td></tr>
+<tr><td>Prohlášení autora</td><td>Přítomno; bez konkrétního dne (jen „2026") – přijatelné ✓</td></tr>
+<tr><td>Obsah s čísly stran</td><td>Přítomen ✓</td></tr>
+<tr><td>Arabské číslování od Úvodu (str. 1)</td><td>Splněno ✓</td></tr>
+<tr><td>Písmo Times New Roman, vel. 12</td><td>Splněno (z PDF ověřeno) ✓</td></tr>
+<tr><td>Řádkování 1,5</td><td>Splněno ✓</td></tr>
+<tr><td>Zarovnání do bloku</td><td>Splněno ✓</td></tr>
+<tr><td>Okraje (hřbet 3 cm, vnější 2,2 cm)</td><td>Z PDF vizuálně odpovídá; přesné hodnoty neověřitelné ✓/?</td></tr>
+<tr><td>Poděkování (volitelné)</td><td>Přítomno ✓</td></tr>
+</tbody>
+</table>
+<p><strong>Zjištění:</strong></p>
+<ul>
+<li>Bibliografický údaj uvádí anglický překlad názvu ✓ a anotaci v angličtině ✓.</li>
+<li>Deklarace AI: „nástroj/e nebo službu/y generativní umělé inteligence (ChatGPT) použila v souladu s akademickou etikou…" – transparentní a splňuje aktuální požadavky.</li>
+</ul>
+<p><strong>Závažnost:</strong> Nízká. Formální náležitosti jsou v pořádku.</p>
+</section>
+
+<hr>
+
+<section id="chapter-4">
+<h2>4. Citační styl a bibliografie</h2>
+<p><strong>Stav:</strong> Harvardský styl obecně správně aplikován; s jedním systémovým problémem a jedním nesouladem.</p>
+
+<h3>4a. In-text citace</h3>
+<p>Harvard formát (Autor, Rok) je dodržen. Správné odlišení autorů se stejným příjmením pomocí iniciál: <code>(Y. Pan et al., 2022)</code> a <code>(P. Pan et al., 2019)</code> ✓.</p>
+<p><strong>Problém – Apoorva et al.:</strong></p>
+<ul>
+<li>V textu: <code>(Apoorva et al., 2024)</code></li>
+<li>V bibliografii: <code>Apoorva, Kumar, A., &amp; Singh, S. K. (b.r.)</code></li>
+<li><strong>Nesoulad roku</strong> – fatální z hlediska citačního stylu.</li>
+<li><strong>Chybné jméno autora</strong>: „Apoorva" figuruje jako příjmení bez iniciály – pravděpodobně chyba importu do citačního softwaru.</li>
+</ul>
+<p><strong>Závažnost:</strong> Vysoká.</p>
+
+<h3>4b. Bibliografie – systémová chyba: čtyři duplicitní záznamy</h3>
+<p>Totožné publikace jsou v bibliografii zapsány dvakrát s příponou a/b, přestože se jedná o jednu publikaci (identický DOI):</p>
+<table>
+<thead><tr><th>Duplicitní záznam</th><th>DOI</th></tr></thead>
+<tbody>
+<tr><td>Conde et al. (2017a) a (2017b)</td><td>10.3389/fmicb.2017.00213</td></tr>
+<tr><td>Muller &amp; Young (2013a) a (2013b)</td><td>10.1016/j.antiviral.2013.03.008</td></tr>
+<tr><td>Lindqvist et al. (2016a) a (2016b)</td><td>10.1186/s12974-016-0748-7</td></tr>
+<tr><td>Rastogi et al. (2016a) a (2016b)</td><td>10.1186/s12985-016-0590-7</td></tr>
+</tbody>
+</table>
+<p>Příčina: klasická chyba citačního softwaru – jeden zdroj importovaný dvakrát. V textu pak existují in-text citace na (a) i (b) variantu téhož zdroje.</p>
+<p><strong>Závažnost:</strong> Vysoká. Poškozuje akademickou důvěryhodnost.</p>
+<p><strong>Doporučení:</strong> Odstranit duplicitní záznamy, nahradit všechny in-text citace „2013b", „2016b" apod. jednotnou variantou bez přípony.</p>
+
+<h3>4c. Bibliografický formát – dílčí poznámky</h3>
+<ul>
+<li><code>de Madrid &amp; Porterfield (1969)</code> – starý zdroj bez DOI, ale pro metodu plakové titrace legitimní ✓.</li>
+<li><code>Lin (2015)</code> – kapitola v knize formátována správně ✓.</li>
+<li><code>Sabir &amp; Jan (2026)</code> – StatPearls; rok 2026 = rok práce = rok poslední aktualizace záznamu. Technicky přijatelné, ale encyclopedic zdroj pro základní imunologický popis je slabý (viz kat. 5).</li>
+</ul>
+</section>
+
+<hr>
+
+<section id="chapter-5">
 <h2>5. Práce se zdroji</h2>
-
-<p><strong>Stav:</strong> Rešerše pokrývá relevantní primární literaturu, klíčové přehledové články i aktuální studie (Perera et al., 2024; Valdés-López et al., 2025). Celkový počet zdrojů (přibližně 45 unikátních po odečtení duplikátů) odpovídá bakalářské práci v přírodovědné oblasti.</p>
-
-<h3>Zjištění 1 — Nadměrné spoléhání na přehledové články</h3>
-
-<p>Velká část citací v teoretické části je ze sekundárních zdrojů (přehledové články). Pro klíčová tvrzení o TBEV a NS1 je to akceptovatelné, neboť primární studie jsou citovány tam, kde to má smysl (Lindqvist et al., 2016; Palus et al., 2017).</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-low">NÍZKÁ</span></p>
-
-<h3>Zjištění 2 — Lin (2015) pro definici ELISA</h3>
-
-<p>Citace „(Lin, 2015)" v kapitole věnované metodám odkazuje na kapitolu v metodické knize (Springer Protocols). Zdroj je legitimní.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-low">NÍZKÁ</span></p>
-
-<p><strong>Doporučení:</strong> Bez zásahu kromě opravy duplicit (viz kategorie 4).</p>
+<p><strong>Stav:</strong> Solidní základ primární literatury; dílčí slabiny.</p>
+<p><strong>Silné stránky:</strong></p>
+<ul>
+<li>Většina citací pochází z primární literatury (Nature Reviews, Journal of Virology, PLOS Pathogens, Frontiers in Immunology aj.).</li>
+<li>Citace pokrývají relevantní období (2012–2025).</li>
+<li>Citace k metodám jsou přesné (Mandl et al., 1997 pro TBEV Neudoerfl; de Madrid &amp; Porterfield, 1969 pro plakovou titraci).</li>
+</ul>
+<p><strong>Slabiny:</strong></p>
+<p><strong>a) Encyclopedic zdroje pro základní fakta:</strong></p>
+<ul>
+<li><code>Sabir &amp; Jan (2026)</code> – StatPearls = online učebnicový přehled, nikoliv primární výzkum. Použit pro popis B a T lymfocytů (sekce 3.2). Pro tato tvrzení existuje hojná primární literatura.</li>
+</ul>
+<p><strong>b) Marginálně relevantní citace:</strong></p>
+<ul>
+<li><code>Park (2025)</code> – CD8 T cell dynamics in ZIKV infection – citován pro tvrzení o CD8⁺ T-lymfocytech obecně (sekce 3.2). Zdroj pokrývá ZIKV, nikoliv flaviviry obecně.</li>
+</ul>
+<p><strong>Závažnost:</strong> Nízká až střední.</p>
 </section>
 
-<section id="6-plagiatorstvi-podobnost-a-ai-signaly">
+<hr>
+
+<section id="chapter-6">
 <h2>6. Plagiátorství, podobnost a AI-signály</h2>
 
-<p><strong>Stav:</strong> Autorka explicitně přiznává využití ChatGPT pro jazykové korekce a hledání chyb, v souladu s pokyny PřF JU. Toto je přijatelné.</p>
-
-<h3>AI-indikátory (symptomy, nikoli definitivní závěr)</h3>
-
-<p>Tyto pasáže vykazují znaky textu upraveného AI-asistencí nebo generovaného s následnou korekcí:</p>
-
-<ol>
-  <li>Oddíl 3.1 (Vrozená imunitní odpověď, str. 5–6): Výjimečně plynulé přechody mezi větami bez žádné parafráze s vlastním hlasem autorky. Všechny věty mají přibližně srovnatelnou délku a komplexitu.</li>
-  <li>Oddíl 2.2 (Replikační cyklus, str. 3): Popis replikačního cyklu je funkčně přesný, ale stylisticky homogenní v míře, která může indikovat AI-korekci nebo silnou parafrázi jednoho zdroje.</li>
-  <li>Sekce 4.3 (Imunomodulace virem, str. 10): Přechod od věty k větě je nadměrně hladký; chybí typická „drsnost" vlastního psaní.</li>
-</ol>
-
-<p><strong>Důležité:</strong> Tyto znaky jsou konzistentní s přiznaným použitím ChatGPT pro jazykovou korekci. Nejde o definitivní tvrzení o umělé generaci obsahu. Oponent pravděpodobně tyto pasáže prověří anti-plagiarizačním softwarem nebo detektorem AI.</p>
-
-<p><strong>Riziko plagiátorství:</strong> Bez přístupu k anti-plagiarizačnímu systému (Thenticate, iThenticate) nelze posoudit procento shody s jinými texty. Rešeršní pasáže jsou citovány, takže přímý plagiát je nepravděpodobný.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-low">NÍZKÁ</span> (s ohledem na přiznané AI-použití). Podezření vyžadující ověření softwarem.</p>
-</section>
-
-<section id="7-jazykova-a-stylisticka-kvalita">
-<h2>7. Jazyková a stylistická kvalita</h2>
-
-<p><strong>Stav:</strong> Obecně dobrá akademická čeština. Textu dominuje vhodný vědecký registr.</p>
-
-<h3>Zjištění 1 — „Více jak" místo „Více než"</h3>
-
-<blockquote><p><em>Citace:</em> „Do rodu Flavivirus, patřícího do čeledi Flaviviridae, patří více jak 70 různých viru." (ř. 29–30)</p></blockquote>
-
-<p>„Více jak" je nespisovný hovorový výraz; správně „více než". Navíc „viru" místo „virů" (genitiv pl.).</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-medium">STŘEDNÍ</span> (opakuje se).</p>
-
-<h3>Zjištění 2 — „různých viru" místo „různých virů"</h3>
-
-<p>Chyba v genitivu množného čísla.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-low">NÍZKÁ</span></p>
-
-<h3>Zjištění 3 — Chybějící tečka na konci věty (ř. 248)</h3>
-
-<p>Věta odstavce 4.3 zakončená citací „(Ye et al., 2013)" není ukončena tečkou za závorkou.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-low">NÍZKÁ</span></p>
-
-<h3>Zjištění 4 — Chybějící tečka na konci závěru</h3>
-
-<p>Poslední odrážka kapitoly 10 (Závěr, ř. 876–880) není ukončena tečkou.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-low">NÍZKÁ</span></p>
-
-<h3>Zjištění 5 — Nestandardní zápis „TNF – α"</h3>
-
-<p>Mezery kolem pomlčky v „TNF – α" jsou typograficky nesprávné v kontextu vědecké zkratky; standardní zápis je „TNF-α" bez mezer.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-low">NÍZKÁ</span></p>
-
-<p><strong>Doporučení:</strong> Celková jazyková revize se zaměřením na genitiv pl. a „více jak → více než". Dodat chybějící tečky.</p>
-</section>
-
-<section id="8-terminologie-a-konzistence">
-<h2>8. Terminologie a konzistence</h2>
-
-<p><strong>Stav:</strong> Terminologie je z velké části konzistentní, ale existují závažné výjimky.</p>
-
-<h3>Zjištění 1 — „ANNOVA" místo „ANOVA" <span class="badge badge-critical">KRITICKÁ</span></h3>
-
-<blockquote><p><em>Citace:</em> „byl vypočítán poměr virového titru a koncentrace naprodukovaného proteinu NS1, což umožnilo statisticky vyhodnotit experiment Two-way ANNOVOU." (ř. 632–633)</p></blockquote>
-<blockquote><p><em>Citace:</em> „Two-way ANNOVA byla následně provedena i u všech zbylých buněčných kultur" (ř. 633–634)</p></blockquote>
-
-<p>Správný název je ANOVA (Analysis of Variance). „ANNOVA" je opakující se chyba (minimálně 4× v textu, jedenkrát i v nadpisu výsledkové sekce dle obsahu). Jedná se o klíčovou statistickou metodu práce.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-high">VYSOKÁ</span></p>
-
-<h3>Zjištění 2 — „NLRP3" vs. „NLP3" vs. „NLPR3" <span class="badge badge-critical">KRITICKÁ</span></h3>
-
+<h3>Plagiátorství a podobnost</h3>
 <ul>
-  <li>Ř. 156: „aktivací NLP3 inflammasomu" — chybí R, špatné pořadí</li>
-  <li>Ř. 220–221: „aktivace inflammasomu NLPR3" — záměna R a P</li>
-  <li>Seznam zkratek (str. 41): „NLP3 — Protein rodiny NLR obsahující pyrinovou doménu 3"</li>
+<li>Obrázky jsou konzistentně označeny „upraveno dle [zdroj]" nebo „zdroj: vlastní, BioRender" ✓.</li>
+<li>Parafráze jsou doprovázeny citacemi.</li>
+<li>Žádné konkrétní indikátory plagiátorství nebyly identifikovány. Bez přístupu k Turnitin/iThenticate nelze vyloučit textovou podobnost – vyžaduje institucionální ověření.</li>
 </ul>
 
-<p>Správná zkratka je <strong>NLRP3</strong> (NLR family Pyrin domain-containing protein 3). Vyskytují se dvě různé chybné varianty plus chyba v seznamu zkratek. V kontextu imunologie jde o mezinárodně standardizovaný název; chyba je věcná, nikoli jen typografická.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-high">VYSOKÁ</span></p>
-
-<h3>Zjištění 3 — „NK-κB" místo „NF-κB" v seznamu zkratek</h3>
-
-<blockquote><p><em>Citace ze seznamu zkratek:</em> „NK- κB — Nuclear factor kappa B (Transkripční faktor kappa B)"</p></blockquote>
-
-<p>V textu je správně použito „NF-κB" (ř. 222, 301–302). V seznamu zkratek je uvedeno „NK-κB", což je konfuzní s NK buňkami (Natural Killer cells), které jsou v téže práci diskutovány. Jde o chybu v seznamu zkratek.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-medium">STŘEDNÍ</span></p>
-
-<h3>Zjištění 4 — „endotely" vs. „endoteliální buňky"</h3>
-
-<p>Závěr (kap. 10, ř. 869–870) používá „endotely" jako zkrácené označení pro HBMEC. Celý zbytek práce (metody, výsledky, diskuze) konzistentně používá „endoteliální buňky." Terminologická nekonzistence v závěru.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-low">NÍZKÁ</span></p>
-
-<p><strong>Doporučení:</strong> Opravit ANNOVA → ANOVA (globální nahrazení). Opravit NLP3/NLPR3 → NLRP3 v textu i v seznamu zkratek. Opravit NK-κB → NF-κB v seznamu zkratek. Sjednotit „endotely" → „endoteliální buňky" v závěru.</p>
+<h3>AI-signály</h3>
+<p>Autorka explicitně deklaruje: „nástroj/e nebo službu/y generativní umělé inteligence (ChatGPT) použila v souladu s akademickou etikou za účelem jazykové korekce a jako nástroj pro vyhledání chyb a zlepšení textu."</p>
+<p><strong>Indikátory konzistentní s deklarovaným použitím (korekce, nikoliv generování):</strong></p>
+<ul>
+<li>Přítomnost typografických chyb („inkubovany", „přes to") svědčí o primárně lidsky psaném textu.</li>
+<li>Osobní formulace „bych se ráda zaměřila" jsou autenticky lidské.</li>
+<li>Metodická část je specifická (katalogová čísla, přesné objemy) – nelze generovat bez přístupu k laboratorním zápisům.</li>
+</ul>
+<p><strong>Závěr:</strong> Text vykazuje charakteristiky primárně autorsky psané práce s AI pomocí při korektuře. Žádné indikátory AI-generovaného obsahu neodůvodňují kategorické tvrzení.</p>
 </section>
 
-<section id="9-argumentace-a-analyticka-uroven">
+<hr>
+
+<section id="chapter-7">
+<h2>7. Jazyková a stylistická kvalita</h2>
+<p><strong>Stav:</strong> Nadprůměrná pro bakalářskou práci; s recidivujícími stylistickými a dílčími pravopisnými chybami.</p>
+
+<hr>
+
+<h3>7.1 Pravopisné chyby</h3>
+<p><strong>Chyba 1 – „I přes to" jako dvě slova (str. 4, sekce 2.3)</strong></p>
+<ul>
+<li><strong>Původní věta:</strong> „I přes to, že flaviviry mají podobně organizovaný genom, ukazují se rozdíly mezi schopnostmi se šířit."</li>
+<li><strong>Problém:</strong> „Přesto" jako spojka se píše dohromady. „Přes to" (dvě slova) existuje pouze jako předložka + zájmeno (např. „přes to pole"). Zde jde o spojku = pravopisná chyba.</li>
+<li><strong>Návrh přeformulování:</strong> „Přestože flaviviry mají podobně organizovaný genom, liší se schopnostmi šíření."</li>
+<li><strong>Vysvětlení:</strong> Krom pravopisu navrhovaná verze odstraňuje nominalizaci „schopnostmi se šířit" a eliminuje pasivní impersonální „ukazují se rozdíly".</li>
+<li><strong>Závažnost:</strong> Střední.</li>
+</ul>
+<p><strong>Chyba 2 – „inkubovany" bez háčku (sekce 7.3)</strong></p>
+<ul>
+<li><strong>Původní:</strong> „…panely byly s infekcí inkubovany 2 hodiny"</li>
+<li><strong>Návrh:</strong> „…panely byly s infekcí inkubovány 2 hodiny"</li>
+<li><strong>Závažnost:</strong> Nízká (typografická chyba).</li>
+</ul>
+
+<hr>
+
+<h3>7.2 Hovorové výrazy v akademickém textu (systémový problém)</h3>
+<p><strong>Chyba 3 – „které už jsou" (sekce 3.2)</strong></p>
+<ul>
+<li><strong>Původní věta:</strong> „Po počáteční produkci IgM začínají B-lymfocyty produkovat IgG protilátky, které už jsou stabilnější, efektivnější, mají vyšší afinitu a cíleně rozpoznávají virové povrchové proteiny…"</li>
+<li><strong>Problém:</strong> „Už" je hovorové časové adverbium bez informační hodnoty v akademickém textu. Zároveň výčet „stabilnější, efektivnější, mají vyšší afinitu" smíchává adjektivní predikáty se slovesným predikátem – nesourodá syntaktická struktura.</li>
+<li><strong>Návrh přeformulování:</strong> „Po počáteční produkci IgM přecházejí B-lymfocyty na produkci protilátek třídy IgG, které vykazují vyšší stabilitu, afinitu a schopnost cíleně rozpoznávat virové povrchové proteiny…"</li>
+<li><strong>Závažnost:</strong> Nízká.</li>
+</ul>
+<p><strong>Chyba 4 – osobní formulace v diskuzi (sekce 9)</strong></p>
+<ul>
+<li><strong>Původní věta:</strong> „V první části diskuze bych se ráda zaměřila na samotnou optimalizaci metody ELISA."</li>
+<li><strong>Problém:</strong> Akademický odborný text se vede v neosobním stylu nebo v „my" (pasivum). „Bych se ráda zaměřila" je hovorová personalizace nevhodná pro hlavní text. Kontrast s jinak neosobně vedenou diskuzí je výrazný.</li>
+<li><strong>Návrh přeformulování:</strong> „V první části diskuze je věnována pozornost optimalizaci metody ELISA."</li>
+<li><strong>Závažnost:</strong> Střední.</li>
+</ul>
+
+<hr>
+
+<h3>7.3 Slovosled a syntaktické nedostatky</h3>
+<p><strong>Chyba 5 – nejasný referent věty (sekce 9)</strong></p>
+<ul>
+<li><strong>Původní věta:</strong> „Bylo tak provedeno, protože po vyhodnocení prvních dvou experimentů plakovou titrací bylo zjištěno, že hodnoty v intervalu +0 byly vyšší, než by se dalo očekávat při zdárném promytí infekce."</li>
+<li><strong>Problém:</strong> „Bylo tak provedeno" odkazuje na neurčité „navýšení počtu promývání" z předchozí věty – referent je ambivalentní; věta je syntakticky krkolomná.</li>
+<li><strong>Návrh přeformulování:</strong> „Počet promývacích cyklů byl navýšen ze dvou na čtyři, protože hodnoty v intervalu +0 z prvních dvou experimentů byly vyšší, než by odpovídalo úplnému odstranění reziduálního viru."</li>
+<li><strong>Závažnost:</strong> Střední.</li>
+</ul>
+<p><strong>Chyba 6 – smíšení češtiny a angličtiny v termínu (sekce 7.8)</strong></p>
+<ul>
+<li><strong>Původní:</strong> „Šídákův multicomparison test"</li>
+<li><strong>Problém:</strong> „Multicomparison" je anglický výraz vložený do českého textu.</li>
+<li><strong>Návrh:</strong> „Šídákův test mnohonásobných srovnání" (nebo konzistentně anglicky: „Šídák's multiple comparisons test")</li>
+<li><strong>Závažnost:</strong> Nízká.</li>
+</ul>
+
+<hr>
+
+<h3>7.4 Obecné stylistické poznámky</h3>
+<ul>
+<li>Text je celkově plynulý a čitelný.</li>
+<li>Nominalizace jsou hojné (typické pro odborný český text) a pohybují se v přijatelných mezích.</li>
+<li>Trpný rod je používán adekvátně pro metodiku.</li>
+<li>Akademický registr je obecně dodržen mimo výše citované výjimky.</li>
+</ul>
+</section>
+
+<hr>
+
+<section id="chapter-8">
+<h2>8. Terminologie a konzistence</h2>
+<p><strong>Stav:</strong> Jeden kritický terminologický problém; jinak konzistentní.</p>
+
+<h3>8.1 KRITICKÁ CHYBA: „NK-κB" místo „NF-κB"</h3>
+<ul>
+<li><strong>Původní (sekce 4.5, str. 13):</strong> „…spouští signalizační kaskádu vedoucí k aktivaci transkripčních faktorů <strong>NK-κB</strong>…"</li>
+<li><strong>Seznam zkratek (str. 45):</strong> „<strong>NK-κB</strong> Nuclear factor kappa B"</li>
+<li><strong>Problém:</strong> Prokázaná věcná a terminologická chyba. Transkripční faktor se správně nazývá <strong>NF-κB</strong> (Nuclear Factor kappa-light-chain-enhancer of activated B cells). „NK" označuje Natural Killer buňky – zcela jinou entitu. Chyba je konzistentní v textu i Seznamu zkratek.</li>
+<li><strong>Závažnost: Kritická.</strong> Oponent tuto chybu zachytí automaticky.</li>
+<li><strong>Doporučení:</strong> Vyhledat všechny výskyty „NK-κB" a nahradit „NF-κB". Opravit i Seznam zkratek.</li>
+</ul>
+
+<h3>8.2 Konzistence ostatních termínů</h3>
+<ul>
+<li>„NS1 protein" vs. „protein NS1" – oba pořadí se střídají; doporučuji sjednotit (preferováno: „NS1 protein").</li>
+<li>„Klíšťová encefalitida" / „TBEV" – konzistentně zavedeno ✓.</li>
+<li>„Šídákův" – skloňování cizího příjmení správně ✓.</li>
+<li>„Grubbsův test" – správně ✓.</li>
+</ul>
+</section>
+
+<hr>
+
+<section id="chapter-9">
 <h2>9. Argumentace a analytická úroveň</h2>
-
-<p><strong>Stav:</strong> Diskuze (kap. 9) je analyticky nejsilnější část práce. Autorka provádí relevantní srovnání vlastních výsledků s literaturou a navrhuje mechanistická vysvětlení.</p>
-
-<h3>Zjištění 1 — Kvalitní propojení výsledků s literaturou</h3>
-
-<p>Diskuze o rozdílné produkci NS1 u astrocytů vs. endoteliálních buněk je logicky podložena citacemi (Choi et al., 2014; Palus et al., 2017; Fares et al., 2020; Tavčar Verdev et al., 2022). Vysvětlení prostřednictvím sekrečního aparátu astrocytů vs. bariérové funkce endotelů je věcně přesvědčivé.</p>
-
-<h3>Zjištění 2 — Nedostatečné kritické zhodnocení omezení malého n</h3>
-
-<p>Autorka zmiňuje (ř. 815–816): „K potvrzení toho, co naznačují korelační koeficienty, by bylo nutné provést další experimenty s větším počtem replikátů." Toto je správné, ale nedostačující. Spearmanův korelační test na n=4 datových bodech má extrémně nízkou statistickou sílu (power) a nelze z něj vyvozovat žádné spolehlivé závěry o nepřítomnosti korelace. Tato skutečnost by měla být v diskuzi explicitně a zřetelněji formulována.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-medium">STŘEDNÍ</span></p>
-
-<h3>Zjištění 3 — Chybí diskuze o MOI = 5</h3>
-
-<p>Použitý MOI (multiplicity of infection) = 5 je vysoký a neodpovídá fyziologickým podmínkám. Tato volba mohla ovlivnit výsledky (vysoký MOI může vést k abnormálně vysoké produkci NS1 nebo naopak k cytotoxickým efektům). Diskuze tuto skutečnost nezmiňuje.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-medium">STŘEDNÍ</span></p>
-
-<h3>Zjištění 4 — Interpretace korelace u endotelů</h3>
-
-<p>Spearmanův koeficient 1,000 mezi NS1 a virovým titrem u endotelů (ř. 711–712) je interpretován opatrně. Výsledek na n=4 bodech s tak malou variabilitou dat však nemá statistickou validitu bez p-hodnoty — a autorka p-hodnoty pro korelace neuvádí. Tvrzení o „slabém pozitivním trendu" (ř. 811) je přiměřené, ale mohlo by být doplněno explicitní zmínkou o nemožnosti statistického ověření.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-medium">STŘEDNÍ</span></p>
-
-<p><strong>Doporučení:</strong> Rozšířit diskuzi o problematice statistické síly při n=4. Doplnit zamyšlení nad volbou MOI. Zmínit absenci p-hodnot u Spearmanových korelací.</p>
+<p><strong>Stav:</strong> Přiměřená pro bakalářský stupeň; místy nedostatečné kritické distancování.</p>
+<p><strong>Silné stránky:</strong></p>
+<ul>
+<li>Autorka vědomě omezuje rozsah tvrzení na TBEV tam, kde literatura pokrývá jiné flaviviry: „Zatímco u DENV a WNV jsou tyto mechanismy detailněji popsány, u TBEV lze teoreticky předpokládat podobný význam…" ✓</li>
+<li>Statistické limitace jsou přiznány ✓.</li>
+</ul>
+<p><strong>Slabiny:</strong></p>
+<ul>
+<li>Paradox CD8⁺ T-lymfocytů a imunopatologie (sekce 4.1) je prezentován bez hlubší diskuze mechanismů.</li>
+<li>Závěr nesyntetizuje výsledky s teoretickými poznatky z kap. 4.5/5 – příležitost ke kritické analýze nevyužita.</li>
+</ul>
+<p><strong>Závažnost:</strong> Střední.</p>
 </section>
 
-<section id="10-fact-checking-a-vecna-spravnost-tvrzeni">
-<h2>10. Fact-checking a věcná správnost tvrzení</h2>
+<hr>
 
-<p><strong>Stav:</strong> Faktuální základ práce je solidní. Níže jsou identifikované body pro ověření.</p>
+<section id="chapter-10">
+<h2>10. Fact-checking a věcná správnost</h2>
+<p><strong>Stav:</strong> Tři věcné chyby různé závažnosti.</p>
 
-<h3>Zjištění 1 — „více jak 70 různých viru" (ř. 29–30)</h3>
+<h3>10.1 KRITICKÁ: „NK-κB" → NF-κB (viz kat. 8.1)</h3>
 
-<p>Genus <em>Flavivirus</em> obsahuje přes 70 druhů (dle ICTV). Tvrzení věcně správné. <strong>Míra jistoty: Vysoká.</strong></p>
+<h3>10.2 VYSOKÁ: CCR5 označen jako „chemokin" (sekce 4.3, str. 11)</h3>
+<ul>
+<li><strong>Původní věta:</strong> „Bylo prokázáno, že některé chemokiny, zejména CCR5, a jejich správná funkce je nezbytná pro efektivní imunitní odpověď."</li>
+<li><strong>Problém:</strong> CCR5 (CC Chemokine Receptor 5) je <strong>chemokinový receptor</strong> – transmembránový protein na buněčném povrchu. Není to chemokin. Citovaný zdroj (Bardina &amp; Lim, 2012) pojednává o chemokinových receptorech, nikoliv o chemokinech samotných.</li>
+<li><strong>Návrh opravy:</strong> „Bylo prokázáno, že správná funkce chemokinových receptorů, zejména CCR5, je nezbytná pro efektivní imunitní odpověď."</li>
+<li><strong>Stupeň jistoty:</strong> Prokázaná chyba.</li>
+<li><strong>Závažnost:</strong> Vysoká.</li>
+</ul>
 
-<h3>Zjištění 2 — „Více jak 70 % infekcí způsobených evropským subtypem TBEV je asymptomatických" (ř. 104–105)</h3>
+<h3>10.3 STŘEDNÍ: CD8⁺ T-lymfocyty a „protizánětlivé cytokiny" (sekce 3.2)</h3>
+<ul>
+<li><strong>Původní věta:</strong> „Mezi další funkce CD8⁺ T-lymfocytů patří také produkce <strong>protizánětlivých</strong> cytokinů a tím podpora antivirového stavu (Park, 2025)."</li>
+<li><strong>Problém:</strong> CD8⁺ T-lymfocyty produkují primárně <strong>prozánětlivé</strong> cytokiny: IFN-γ, TNF-α. Tyto cytokiny jsou ústředním nástrojem antivirového stavu. „Protizánětlivé cytokiny" jsou v tomto kontextu fakticky nesprávné.</li>
+<li><strong>Stupeň jistoty:</strong> Prokázaná nepřesnost.</li>
+<li><strong>Návrh opravy:</strong> „Mezi další funkce CD8⁺ T-lymfocytů patří produkce prozánětlivých cytokinů (IFN-γ, TNF-α), čímž přispívají k antivirové odpovědi."</li>
+<li><strong>Závažnost:</strong> Střední.</li>
+</ul>
 
-<p>Citováno z Pustijanac et al. (2023). Odhadované rozmezí v literatuře je 70–95 %. Tvrzení konzistentní s literaturou. <strong>Míra jistoty: Vysoká.</strong></p>
+<h3>10.4 K OVĚŘENÍ: Sabir &amp; Jan (2026) – StatPearls</h3>
+<ul>
+<li>Rok záznamu „2026" koresponduje s rokem odevzdání práce. Technicky přijatelné, ale encyclopedic zdroj pro tvrzení o základní imunologii je akademicky slabý. Podezření, nikoli prokázaná chyba.</li>
+</ul>
 
-<h3>Zjištění 3 — „35–38 % pacientů identifikován postencefalický syndrom" (ř. 112–113)</h3>
-
-<p>Citováno z Bogovic et al. (2010). Přiměřeně citováno. <strong>Míra jistoty: Střední</strong> (závisí na definici a sledované populaci).</p>
-
-<h3>Zjištění 4 — „KDa" místo „kDa"</h3>
-
-<blockquote><p><em>Citace:</em> „molekulová hmotnost se pohybuje mezi 46-55 KDa" (ř. 315–316)</p></blockquote>
-
-<p>Správná notace: kDa (kiloDalton — jednotka s malým k). <strong>Prokázaná chyba, nízká závažnost.</strong></p>
-
-<h3>Zjištění 5 — Tvrzení o NF-κB aktivaci přes TLR4 (ř. 300–302)</h3>
-
-<blockquote><p><em>Citace:</em> „Rekombinantní NS1 dokáže přímo stimulovat imunitní buňky přes TLR4, což spouští signalizační kaskádu vedoucí k aktivaci transkripčních faktorů NF-κB..."</p></blockquote>
-
-<p>Citováno z Modhiran et al. (2017), kde je prokázáno pro DENV NS1. Extrapolace na TBEV NS1 (nevyřčená, ale implicitní v kontextu) není podložena přímým důkazem. Autorka tuto limitaci nezmiňuje. <strong>Pravděpodobný problém — nesprávná generalizace ze studie na DENV.</strong></p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-medium">STŘEDNÍ</span></p>
-
-<p><strong>Doporučení:</strong> Opravit KDa → kDa. Přidat u TLR4/NF-κB tvrzení explicitní upozornění, že jde o DENV data a u TBEV NS1 to nebylo přímo prokázáno.</p>
+<h3>10.5 OVĚŘENO: Ostatní věcná tvrzení</h3>
+<ul>
+<li>„Více než 70 % infekcí evropského subtypu TBEV je asymptomatických" – hodnota citovaná v literatuře ✓.</li>
+<li>Genome size „~11 000 nukleotidů" – správně ✓.</li>
+<li>„MOI = 5" pro infekci primárních buněčných kultur – biologicky přijatelné ✓.</li>
+<li>„TBEV Neudoerfl, 5. mozková pasáž, izolovaný 1971" – odpovídá Mandl et al. (1997) ✓.</li>
+</ul>
 </section>
 
-<section id="11-metodologie">
+<hr>
+
+<section id="chapter-11">
 <h2>11. Metodologie</h2>
-
-<p><strong>Stav:</strong> Metody jsou popsány podrobně a reprodukovatelně. Přehledný Obr. 8 (schéma experimentu) výrazně pomáhá porozumění designu. ELISA protokol je popsán s přesností umožňující replikaci.</p>
-
-<h3>Zjištění 1 — n=4 časové body jako základ Spearmanovy korelace</h3>
-
-<p>Spearmanův korelační test byl proveden na 4 časových bodech (1, 3, 6, 10 dpi). Kritická minimální velikost vzorku pro Spearmanův test, aby dosáhl smysluplné statistické síly (power ≥ 0,8) při střední velikosti účinku, je přibližně n=18–25. Výsledky korelací (r<sub>s</sub> = 0,800; r<sub>s</sub> = -0,800 pro astrocyty; r<sub>s</sub> = 0,200 pro endotely) nemají s n=4 statisticky průkaznou hodnotu a autorka toto v diskuzi pouze okrajově zmiňuje.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-medium">STŘEDNÍ</span></p>
-
-<h3>Zjištění 2 — Biologická triplikace vs. technická replikace</h3>
-
-<p>Metodická sekce rozlišuje technické replikáty (4×) a biologické triplikáty (3 jamky na čas). Jde o technicky správný přístup, ale není explicitně diskutováno, zda čtyři technické replikáty provedené na stejné pasáži buněk jsou dostatečně nezávislé.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-low">NÍZKÁ</span></p>
-
-<h3>Zjištění 3 — Výměna média (ř. 466–468)</h3>
-
-<p>Výměna poloviny média ve 3. dnu a 6. dnu pro skupiny s odběrem 6dpi a 10dpi mohla ovlivnit naměřené koncentrace NS1 (ředění akumulovaného proteinu). Tato skutečnost je zmíněna v metodách, ale její potenciální dopad na výsledky není diskutován.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-medium">STŘEDNÍ</span></p>
-
-<h3>Zjištění 4 — Přebírání vzorků od Mgr. Kotounové</h3>
-
-<p>Autorka re-měřila vzorky z experimentů prováděných Mgr. Eliškou Kotounovou (HMC3, SK-N-SH, HBVP buněčné linie) optimalizovanou metodou ELISA. Metodická sekce toto uvádí (ř. 596–599), ale kapitola Výsledky (kap. 8.2) prezentuje data obou autorů souborně, aniž by explicitně oddělila, která data jsou od Kotounové a která jsou vlastní. Situace je přiznaná a přijatelná, ale formálně mohla být jasnější.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-low">NÍZKÁ</span> Podezření vyžadující ověření u vedoucího.</p>
-
-<h3>Zjištění 5 — MOI = 5</h3>
-
-<p>MOI = 5 je extrémně vysoký pro in vitro experimenty simulující fyziologické podmínky. Výsledky jsou relevantní pro daný modelový systém, ale limitují přímou extrapolaci na situaci in vivo. Diskuze toto neadresuje.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-medium">STŘEDNÍ</span></p>
-
-<p><strong>Doporučení:</strong> Rozšířit diskuzi o statistické síle Spearmanovy korelace při n=4. Doplnit diskuzi o vlivu výměny média na absolutní koncentrace NS1. Přidat zmínku o limitaci MOI = 5.</p>
+<p><strong>Stav:</strong> Solidní pro bakalářský stupeň; dva statistické aspekty hodné komentáře.</p>
+<p><strong>Silné stránky:</strong></p>
+<ul>
+<li>Protokoly jsou popsány dostatečně detailně pro reprodukovatelnost (koncentrace protilátek, katalogová čísla, inkubační podmínky).</li>
+<li>Použití negativní kontroly a kontrolních intervalů (–0, +0) svědčí o metodické preciznosti.</li>
+<li>Transparentní přiznání změny protokolu (2 vs. 4 promývání) ✓.</li>
+<li>Optimalizace ELISA metodologicky správná (testování 3 faktorů, vícenásobná lineární regrese) ✓.</li>
+<li>Grubbsův test pro identifikaci odlehlých hodnot – správný postup ✓.</li>
+</ul>
+<p><strong>Statistické poznámky:</strong></p>
+<p><strong>a) Spearmanův korelační koeficient při n = 4 biologických replikacích:</strong><br>
+Pro čtyři biologické replikace je výkon Spearmanova testu extrémně nízký. Dosažení p &lt; 0,05 je při n = 4 téměř nemožné (minimální dosažitelná p-hodnota ≈ 0,083). Autorka tuto limitaci správně přiznává. Doporučuji tuto limitaci explicitně pojmenovat jako „nízký statistický výkon z důvodu malého n."</p>
+<p><strong>b) Two-way ANOVA na transformovaném poměru:</strong><br>
+Transformace poměru do logaritmické škály před ANOVA – metodologicky korektní ✓.</p>
+<p><strong>c) Sdílení dat s kolegou (Kotounová):</strong><br>
+Transparentně deklarováno v textu ✓.</p>
+<p><strong>Závažnost:</strong> Nízká.</p>
 </section>
 
-<section id="12-kvalita-abstraktu-uvodu-a-zaveru">
+<hr>
+
+<section id="chapter-12">
 <h2>12. Kvalita abstraktu, úvodu a závěru</h2>
 
-<p><strong>Stav abstraktu:</strong> Závažný nedostatek.</p>
-
-<h3>Zjištění — Abstrakt bez výsledků</h3>
-
-<p>CZ anotace (str. 2) popisuje téma a metodiku, ale neuvádí žádné konkrétní výsledky:</p>
-
-<blockquote><p><em>Citace:</em> „V rámci této práce byly stanoveny koncentrace NS1 proteinu produkovaného ve vybraných buněčných kulturách po infekci TBEV a současně byl zkoumán vztah mezi těmito koncentracemi a virovým titrem."</p></blockquote>
-
-<p>Toto popisuje pouze záměr, nikoli výsledek. Klíčové výsledky (astrocyty produkují řádově více NS1 než endotely; žádná statisticky prokázaná korelace NS1 vs. titr; statisticky signifikantní rozdíly mezi buněčnými liniemi v poměru titr/NS1) v abstraktu chybí.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-high">VYSOKÁ</span></p>
-
-<h3>Stav úvodu</h3>
-
-<p>Dobrý. Logicky propojuje epidemiologický zájem o TBEV v ČR s relevancí imunitní odpovědi a role NS1. Cíl práce je nastíněn.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-low">NÍZKÁ</span></p>
-
-<h3>Stav závěru</h3>
-
-<p>Přijatelný s výhradami. Pět odrážek odpovídá pěti cílům práce a jsou podloženy výsledky.</p>
-
-<p><strong>Zjištění — poslední odrážka bez tečky:</strong> Řádek 876–880 není ukončen tečkou.</p>
-
-<p><strong>Zjištění — „endotely":</strong> Viz kategorie 8.</p>
-
-<p><strong>Doporučení:</strong> Doplnit do abstraktu (CZ i EN) minimálně 2–3 věty o klíčových výsledcích.</p>
-</section>
-
-<section id="13-zavery-a-jejich-opora-v-textu">
-<h2>13. Závěry a jejich opora v textu</h2>
-
-<p><strong>Stav:</strong> Závěry jsou obecně dobře opřeny o výsledky. Přiměřeně opatrná formulace o chybějící statistické signifikanci korelace.</p>
-
-<h3>Zjištění 1 — „Astrocyty mají vyšší produkční aktivitu NS1 proteinu než endotely" (ř. 869)</h3>
-
-<p>Opřeno o Obr. 12 a statistickou analýzu (Two-way ANOVA, Šídákův post-hoc test). Závěr je opodstatněný.</p>
-
-<h3>Zjištění 2 — „Nebyl prokázán vztah mezi naprodukovaným množstvím NS1 a změřeným virovým titrem" (ř. 873–875)</h3>
-
-<p>Závěr je v souladu s výsledky Spearmanovy korelace. Je však třeba dodat, že absence prokázaného vztahu při n=4 není totéž jako prokázaná absence vztahu. Formulace závěru je technicky správná, ale čtenář by mohl být uveden v omyl.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-medium">STŘEDNÍ</span></p>
-
-<h3>Zjištění 3 — „Bylo statisticky prokázáno, že různé buněčné linie neurovaskulární jednotky mají odlišné sekreční schopnosti NS1 proteinu..." (ř. 876–878)</h3>
-
-<p>Opřeno o Two-way ANOVA a Šídákův test (Obr. 18, 19). Závěr je statisticky podložen a je nejsilnějším výstupem práce.</p>
-
-<p><strong>Doporučení:</strong> V závěru u bodu o chybějící korelaci zvážit přidání věty o nízké statistické síle testu.</p>
-</section>
-
-<section id="14-formalni-prvky-obrazky-tabulky-popisky-prilohy">
-<h2>14. Formální prvky (obrázky, tabulky, popisky, přílohy)</h2>
-
-<p><strong>Stav:</strong> Obrázky jsou kvalitní, přehledné a relevantní. Tabulky jsou čitelné. Přílohy nejsou přítomny.</p>
-
-<h3>Zjištění 1 — Duplicitní Obr. 10 <span class="badge badge-critical">KRITICKÁ</span></h3>
-
+<h3>12.1 Abstrakt</h3>
+<p><strong>Český abstrakt:</strong> Obsahuje téma, kontext, metody, výsledky. Adekvátní. ✓</p>
+<p><strong>Anglický abstrakt:</strong></p>
 <ul>
-  <li><strong>Obr. 10 (str. 22):</strong> Barevná změna na 96ti jamkovém panelu po zastavení enzymatické reakce (ELISA ilustrace).</li>
-  <li><strong>Obr. 10 (str. 27):</strong> Porovnání 16 testovacích standardů ELISA, A–G.</li>
+<li>Mírně kratší než český.</li>
+<li>Věta „Because the host immune response is highly complex, it is essential to study it from multiple perspectives." – stylisticky slabá, tvrzení banální.</li>
+<li>Chybí explicitní výsledky (koncentrace NS1, srovnání buněčných kultur).</li>
+<li><strong>Doporučení:</strong> Doplnit 1 větu s klíčovým výsledkem.</li>
 </ul>
+<p><strong>Závažnost:</strong> Nízká.</p>
 
-<p>Oba obrázky mají v popisku číslo „Obr. 10". Druhý z nich (str. 27) by měl být Obr. 11. Veškerá číslování od str. 27 dále (Obr. 11 → má být 12, Obr. 12 → 13, ..., Obr. 19 → 20) jsou posunutá.</p>
+<h3>12.2 Úvod (str. 1)</h3>
+<p>Jeden odstavec, ~180 slov. Chybí: zasazení do kontextu, přehled stavu poznání, zdůvodnění výběru buněčných modelů BBB, přehled struktury práce.</p>
+<p><strong>Závažnost:</strong> Střední.</p>
 
-<blockquote><p><em>Citace z popisku (str. 27):</em> „Obr. 10: Porovnání 16 testovacích standardů."</p></blockquote>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-critical">KRITICKÁ</span></p>
-
-<h3>Zjištění 2 — Formát popisků tabulek</h3>
-
-<p>Tab. II (str. 24) má popisek umístěný <em>pod</em> tabulkou. Standardem je popisek tabulky <em>nad</em> tabulkou. Nekonzistentní umístění.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-low">NÍZKÁ</span></p>
-
-<h3>Zjištění 3 — „hexametrické" místo „hexamerické" v popisku Obr. 6 (ř. 322–324)</h3>
-
-<blockquote><p><em>Citace:</em> „V hexametrické formě je vidět..."</p></blockquote>
-
-<p>„Hexametrické" = metrická stopa. Správně „hexamerické" (od hexamer). Terminologická chyba v popisku obrázku.</p>
-
-<p><strong>Závažnost:</strong> <span class="badge badge-low">NÍZKÁ</span></p>
-
-<p><strong>Doporučení:</strong> Opravit číslování obrázků od str. 27 (posunout všechna čísla o +1). Opravit „hexametrické" → „hexamerické". Sjednotit umístění popisků tabulek.</p>
+<h3>12.3 Závěr (str. 44)</h3>
+<p>5 odrážek, věcné, odpovídají cílům práce. Chybí syntetizující věta propojující výsledky s patogenetickými implikacemi.</p>
+<p><strong>Závažnost:</strong> Střední.</p>
 </section>
 
-<section id="15-rizika-pro-oponenturu-obhajobu">
+<hr>
+
+<section id="chapter-13">
+<h2>13. Závěry a jejich opora v textu</h2>
+<p><strong>Stav:</strong> Závěry jsou opřeny o data, s jednou výhradou.</p>
+<ul>
+<li>„Astrocyty mají vyšší produkční aktivitu NS1 proteinu než endotely." – opřeno o Obr. 13 a Two-way ANOVA ✓.</li>
+<li>„Nebyl prokázaný vztah…" – formulace korektní (nebyl <em>prokázán</em>, nikoli „neexistuje") ✓.</li>
+<li>„Virový titr je spíše stabilní" u endotelů – „spíše" je hedging bez statistické opory. Lepší: „virový titr nevykázal statisticky signifikantní trend v průběhu 10 dní."</li>
+</ul>
+</section>
+
+<hr>
+
+<section id="chapter-14">
+<h2>14. Formální prvky (obrázky, tabulky, popisky, přílohy)</h2>
+<p><strong>Stav:</strong> Vyhovující.</p>
+<p><strong>Obrázky (Obr. 1–20):</strong></p>
+<ul>
+<li>Průběžné číslování ✓.</li>
+<li>Popisky pod obrázkem, kurzívou, se zdrojem ✓.</li>
+<li>BioRender vlastní obrázky: „zdroj: vlastní, BioRender" ✓.</li>
+<li>Převzaté: „upraveno dle [zdroj]" ✓.</li>
+<li>Odkaz v textu na obrázky ✓.</li>
+</ul>
+<p><strong>Tabulky (Tab. I–III):</strong></p>
+<ul>
+<li>Popisky nad tabulkami ✓.</li>
+<li>Tab. I: Titulek „Stanovené koncentrace známého vzorku, objem vzorku a počet rozmrazovacích cyklů" – mírně nepřesný (jedná se o testované parametry, ne stanovené). Návrh: „Testované parametry a jejich hodnoty."</li>
+</ul>
+<p><strong>Přílohy:</strong> Žádné. Pro reprodukovatelnost by bylo hodnotné přiložit standardní křivky jako přílohu, ale není povinné.</p>
+<p><strong>Závažnost:</strong> Nízká.</p>
+</section>
+
+<hr>
+
+<section id="chapter-15">
 <h2>15. Rizika pro oponenturu / obhajobu</h2>
-
-<p><strong>Předpokládané otázky a slabé body:</strong></p>
-
-<ol>
-  <li><strong>„Proč máte v bibliografii Rastogi et al. 2016a a 2016b, když jde o totéž DOI?"</strong> Autorka musí být připravena vysvětlit chybu a přijmout kritiku.</li>
-  <li><strong>„Jak interpretujete korelační koeficient 1,000 pro endotely při n=4?"</strong> Jde o artefakt malého n bez statistické validity; autorka by měla umět toto vysvětlit.</li>
-  <li><strong>„Proč jste zvolila MOI = 5, a jak to ovlivňuje generalizovatelnost výsledků?"</strong> Diskuze toto neadresuje; autorka by měla mít připravenou odpověď.</li>
-  <li><strong>„Jaký je rozdíl mezi technickými replikáty a biologickými replikáty ve vašem experimentu?"</strong> Autorka musí jasně rozlišit pasáže buněk, replikace v rámci jednoho experimentu a nezávislé biologické replikáty.</li>
-  <li><strong>„Proč abstrakt neobsahuje výsledky?"</strong> Toto bude patrně první komentář oponenta.</li>
-  <li><strong>„Jak jste oddělila vlastní příspěvek od experimentů Mgr. Kotounové?"</strong> Třeba mít jasnou odpověď o vlastním přínosu (optimalizace ELISA, re-měření vzorků, statistická analýza).</li>
-  <li><strong>„ANOVA nebo ANNOVA — jak se tato metoda správně jmenuje?"</strong> Oponent může toto položit jako provokativní otázku.</li>
-  <li><strong>„Proč je sekce 4.5 v textu, ale chybí v obsahu?"</strong> Formální nedbalost, kterou oponent zaznamená.</li>
-</ol>
+<table>
+<thead><tr><th>Riziko</th><th>Pravděpodobnost záchytu</th><th>Doporučení</th></tr></thead>
+<tbody>
+<tr><td>„NK-κB" místo „NF-κB"</td><td>Jistá</td><td>Opravit před odevzdáním</td></tr>
+<tr><td>Duplicitní bibliografické záznamy (×4)</td><td>Vysoká</td><td>Opravit před odevzdáním</td></tr>
+<tr><td>CCR5 jako „chemokin"</td><td>Vysoká</td><td>Opravit</td></tr>
+<tr><td>CD8⁺ a „protizánětlivé cytokiny"</td><td>Střední</td><td>Opravit</td></tr>
+<tr><td>Nesoulad roku Apoorva et al. (b.r. vs. 2024)</td><td>Vysoká</td><td>Opravit</td></tr>
+<tr><td>Diskrepance název vs. experimentální náplň</td><td>Střední–Vysoká</td><td>Připravit argumentaci; posílit syntézu v diskuzi</td></tr>
+<tr><td>Stručný úvod</td><td>Střední</td><td>Rozšířit</td></tr>
+<tr><td>StatPearls jako primární citace</td><td>Nízká–Střední</td><td>Nahradit primárním zdrojem</td></tr>
+<tr><td>n = 4 biologické replikace</td><td>Nízká</td><td>Přiznána limitace; připravit argumentaci</td></tr>
+<tr><td>Sdílení dat s kolegou (Kotounová)</td><td>Nízká</td><td>Transparentně deklarováno, přijatelné</td></tr>
+</tbody>
+</table>
 </section>
 
-<section id="celkove-kvalitativni-hodnoceni">
+<hr>
+
+<section id="overall-quality">
 <h2>Celkové kvalitativní hodnocení</h2>
-
-<p>Práce se vyznačuje solidním experimentálním základem a dobře strukturovanou rešeršní částí. Autorka prokázala schopnost pracovat v BSL-3 podmínkách s živým TBEV, optimalizovat analytickou metodu a kriticky interpretovat výsledky. Diskuze je analyticky nejsilnější částí práce.</p>
-
-<p>Formální stránka práce je však poddimenzovaná ve srovnání s kvalitou laboratoření práce. Duplicitní Obr. 10, opakující se „ANNOVA", trojnásobné duplicity v bibliografii a chybějící výsledky v abstraktu jsou kumulativní selhání, která signalizují nedostatečnou závěrečnou korekturu. Terminologická chyba u NLRP3 je věcný problém — jde o klíčovou molekulu oddílu 4.2.</p>
+<p>Práce splňuje základní akademické požadavky bakalářského stupně. Teoretická část je relevantní s adekvátní orientací v primární literatuře. Experimentální část má vědeckou hodnotu – optimalizace ELISA a charakterizace NS1 produkce u buněčných kultur BBB je přínosem pro laboratoř.</p>
+<p>Přes solidní základ má práce trojici věcných chyb (NF-κB, CCR5, CD8⁺ cytokiny), z nichž první je kritická a bude zachycena každým oponentem s imunologickým základem. Bibliografická správa je nedůsledná (4 duplicitní záznamy, 1 nesoulad roku). Jazykově je práce nadprůměrná, s několika systémovými stylistickými problémy.</p>
 </section>
 
-<section id="verdict-on-readiness">
+<hr>
+
+<section id="verdict">
 <h2>Verdict on readiness</h2>
-
-<p><strong>Podmíněně připravená — vyžaduje korekce před odevzdáním.</strong></p>
-
-<p>Práce není připravena k odevzdání v aktuálním stavu. Sedm prioritních oprav (viz sekce „Top priority fixes") lze provést během jednoho dne práce. Po jejich provedení je práce připravena k odevzdání a má reálnou šanci na hodnocení výborně až velmi dobře.</p>
+<p><strong>Podmíněně připravena k odevzdání – nutné opravy před odevzdáním.</strong></p>
+<p>Práce je vědecky hodnotná a strukturálně kompletní. Před odevzdáním jsou nezbytné tyto opravy (seřazeny dle závažnosti):</p>
+<ol>
+<li>NF-κB (kritická)</li>
+<li>Duplicitní bibliografické záznamy (kritická)</li>
+<li>CCR5 jako receptor, ne chemokin (vysoká)</li>
+<li>CD8⁺ a prozánětlivé cytokiny (vysoká)</li>
+<li>Apoorva et al. – rok a jméno autora (vysoká)</li>
+<li>Pravopis „přestože" (střední)</li>
+<li>Neosobní formulace v diskuzi (střední)</li>
+</ol>
+<p>Po opravě těchto bodů je práce způsobilá k odevzdání a obhajobě.</p>
 </section>
 
-<section id="otevrene-nejistoty-a-co-jeste-overit">
-<h2>Otevřené nejistoty a co ještě ověřit</h2>
+<hr>
 
-<ol>
-  <li><strong>Název PDF souboru:</strong> Nelze ověřit z obsahu — zkontrolovat shodu s předpisem <code>Novotna_Lucie_2026_BP.pdf</code>.</li>
-  <li><strong>Apoorva et al. (b.r.):</strong> DOI potvrzuje rok 2024; ověřit datum přijetí článku a opravit citaci.</li>
-  <li><strong>Sabir &amp; Jan (2026):</strong> Ověřit, zda rok 2026 odpovídá datu přístupu k StatPearls nebo datu publikace.</li>
-  <li><strong>Míra podílu autorky vs. Kotounová:</strong> Bez přístupu k laboratorním záznamům nelze objektivně posoudit, která část výsledků pro HMC3/SK-N-SH/HBVP je skutečně přínosem autorky (re-měření ELISA) a která je přejatá.</li>
-  <li><strong>Anti-plagiarizační kontrola:</strong> Bez softwaru (iThenticate apod.) nelze posoudit míru shody s jinými texty.</li>
-  <li><strong>Font a řádkování:</strong> Z PDF nelze spolehlivě ověřit soulad s Times New Roman 12pt a řádkováním 1,5 dle pokynů PřF JU. Vizuálně odpovídá, ale není jisté.</li>
-</ol>
+<section id="open-uncertainties">
+<h2>Otevřené nejistoty a co ještě ověřit</h2>
+<table>
+<thead><tr><th>Bod</th><th>Stav</th><th>Doporučení</th></tr></thead>
+<tbody>
+<tr><td>Plagiátorství / textová podobnost</td><td>Nelze ověřit bez Turnitin/iThenticate</td><td>Institucionální kontrola</td></tr>
+<tr><td>Plné jméno autora „Apoorva"</td><td>Neověřitelné z textu</td><td>Dohledat v originální publikaci</td></tr>
+<tr><td>Přesné okraje sazby</td><td>Vizuálně odpovídá; přesné hodnoty neověřitelné z PDF</td><td>Ověřit v záložkách dokumentu</td></tr>
+<tr><td>„Sabir &amp; Jan (2026)" – rok aktualizace</td><td>Technicky přijatelné, ale nejisté</td><td>Ověřit aktuální datum záznamu na StatPearls</td></tr>
+<tr><td>Surová data z experimentů</td><td>V práci nepřiložena</td><td>Zvážit jako přílohu</td></tr>
+</tbody>
+</table>
 </section>
 
 </main>
-
-<footer><p>Review bakalářské práce — Analýza 5 — generováno 14. dubna 2026</p></footer>
-
+<footer></footer>
 </body>
 </html>

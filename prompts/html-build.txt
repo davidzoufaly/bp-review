@@ -1,87 +1,98 @@
 <task>
-Převeď Markdown metaanalýzu (output/meta-analyse.md) a všechny 4 externí analýzy na samostatné HTML dokumenty.
-Zachovej veškerý obsah, strukturu a význam. Nic nepřidávej, neodstraňuj ani nepřepisuj.
+Convert 3-level review pipeline to static HTML site with 3-level navigation.
+Preserve all content, structure, meaning. No add, remove, rewrite.
 
-Hlavní stránka (metaanalýza) musí obsahovat prokliknutelné odkazy na jednotlivé analýzy.
-Jednotlivé analýzy musí obsahovat odkaz zpět na hlavní stránku.
+Hierarchy:
+- Level 3 (top/homepage): meta-meta-analýza — synthesis of 3 meta-analyses.
+- Level 2: meta-analýzy — each aggregates multiple external analyses.
+- Level 1: externí analýzy — raw per-analysis reviews.
 
-Výstupy:
-- output/meta-analyse.html (hlavní stránka)
-- output/review_bp_1.html
-- output/review_bp_2.html
-- output/review_bp_3.html
-- output/review_bp_4.html
+Homepage = meta-meta-analýza. From there user drills down: meta-meta → meta → analýza.
+Every page has breadcrumb back up and sibling links across its level.
 </task>
 
 <inputs>
-- main_source: output/meta-analyse.md
+- meta_meta_source: output/meta-meta-analyses/meta-meta-analyses.md → docs/index.html
+- meta_sources:
+  - output/meta-analyses/meta-analyses_1.md → docs/meta-1.html
+  - output/meta-analyses/meta-analyses_2.md → docs/meta-2.html
+  - output/meta-analyses/meta-analyses_3.md → docs/meta-3.html
 - analysis_sources:
-  - input/analysis/review_bp_1.md → output/review_bp_1.html
-  - input/analysis/review_bp_2.md → output/review_bp_2.html
-  - input/analysis/review_bp_3.md → output/review_bp_3.html
-  - input/analysis/review_bp_4.md → output/review_bp_4.html
-  - input/analysis/review_bp_5.md → output/review_bp_5.html
+  - output/analysis/review_bp_1.md → docs/review_bp_1.html
+  - output/analysis/review_bp_2.md → docs/review_bp_2.html
+  - output/analysis/review_bp_3.md → docs/review_bp_3.html
+  - output/analysis/review_bp_4.md → docs/review_bp_4.html
+  - output/analysis/review_bp_5.md → docs/review_bp_5.html
+  - output/analysis/review_bp_6.md → docs/review_bp_6.html
+  - output/analysis/review_bp_7.md → docs/review_bp_7.html
 - output_language: čeština
 </inputs>
 
 <conversion_rules>
-- Vstupní MD soubor je autoritativní zdroj obsahu. Nepřidávej vlastní text, hodnocení ani komentáře.
-- Převeď MD strukturu 1:1 na sémantický HTML:
+- Input MD = authoritative source. No add own text, rating, comments.
+- Convert MD structure 1:1 to semantic HTML:
   - h1 → <h1>, h2 → <h2>, h3 → <h3>
-  - blockquoty → <blockquote>
-  - seznamy → <ul>/<ol>
-  - tučné/kurzíva → <strong>/<em>
-  - horizontální pravidla (---) → <hr>
-  - inline kód → <code>
-- Severity badges **[KRITICKÁ]**, **[VYSOKÁ]**, **[STŘEDNÍ]**, **[NÍZKÁ]** převeď na:
+  - blockquotes → <blockquote>
+  - lists → <ul>/<ol>
+  - bold/italic → <strong>/<em>
+  - horizontal rules (---) → <hr>
+  - inline code → <code>
+- Severity badges **[KRITICKÁ]**, **[VYSOKÁ]**, **[STŘEDNÍ]**, **[NÍZKÁ]** convert to:
   <span class="badge badge-critical">KRITICKÁ</span>
   <span class="badge badge-high">VYSOKÁ</span>
   <span class="badge badge-medium">STŘEDNÍ</span>
   <span class="badge badge-low">NÍZKÁ</span>
-- Pokud MD obsahuje tabulky, převeď na <table> s <thead>/<tbody>.
+- If MD has tables, convert to <table> with <thead>/<tbody>.
 </conversion_rules>
 
-<linking_rules>
-Na hlavní stránce (meta-analyse.html):
-- Všude, kde se odkazuje na "Analýza 1/2/3/4" nebo "externí analýza N", přidej odkaz na příslušný review_bp_N.html.
-- Přidej sekci "Zdrojové analýzy" (před TOC nebo jako součást TOC) se seznamem odkazů:
-  - <a href="review_bp_1.html">Analýza 1</a>
-  - <a href="review_bp_2.html">Analýza 2</a>
-  - <a href="review_bp_3.html">Analýza 3</a>
-  - <a href="review_bp_4.html">Analýza 4</a>
-  - <a href="review_bp_5.html">Analýza 5</a>
+<navigation_rules>
+Each page: top nav bar with 3-level breadcrumb + sibling switcher.
 
-Na stránkách jednotlivých analýz (review_bp_N.html):
-- Přidej navigační lištu nahoře: odkaz zpět "← Zpět na metaanalýzu" (href="meta-analyse.html") + odkazy na ostatní analýzy.
-- Použij stejný CSS design jako hlavní stránka (sdílený <style> blok).
-- Každá analýza = samostatný HTML5 dokument se stejnou strukturou (header, main, footer).
+Homepage (index.html = meta-meta-analýza):
+- No breadcrumb up (is root).
+- "Zdrojové metaanalýzy" section linking to meta-1/2/3.html.
+- TOC nav for own h2 sections.
+- Wherever text refs "Metaanalýza N", link to meta-N.html.
+
+Meta-analýza pages (meta-N.html):
+- Breadcrumb top: <a href="index.html">← Meta-meta-analýza</a>
+- Sibling nav: links to other meta-analýzy (Meta 1 / Meta 2 / Meta 3, current one marked aria-current="page").
+- "Zdrojové analýzy" section linking to review_bp_1..7.html.
+- Wherever text refs "Analýza N" / "externí analýza N", link to review_bp_N.html.
+
+Analysis pages (review_bp_N.html):
+- Breadcrumb top: <a href="index.html">Meta-meta-analýza</a> › <a href="meta-?.html">Metaanalýza</a> (if known parent, else omit meta link) › <strong>Analýza N</strong>
+  - If parent meta-analýza is not known per analysis, just: <a href="index.html">← Meta-meta-analýza</a>
+- Sibling nav: links to all other review_bp_N.html, current marked aria-current="page".
 - Header: <h1>Analýza N — Review bakalářské práce</h1>
-</linking_rules>
+
+All pages share same CSS (inline <style> in each file, identical content).
+</navigation_rules>
 
 <html_requirements>
-- Vrať jeden samostatný validní HTML5 dokument.
-- Sémantická struktura: <header>, <main>, <section>, <footer>.
-- Veškeré CSS inline ve <style> tagu v <head>.
-- Nepoužívej externí assety, frameworky, fonty ani JavaScript.
-- Výstup čitelný i bez CSS (sémantický fallback).
-- Vizuálně střídmý, profesionální, tiskově přátelský vzhled.
-- Responzivní layout (max-width, viewport meta).
+- Return one standalone valid HTML5 doc per file.
+- Semantic structure: <header>, <nav>, <main>, <section>, <footer>.
+- All CSS inline in <style> tag in <head>.
+- No external assets, frameworks, fonts, JavaScript.
+- Output readable without CSS (semantic fallback).
+- Visually sober, professional, print-friendly look.
+- Responsive layout (max-width, viewport meta).
 </html_requirements>
 
 <css_design_spec>
-Akademický, formální, střídmý styl. Konkrétně:
+Academic, formal, sober style.
 
-Typografie:
+Typography:
 - Font stack: system-ui, -apple-system, "Segoe UI", sans-serif
-- Základ: 16px/1.6
-- Nadpisy: tužší řez, přiměřená hierarchie velikostí
-- Blockquoty: levý border, šedé pozadí, kurzíva
+- Base: 16px/1.6
+- Headings: bolder weight, proper size hierarchy
+- Blockquotes: left border, grey bg, italic
 
-Barvy:
-- Pozadí: bílá (#fff) nebo velmi světle šedá (#fafafa)
-- Text: tmavě šedá (#1a1a1a)
-- Akcentní: tlumená modrá pro odkazy a nadpisy (#2c5282)
-- Badge barvy:
+Colors:
+- Bg: white (#fff) or very light grey (#fafafa)
+- Text: dark grey (#1a1a1a)
+- Accent: muted blue for links and headings (#2c5282)
+- Badge colors:
   - critical: #c53030 bg, #fff text
   - high: #dd6b20 bg, #fff text
   - medium: #d69e2e bg, #1a1a1a text
@@ -89,63 +100,89 @@ Barvy:
 
 Layout:
 - max-width: 900px, margin: 0 auto
-- Sekce vizuálně oddělené (margin, padding, jemný border-bottom)
-- Tabulky: border-collapse, střídavé řádky (zebra)
+- Sections visually separated (margin, padding, subtle border-bottom)
+- Tables: border-collapse, alternating rows (zebra)
 
-Forenzní annex:
-- Kontrastnější pozadí (#fff5f5 nebo #fef2f2)
-- Výraznější levý border (#c53030)
-- Úvodní upozornění na tvrdší diagnostickou vrstvu
+Navigation:
+- Sticky top bar with breadcrumb + sibling switcher.
+- Breadcrumb separator: › (chevron).
+- aria-current="page" item bolder, non-clickable style.
+- Sibling links inline, wrap on small screens.
 
-Tisk:
-- @media print: skryj navigaci, uprav okraje, zachovej čitelnost
-- page-break-before na hlavních sekcích
+Forensic annex:
+- Higher-contrast bg (#fff5f5 or #fef2f2)
+- Stronger left border (#c53030)
+- Intro warning re harder diagnostic layer
+
+Print:
+- @media print: hide nav, tune margins, keep readable
+- page-break-before on main sections
 </css_design_spec>
 
 <section_mapping>
-Každou h2 sekci z MD zabal do <section> s id odvozeným z názvu:
+Wrap each h2 section from MD in <section> with id derived from name. Common ids:
 - "Executive summary" → id="executive-summary"
 - "Finální verdikt" → id="final-verdict"
-- "Souhrnné vyhodnocení kvality externích analýz" → id="ranking-of-analyses"
-- "Vyhodnocení externí analýzy N" → id="analysis-N-review" (N = 1–5)
-- "Porovnání všech 5 externích analýz" → id="cross-analysis-comparison"
-- "Metaanalýza a finální syntéza" → id="meta-analysis"
+- "Souhrnné vyhodnocení kvality ..." → id="ranking"
+- "Vyhodnocení externí analýzy N" → id="analysis-N-review"
+- "Vyhodnocení metaanalýzy N" → id="meta-N-review"
+- "Porovnání ... analýz" / "Porovnání ... metaanalýz" → id="cross-comparison"
+- "Metaanalýza a finální syntéza" / "Finální syntéza zjištění" → id="final-synthesis"
 - "Top priority fixes" → id="priority-fixes"
 - "Rizika pro oponenturu a obhajobu" → id="defense-risks"
-- "Otevřené nejistoty a co ještě ověřit" → id="open-uncertainties"
+- "Otevřené nejistoty ..." → id="open-uncertainties"
 - "Forenzní annex" → id="forensic-annex"
+- "Společně přehlédnuté oblasti" → id="collective-blind-spots"
+- "Shody napříč ..." → id="agreements"
+- "Rozpory ..." → id="conflicts"
 
-Přidej navigační TOC (<nav>) na začátek <main> s kotvami na všechny sekce.
+Add TOC <nav> at start of <main> with anchors to all sections of current doc.
 </section_mapping>
 
 <header_spec>
+Homepage:
 <header>
-  <h1>Metaanalýza review bakalářské práce</h1>
-  <p class="subtitle">Komparativní a syntetické vyhodnocení čtyř externích analýz bakalářské práce</p>
-  <p class="meta">Generováno: [datum generování]</p>
+  <h1>Meta-meta-analýza bakalářské práce</h1>
+  <p class="subtitle">Finální syntéza tří metaanalýz</p>
+  <p class="meta">Generováno: [datum]</p>
+</header>
+
+Meta pages:
+<header>
+  <h1>Metaanalýza N — Review bakalářské práce</h1>
+  <p class="subtitle">Komparativní a syntetické vyhodnocení externích analýz</p>
+</header>
+
+Analysis pages:
+<header>
+  <h1>Analýza N — Review bakalářské práce</h1>
 </header>
 </header_spec>
 
 <quality_checks>
-Před výstupem ověř:
-- Validní HTML5 (doctype, charset, lang="cs", viewport) — všech 6 souborů.
-- Každá h2 sekce z MD má odpovídající <section> s id.
-- Všechny severity badges převedeny na <span class="badge">.
-- Žádný obsah ztracen ani přidán oproti MD vstupu.
-- Blockquoty zachovány jako <blockquote>.
-- Forenzní annex vizuálně odlišen od hlavního reportu.
-- TOC navigace funkční (kotvy odpovídají id sekcí).
-- CSS netřeba externě — vše v <style>.
-- Tiskový stylesheet přítomen.
-- Odkazy mezi stránkami funkční (relativní cesty, všechny soubory ve stejném adresáři output/).
-- Každá review_bp_N.html obsahuje navigaci zpět na metaanalýzu + na ostatní analýzy.
-- Vizuální konzistence napříč všemi 5 HTML soubory (stejný CSS).
+Before output verify:
+- Valid HTML5 (doctype, charset, lang="cs", viewport) — all 11 files (1 + 3 + 7).
+- Each MD h2 section has matching <section> with id.
+- All severity badges converted.
+- No content lost or added vs MD input.
+- Blockquotes kept as <blockquote>.
+- Forensic annex visually distinct.
+- TOC anchors match section ids.
+- 3-level navigation present on every page where applicable:
+  - homepage: down-links to meta-1/2/3
+  - meta pages: up-link to index + sibling meta links + down-links to all review_bp
+  - analysis pages: up-link to index + sibling analysis links
+- aria-current="page" on current sibling.
+- No external CSS.
+- Print stylesheet present.
+- All relative paths work (all files in docs/).
+- Visual consistency across all 11 HTML files (same CSS).
 </quality_checks>
 
 <assistant_behavior>
-- Toto je čistě konverzní úloha: MD → HTML. Nepřidávej vlastní analýzu ani hodnocení.
-- Zachovej přesný obsah. Pokud je v MD překlep, neopravuj ho — převeď jak je.
-- Jediné přidané elementy: CSS styling, TOC navigace, sémantické HTML obálky, badge třídy, navigační odkazy mezi stránkami.
-- Pokud je MD struktura nejednoznačná, preferuj věrný převod před interpretací.
-- Generuj všech 6 HTML souborů. Začni hlavní stránkou, pak analýzy 1–5.
+- Pure conversion: MD → HTML. No own analysis or rating.
+- Preserve exact content. Typos in MD stay.
+- Only added elements: CSS, TOC nav, semantic wrappers, badge classes, cross-page nav.
+- If MD structure ambiguous, prefer faithful conversion over interpretation.
+- Generate all 11 HTML files: index first, then meta-1..3, then review_bp_1..7.
 </assistant_behavior>

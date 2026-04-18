@@ -1,0 +1,71 @@
+<task>
+Proveď meta-meta-analýzu: syntetizuj 3 existující metaanalýzy bakalářské práce do jednoho finálního dokumentu.
+Vstupem jsou hotové metaanalýzy (každá už agregovala více externích analýz). Cílem je jediný, nejsilnější možný výstup.
+
+Plný text práce (input/bp.txt) otevírej jen cíleně při rozporu mezi metaanalýzami o konkrétním faktu nebo jazykové pasáži.
+
+Dodej JEDEN Markdown dokument v češtině do output/meta-meta-analyza.md.
+</task>
+
+<inputs>
+- meta_1: output/meta-analyses/meta-analyses_1.md
+- meta_2: output/meta-analyses/meta-analyses_2.md
+- meta_3: output/meta-analyses/meta-analyses_3.md
+- thesis_source_of_truth: input/bp.txt  # jen cílené ověření při rozporu
+- output_language: čeština
+- rigor_level: nejvyšší akademická přísnost
+</inputs>
+
+<method>
+1. Každou metaanalýzu posuď samostatně: kvalita syntézy, konzistence, důkazní opora, slepá místa.
+2. Porovnej všechny 3: shody, rozpory, jedinečné postřehy, společně přehlédnuté oblasti.
+3. Při rozporu o faktu/jazyce otevři cíleně relevantní úsek input/bp.txt.
+4. Vytvoř finální syntézu — lepší než kterákoli vstupní metaanalýza.
+5. Preferuj závěry s nejsilnější důkazní oporou, filtruj slabé, spekulativní, přehnané.
+6. Explicitně uveď, co přehlédly všechny 3 metaanalýzy.
+</method>
+
+<rules>
+- Nejde o průměr názorů. Syntéza musí mít vyšší kvalitu než vstupy.
+- Při konfliktních interpretacích popiš konkurenční výklady, jejich sílu a který přesvědčivější a proč.
+- Odlišuj: prokázaná chyba / pravděpodobný problém / podezření k ověření.
+- Žádná definitivní obvinění z plagiátorství nebo AI-generování bez opory.
+- Závažnost zjištění značkuj: **[KRITICKÁ]**, **[VYSOKÁ]**, **[STŘEDNÍ]**, **[NÍZKÁ]**.
+- Citace problematických pasáží jako blockquote, jen když mají analytickou hodnotu.
+</rules>
+
+<final_md_structure>
+# Meta-meta-analýza bakalářské práce
+
+> Finální syntéza tří metaanalýz
+
+## Executive summary
+
+## Finální verdikt
+
+## Vyhodnocení kvality jednotlivých metaanalýz
+### Metaanalýza 1
+### Metaanalýza 2
+### Metaanalýza 3
+
+## Shody napříč metaanalýzami
+
+## Rozpory mezi metaanalýzami a jejich řešení
+
+## Společně přehlédnuté oblasti
+
+## Finální syntéza zjištění
+
+## Top priority fixes
+
+## Rizika pro oponenturu a obhajobu
+
+## Otevřené nejistoty
+</final_md_structure>
+
+<assistant_behavior>
+- Přísný, forenzní, metodicky disciplinovaný.
+- Důkazní síla > rétorická jistota.
+- Transparentnost nejistoty.
+- Šetři kontext — bp.txt jen cíleně, ne celý.
+</assistant_behavior>

@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Metaanalýza 2 — Review bakalářské práce</title>
+<style>
+:root{--bg:#fff;--bg-alt:#fafafa;--text:#1a1a1a;--muted:#555;--accent:#2c5282;--border:#e2e8f0;--hr:#cbd5e0}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--bg)}
+.nav-top{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--border);padding:.6rem 1rem;font-size:.9rem}
+.nav-top .breadcrumb{color:var(--muted)}
+.nav-top .breadcrumb a{color:var(--accent);text-decoration:none}
+.nav-top .breadcrumb a:hover{text-decoration:underline}
+.nav-top .breadcrumb .sep{margin:0 .4rem;color:#a0aec0}
+.nav-top .breadcrumb strong{color:var(--text)}
+.siblings{margin-top:.4rem;display:flex;flex-wrap:wrap;gap:.5rem .9rem;font-size:.85rem}
+.siblings a{color:var(--accent);text-decoration:none}
+.siblings a:hover{text-decoration:underline}
+.siblings [aria-current=page]{font-weight:700;color:var(--text)}
+main{max-width:900px;margin:0 auto;padding:2rem 1.2rem 4rem}
+header{margin-bottom:2rem;padding-bottom:1.2rem;border-bottom:1px solid var(--border)}
+header h1{font-size:1.8rem;margin:.2rem 0;color:var(--text);line-height:1.25}
+header .subtitle{color:var(--muted);margin:.3rem 0;font-size:1.05rem}
+header .meta{color:var(--muted);font-size:.85rem;margin:.3rem 0 0}
+h2{font-size:1.4rem;color:var(--accent);margin-top:2.2rem;margin-bottom:.8rem;line-height:1.3;border-bottom:1px solid var(--border);padding-bottom:.3rem}
+h3{font-size:1.12rem;color:var(--text);margin-top:1.6rem;margin-bottom:.5rem}
+h4{font-size:1rem;margin-top:1.2rem;margin-bottom:.4rem}
+p{margin:.7rem 0}
+ul,ol{margin:.6rem 0;padding-left:1.6rem}
+li{margin:.3rem 0}
+blockquote{border-left:4px solid #cbd5e0;background:#f7fafc;margin:1rem 0;padding:.6rem 1rem;color:#2d3748;font-style:italic}
+code{background:#f1f5f9;padding:.1rem .35rem;border-radius:3px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em}
+hr{border:0;border-top:1px solid var(--hr);margin:2rem 0}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.94rem}
+th,td{border:1px solid var(--border);padding:.5rem .7rem;text-align:left;vertical-align:top}
+th{background:#f7fafc;font-weight:600}
+tbody tr:nth-child(even){background:#fafafa}
+section{margin-bottom:1.6rem;scroll-margin-top:5rem}
+.toc{background:var(--bg-alt);border:1px solid var(--border);padding:1rem 1.2rem;border-radius:4px;margin-bottom:2rem}
+.toc h2{margin-top:0;font-size:1.05rem;color:var(--text);border:0;padding:0}
+.toc ul{list-style:none;padding-left:0;columns:2;column-gap:1.6rem}
+.toc li{break-inside:avoid;margin:.25rem 0}
+.toc a{color:var(--accent);text-decoration:none;font-size:.92rem}
+.toc a:hover{text-decoration:underline}
+.badge{display:inline-block;padding:.1rem .5rem;border-radius:3px;font-size:.78rem;font-weight:700;letter-spacing:.02em;margin:0 .15rem;vertical-align:baseline}
+.badge-critical{background:#c53030;color:#fff}
+.badge-high{background:#dd6b20;color:#fff}
+.badge-medium{background:#d69e2e;color:#1a1a1a}
+.badge-low{background:#38a169;color:#fff}
+.downlinks{background:var(--bg-alt);border:1px solid var(--border);padding:1rem 1.2rem;border-radius:4px;margin:2rem 0}
+.downlinks h2{margin-top:0;font-size:1.1rem;border:0;padding:0}
+.downlinks ul{margin:.3rem 0;padding-left:1.4rem}
+.forensic{background:#fff5f5;border-left:5px solid #c53030;padding:1rem 1.2rem;margin-top:2rem;border-radius:0 4px 4px 0}
+.forensic>.intro-warning{font-size:.88rem;color:#742a2a;font-style:italic;margin:0 0 .8rem}
+footer{max-width:900px;margin:2rem auto 0;padding:1.4rem 1.2rem;border-top:1px solid var(--border);font-size:.82rem;color:var(--muted);text-align:center}
+strong{font-weight:700}
+em{font-style:italic}
+@media (max-width:640px){main{padding:1.4rem .9rem 3rem}header h1{font-size:1.45rem}h2{font-size:1.2rem}.toc ul{columns:1}}
+@media print{.nav-top,.siblings,footer,.toc{display:none}body{font-size:11pt;color:#000;background:#fff}main{max-width:none;padding:0}a{color:#000;text-decoration:none}h2{page-break-after:avoid}section{page-break-inside:avoid}.forensic{background:#fff;border-left:3px solid #000}}
+</style>
+</head>
+<body>
+<nav class="nav-top" aria-label="Navigace">
+<div class="breadcrumb"><a href="index.html">← Meta-meta-analýza</a></div>
+<div class="siblings" aria-label="Ostatní metaanalýzy">
+<a href="meta-1.html">Metaanalýza 1</a>
+<a href="meta-2.html" aria-current="page">Metaanalýza 2</a>
+<a href="meta-3.html">Metaanalýza 3</a>
+</div>
+</nav>
+<main>
+<header>
+<h1>Metaanalýza 2 — Review bakalářské práce</h1>
+<p class="subtitle">Komparativní a syntetické vyhodnocení externích analýz</p>
+</header>
+
+<blockquote>Komparativní a syntetické vyhodnocení sedmi externích analýz bakalářské práce „Protivirová imunitní odpověď u flavivirů a její možné úskalí: zaměření na NS1 protein" (Lucie Novotná, PřF JU 2026)</blockquote>
+
+<nav class="toc" aria-label="Obsah">
+<h2>Obsah</h2>
+<ul>
+<li><a href="#executive-summary">Executive summary</a></li>
+<li><a href="#critical-findings">Kritická zjištění</a></li>
+<li><a href="#ranking">Souhrnné vyhodnocení kvality externích analýz</a></li>
+<li><a href="#analysis-1-review">Vyhodnocení externí analýzy 1</a></li>
+<li><a href="#analysis-2-review">Vyhodnocení externí analýzy 2</a></li>
+<li><a href="#analysis-3-review">Vyhodnocení externí analýzy 3</a></li>
+<li><a href="#analysis-4-review">Vyhodnocení externí analýzy 4</a></li>
+<li><a href="#analysis-5-review">Vyhodnocení externí analýzy 5</a></li>
+<li><a href="#analysis-6-review">Vyhodnocení externí analýzy 6</a></li>
+<li><a href="#analysis-7-review">Vyhodnocení externí analýzy 7</a></li>
+<li><a href="#cross-comparison">Porovnání všech 7 externích analýz</a></li>
+<li><a href="#final-synthesis">Metaanalýza a finální syntéza</a></li>
+<li><a href="#priority-fixes">Top priority fixes</a></li>
+<li><a href="#defense-risks">Rizika pro oponenturu a obhajobu</a></li>
+<li><a href="#final-verdict">Finální verdikt</a></li>
+<li><a href="#open-uncertainties">Otevřené nejistoty a co ještě ověřit</a></li>
+<li><a href="#forensic-annex">Forenzní annex</a></li>
+</ul>
+</nav>
+
+<section class="downlinks" aria-label="Zdrojové analýzy">
+<h2>Zdrojové analýzy</h2>
+<ul>
+<li><a href="review_bp_1.html">Analýza 1</a></li>
+<li><a href="review_bp_2.html">Analýza 2</a></li>
+<li><a href="review_bp_3.html">Analýza 3</a></li>
+<li><a href="review_bp_4.html">Analýza 4</a></li>
+<li><a href="review_bp_5.html">Analýza 5</a></li>
+<li><a href="review_bp_6.html">Analýza 6</a></li>
+<li><a href="review_bp_7.html">Analýza 7</a></li>
+</ul>
+</section>
+
+<section id="executive-summary">
+<h2>Executive summary</h2>
+<p>Tato metaanalýza syntetizuje sedm externích review bakalářské práce <em>Protivirová imunitní odpověď u flavivirů a její možné úskalí: zaměření na NS1 protein</em> a filtruje je podle jejich důkazní opory, přesnosti a míry spekulace. Primárním vstupem byly externí analýzy; <code>input/bp.txt</code> byl použit jen cíleně pro ověření sporných tvrzení a citací. U formálních náležitostí byl jako normativní referenční rámec použit oficiální dokument PřF JU P5 ze dne 1. 11. 2024. U vybraných bibliografických sporů byly ověřeny autoritativní zdroje mimo práci.</p>
+<p>Nejpevnější závěr napříč analýzami je tento: bakalářská práce má věcně nosné experimentální jádro, srozumitelnou makrostrukturu a obhajitelný odborný smysl, ale v aktuální podobě je zatížena zbytečně vysokým formálním a jazykovým rizikem. Nejzávažnější potvrzené problémy neleží v tom, že by práce byla metodicky bezcenná nebo obsahově prázdná, ale v tom, že sama oslabuje vlastní důvěryhodnost: terminologickými chybami, nečistou bibliografií, laboratorním slangem a několika slaběji obhájenými statistickými a autorizačními rozhodnutími.</p>
+<p>Současně se ukazuje, že kvalita externích analýz je velmi nerovnoměrná. Některé zachytily skutečně podstatné a ověřitelné chyby, jiné přestřelily AI-signály, zaměnily povinnou bilingvní anotaci za „smíšený jazyk", nebo dělaly příliš kategorické bibliografické soudy tam, kde je situace jemnější. Finální syntéza se proto neopírá o průměr názorů, ale o vážené převzetí jen těch závěrů, které obstojí po ověření.</p>
+</section>
+
+<section id="critical-findings">
+<h2>Kritická zjištění</h2>
+<ul>
+<li><span class="badge badge-critical">KRITICKÁ</span> V textu je prokázaná terminologická chyba <code>NK-κB</code> místo <code>NF-κB</code>, navíc vnitřně nekonzistentní, protože správná forma <code>NF-κB</code> se v jiné pasáži práce současně objevuje.</li>
+</ul>
+<blockquote>„Za produkcí IFN-α a IFN-β stojí aktivace transkripčních faktorů IRF-3, IRF-7 a NK-κB…"</blockquote>
+<ul>
+<li><span class="badge badge-high">VYSOKÁ</span> V metodické části je prokázaná záměna <code>Protein G</code> a <code>G-protein</code>, která je v biochemickém kontextu věcně nebezpečná.</li>
+</ul>
+<blockquote>„K SN od buněk bylo přidáno dané množství G-proteinu…"</blockquote>
+<ul>
+<li><span class="badge badge-high">VYSOKÁ</span> Bibliografie obsahuje prokázané duplicitní záznamy se sufixy <code>a/b</code> u identických DOI (<code>Conde</code>, <code>Lindqvist</code>, <code>Muller &amp; Young</code>, <code>Rastogi</code>) a zároveň prokázanou nekonzistenci u položky <code>Apoorva, Kumar, A., &amp; Singh, S. K. (b.r.)</code>, přestože v textu je citováno <code>(Apoorva et al., 2024)</code> a položka má DOI <code>10.1080/21688370.2024.2424628</code>.</li>
+</ul>
+<blockquote>„Apoorva, Kumar, A., &amp; Singh, S. K. (b.r.). Dengue virus NS1 hits hard…"</blockquote>
+<ul>
+<li><span class="badge badge-high">VYSOKÁ</span> Jazyk metodiky a výsledků opakovaně sklouzává do laboratorního slangu a neakademických formulací.</li>
+</ul>
+<blockquote>„Po provedení Two-way ANOVY byly dodělané post-hoc testy…"</blockquote>
+<blockquote>„Amicon byl stáčený na centrifuze…"</blockquote>
+<ul>
+<li><span class="badge badge-medium">STŘEDNÍ</span> Statistická interpretace je limitovaná malým <code>n</code> a konstrukcí pomocného poměru pro Two-way ANOVA. Nejde o důkaz neplatnosti výsledků, ale o legitimní oponenturní slabinu.</li>
+</ul>
+<blockquote>„…byl vypočítán poměr virového titru a koncentrace naprodukovaného NS1 proteinu, což umožnilo statisticky vyhodnotit experiment Two-way ANOVOU."</blockquote>
+<ul>
+<li><span class="badge badge-medium">STŘEDNÍ</span> Formální soulad s P5 je jen částečně potvrzený. Přítomnost titulního listu, bibliografického údaje, anglické anotace a AI-deklarace je doložitelná; přesné splnění požadavků na PDF/A, podpis, konkrétní datum a fyzickou podobu prohlášení z dostupných vstupů doložitelné není. Navíc text prohlášení se významově blíží P5, ale není s ním doslovně shodný.</li>
+<li><span class="badge badge-medium">STŘEDNÍ</span> Autorský přínos u části výsledků je přiznaný, ale měl by být vymezený ještě ostřeji.</li>
+</ul>
+<blockquote>„Optimalizovanou metodou ELISA byly přeměřené i ostatní buněčné kultury (HMC3, SK-N-SH a HBVP), na kterých provedla Mgr. Eliška Kotounová, Msc totožné experimenty."</blockquote>
+</section>
+
+<section id="ranking">
+<h2>Souhrnné vyhodnocení kvality externích analýz</h2>
+<ul>
+<li><code>Nejspolehlivější</code> a zároveň <code>nejlépe podložená</code> je <strong>externí <a href="review_bp_5.html">analýza 5</a></strong>. Zachytila více prokázaných textových a bibliografických chyb, přitom většinou držela rozumnou míru jistoty.</li>
+<li><code>Nejpřísnější</code> je <strong>externí <a href="review_bp_7.html">analýza 7</a></strong>. Je diagnosticky velmi užitečná, zejména u P5, metodiky a bibliografie, ale místy sklouzává k příliš kategorickým soudům.</li>
+<li><code>Nejpovrchnější</code> a současně <code>nejslabší v interpretaci</code> je <strong>externí <a href="review_bp_4.html">analýza 4</a></strong>. Obsahuje několik jasných misreadů vstupu a podezřele jisté závěry bez odpovídající opory.</li>
+<li>Těsně za <a href="review_bp_5.html">analýzou 5</a> stojí <strong>externí <a href="review_bp_6.html">analýza 6</a></strong>, která je silná v syntéze a prioritizaci rizik, ale několik bibliografických soudů formulovala tvrději, než dovolují ověřená data.</li>
+</ul>
+</section>
+
+<section id="analysis-1-review">
+<h2>Vyhodnocení externí <a href="review_bp_1.html">analýzy 1</a></h2>
+<p><strong>Co vidí správně</strong></p>
+<ul>
+<li>Velmi dobře zachycuje lokální jazykové vady metodiky a výsledků: <code>Mili Q</code>, <code>dodělané</code>, <code>stáčený</code>, <code>oživení</code>.</li>
+<li>Správně identifikuje problém <code>Protein G</code> versus <code>G-protein</code>.</li>
+<li>Přiměřeně hodnotí práci jako obsahově silnou, ale jazykově a terminologicky nedotaženou.</li>
+</ul>
+<p><strong>Co přehání, chybně interpretuje nebo míjí</strong></p>
+<ul>
+<li>Tvrdí, že v práci je „ledová kyselina" bez upřesnění „octová", ale v cíleně prohledaném <code>bp.txt</code> se tato pasáž neobjevila; tento nález tedy z dostupného vstupu nelze potvrdit.</li>
+<li>Přehlíží zásadnější bibliografické a citační vady, které se později ukázaly jako významnější než část jím akcentovaných jazykových detailů.</li>
+<li>Nevšimla si chyby <code>NK-κB</code>, která je pro obhajobu minimálně stejně nebezpečná jako <code>G-protein</code>.</li>
+</ul>
+<p><strong>Verdikt</strong></p>
+<p><a href="review_bp_1.html">Analýza 1</a> je užitečná a konkrétní v mikroúrovni jazyka a terminologie, ale není dostatečně úplná a na jednom důležitém bodě (<code>ledová kyselina</code>) zůstává neověřená.</p>
+</section>
+
+<section id="analysis-2-review">
+<h2>Vyhodnocení externí <a href="review_bp_2.html">analýzy 2</a></h2>
+<p><strong>Co vidí správně</strong></p>
+<ul>
+<li>Správně upozorňuje na potřebu zpřesnit interpretaci korelací a limitací malého <code>n</code>.</li>
+<li>Zachycuje duplikace v bibliografii a všímá si obecné formální nekonzistence.</li>
+<li>Dobře postihuje, že teoretická část někdy přenáší poznatky z jiných flavivirů na TBEV jen analogicky.</li>
+</ul>
+<p><strong>Co přehání, chybně interpretuje nebo míjí</strong></p>
+<ul>
+<li>Přestřeluje jazykové hodnocení a místy si doslova domýšlí příklady; například pracuje s formulací typu „bychom se ráda", která v cíleně ověřeném textu práce doložena nebyla.</li>
+<li>Tvrdí, že AI-prohlášení je příliš vágní, ale P5 v aktuálním znění požaduje doplnit nástroj a důvod použití; práce uvádí <code>ChatGPT</code> i účel použití.</li>
+<li>Označuje <code>Sabir &amp; Jan (2026)</code> za „budoucnost", což neobstojí po ověření: aktuální NCBI Bookshelf nyní uvádí <code>StatPearls [Internet]; 2026 Jan-</code>, s poslední aktualizací kapitoly 1. prosince 2025.</li>
+<li>Silně nadhodnocuje stylistické ukazatele AI bez dostatečné distinkce mezi skutečným důkazem a dojmem.</li>
+</ul>
+<p><strong>Verdikt</strong></p>
+<p><a href="review_bp_2.html">Analýza 2</a> obsahuje několik legitimních připomínek, ale v interpretaci je rozkolísaná a příliš sebevědomá tam, kde by měla zůstat jen u podezření.</p>
+</section>
+
+<section id="analysis-3-review">
+<h2>Vyhodnocení externí <a href="review_bp_3.html">analýzy 3</a></h2>
+<p><strong>Co vidí správně</strong></p>
+<ul>
+<li>Je opatrnější než <a href="review_bp_2.html">analýza 2</a> v tom, že AI nepovažuje za důkaz neautentičnosti obsahu.</li>
+<li>Správně připouští, že práce je vědecky nosná a strukturálně přiměřená.</li>
+<li>Dobře upozorňuje na potřebu standardizace bibliografie.</li>
+</ul>
+<p><strong>Co přehání, chybně interpretuje nebo míjí</strong></p>
+<ul>
+<li>Příliš spekuluje nad „uhlazeností" abstraktu a z fluentní angličtiny dělá nepřiměřeně silný AI-signál.</li>
+<li>Označuje <code>Liang &amp; Dai (2024)</code> za položku, jejíž existence je sporná; to je po ověření chybné, článek ve <em>Frontiers in Microbiology</em> reálně existuje a byl publikován 14. srpna 2024.</li>
+<li>Tvrdí, že <code>Fares et al. (2020)</code> není v bibliografii viditelný; v <code>bp.txt</code> bibliografii prokazatelně je.</li>
+<li>Přehled terminologických a metodických rizik je slabší než u <a href="review_bp_5.html">analýz 5–7</a>.</li>
+</ul>
+<p><strong>Verdikt</strong></p>
+<p><a href="review_bp_3.html">Analýza 3</a> je použitelná jako opatrná sekundární vrstva, ale selhává ve verifikaci několika snadno dohledatelných bibliografických tvrzení. Je spíš opatrně napsaná než skutečně přesná.</p>
+</section>
+
+<section id="analysis-4-review">
+<h2>Vyhodnocení externí <a href="review_bp_4.html">analýzy 4</a></h2>
+<p><strong>Co vidí správně</strong></p>
+<ul>
+<li>Správně zachycuje alespoň část bibliografických problémů, zejména duplicitu <code>Conde et al. (2017a/b)</code>.</li>
+<li>Správně upozorňuje, že práce má celkově slušnou makrostrukturu.</li>
+</ul>
+<p><strong>Co přehání, chybně interpretuje nebo míjí</strong></p>
+<ul>
+<li>Zjevně chybně četla bilingvní anotaci jako „anglický text v češtině":</li>
+</ul>
+<blockquote>„Pasáž v abstraktu 'Because the host immune response is highly complex…' je patrně AI-pročitaná, následují ale český text."</blockquote>
+<p>Ve skutečnosti jde o standardní sousedství české a anglické anotace na bibliografickém listu.</p>
+<ul>
+<li>Tvrdí, že kapitola 4.5 není v textovém extraktu dostupná; v <code>bp.txt</code> dostupná je.</li>
+<li>Z „Muller &amp; Young, 2013" versus „van den Elsen et al., 2021" dělá problém jednotnosti <code>et al.</code>, což je metodicky chybné: rozdíl plyne z odlišného počtu autorů, nikoli z nekonzistence stylu.</li>
+<li>Podezírá práci z „factical neoverení" u tvrzení o více než 70 flavivirech, ačkoli bez pokusu o ověření autoritativního zdroje.</li>
+</ul>
+<p><strong>Verdikt</strong></p>
+<p><a href="review_bp_4.html">Analýza 4</a> je nejméně důvěryhodná. Má několik správných intuic, ale zároveň obsahuje zřetelné misready a metodicky slabé závěry, které nelze bezpečně převzít.</p>
+</section>
+
+<section id="analysis-5-review">
+<h2>Vyhodnocení externí <a href="review_bp_5.html">analýzy 5</a></h2>
+<p><strong>Co vidí správně</strong></p>
+<ul>
+<li>Velmi přesně identifikuje chybu <code>NK-κB</code> a správně ji klasifikuje jako věcnou, ne jen stylistickou.</li>
+<li>Správně zachycuje <code>CCR5</code> jako receptor, nikoli chemokin.</li>
+<li>Správně identifikuje duplicitní bibliografické záznamy a rozpor <code>Apoorva et al., 2024</code> versus <code>(b.r.)</code> v seznamu literatury.</li>
+<li>Metodologickou kritiku drží v obhajitelné míře: neprohlašuje experiment za neplatný, ale upozorňuje na limity Spearmanovy korelace při <code>n = 4</code>.</li>
+<li>U <code>Sabir &amp; Jan (2026)</code> zůstává rozumně zdrženlivá a nevydává tento bod za jistou chybu.</li>
+</ul>
+<p><strong>Co přehání, chybně interpretuje nebo míjí</strong></p>
+<ul>
+<li>Místy má sklon přísněji formulovat dopad jednotlivých chyb na oponenturu, než je nutné.</li>
+<li>Nevěnuje se tolik strukturálnímu rozlišení mezi prokazatelným problémem a neověřitelným layoutovým dojmem.</li>
+</ul>
+<p><strong>Verdikt</strong></p>
+<p><a href="review_bp_5.html">Analýza 5</a> je nejspolehlivější a nejlépe podložená. Jako základ finální syntézy má nejvyšší váhu.</p>
+</section>
+
+<section id="analysis-6-review">
+<h2>Vyhodnocení externí <a href="review_bp_6.html">analýzy 6</a></h2>
+<p><strong>Co vidí správně</strong></p>
+<ul>
+<li>Velmi dobře skládá širší syntézu: jazyk, bibliografie, metodické limity i oponenturní strategii.</li>
+<li>Správně zachycuje duplikace v bibliografii, rozpor u <code>Apoorva</code>, chybu <code>NK-κB</code> a slabiny poměrové analýzy.</li>
+<li>Přiměřeně hodnotí práci jako obsahově udržitelnou, ale formálně nedotaženou.</li>
+<li>Dobře rozlišuje mezi vysokým rizikem v bibliografii a středním rizikem ve statistice.</li>
+</ul>
+<p><strong>Co přehání, chybně interpretuje nebo míjí</strong></p>
+<ul>
+<li>Tvrdí, že <code>Sabir &amp; Jan (2026)</code> je anachronismus; po aktuálním ověření to nelze potvrdit takto kategoricky.</li>
+<li>Podezření kolem rozsahu <code>p. 56</code> versus konec obsahu na s. 48 je legitimní, ale bez znalosti fyzického svazku nebo příloh zůstává jen podezřením.</li>
+<li>Některé vizuální výtky k layoutu nelze z textového zdroje přenést s vysokou jistotou.</li>
+</ul>
+<p><strong>Verdikt</strong></p>
+<p><a href="review_bp_6.html">Analýza 6</a> je velmi silná a prakticky nejpoužitelnější pro finální hodnotící zprávu. Jen je třeba mírně zkorigovat některé kategorické bibliografické závěry.</p>
+</section>
+
+<section id="analysis-7-review">
+<h2>Vyhodnocení externí <a href="review_bp_7.html">analýzy 7</a></h2>
+<p><strong>Co vidí správně</strong></p>
+<ul>
+<li>Nejlépe pracuje s normativním rámcem P5 a správně připomíná, že u formálních náležitostí nestačí obecný dojem „vypadá to jako standard".</li>
+<li>Správně upozorňuje na rozdíl mezi názvem práce a užší experimentální náplní, aniž by z toho dělala fatální nesoulad.</li>
+<li>Velmi dobře zachycuje oponenturní zranitelnost poměrové Two-way ANOVY a korelací při <code>n = 4</code>.</li>
+<li>Správně zpochybňuje automatické převzetí layoutových soudů, když není vše doložené.</li>
+</ul>
+<p><strong>Co přehání, chybně interpretuje nebo míjí</strong></p>
+<ul>
+<li>Příliš kategoricky označuje <code>Sabir &amp; Jan (2026)</code> za fakticky chybný záznam; aktuální NCBI stav tomu neodpovídá.</li>
+<li>Stejně příliš kategoricky zachází s některými roky online-first publikací. U <code>Wahaab et al.</code> je situace smíšená: PubMed uvádí <code>Int J Mol Sci. 2024 Dec 24</code>, zatímco issue citation odpovídá ročníku 2025. Tvrdit jednoduše „2024 je chyba" je proto příliš silné.</li>
+<li>Je přísná na hraně přepólování: místy už spíše simuluje oponenta než analyticky váží sílu důkazu.</li>
+</ul>
+<p><strong>Verdikt</strong></p>
+<p><a href="review_bp_7.html">Analýza 7</a> je nejpřísnější a velmi cenná jako stres-test práce, ale není vhodné ji přebírat bez korekce jistoty a bez doplnění bibliografických nuancí.</p>
+</section>
+
+<section id="cross-comparison">
+<h2>Porovnání všech 7 externích analýz</h2>
+
+<h3>Hlavní shody mezi analýzami</h3>
+<ul>
+<li>Práce má smysluplné experimentální jádro a není obsahově prázdná.</li>
+<li>Makrostruktura práce je v zásadě logická a odpovídá očekávatelnému schématu experimentální bakalářské práce.</li>
+<li>Jazyková vrstva práce je slabší než odborné jádro a před odevzdáním vyžaduje redakční zásah.</li>
+<li>Bibliografie není čistá a zaslouží důkladný audit.</li>
+<li>AI byla v práci deklarována; žádná analýza nepředložila důkaz, že by experimentální obsah byl generován AI.</li>
+</ul>
+
+<h3>Hlavní rozpory mezi analýzami</h3>
+<ul>
+<li><strong>Míra jazykové závažnosti:</strong> <a href="review_bp_1.html">analýzy 1</a>, <a href="review_bp_5.html">5</a>, <a href="review_bp_6.html">6</a> a <a href="review_bp_7.html">7</a> mluví o vážném, ale opravitelném problému; <a href="review_bp_2.html">analýzy 2</a> a <a href="review_bp_4.html">4</a> jazyk místy líčí téměř jako diskvalifikační.</li>
+<li><strong>AI-signály:</strong> <a href="review_bp_2.html">analýzy 2</a>, <a href="review_bp_3.html">3</a> a <a href="review_bp_4.html">4</a> přisuzují hladkosti textu příliš velkou diagnostickou váhu; <a href="review_bp_5.html">5</a>, <a href="review_bp_6.html">6</a> a <a href="review_bp_7.html">7</a> jsou v tom opatrnější.</li>
+<li><strong>Formální soulad s P5:</strong> <a href="review_bp_1.html">analýzy 1</a>, <a href="review_bp_3.html">3</a>, <a href="review_bp_4.html">4</a> a <a href="review_bp_5.html">5</a> mají sklon vycházet z dojmu „většinou v pořádku", zatímco <a href="review_bp_7.html">7</a> správně připomíná, že část bodů je bez PDF a finální odevzdávané verze neověřitelná.</li>
+<li><strong>Bibliografický fact-check:</strong> <a href="review_bp_5.html">analýzy 5–7</a> zachytily hlubší problémy, ale <a href="review_bp_6.html">6</a> a <a href="review_bp_7.html">7</a> někdy formulují příliš tvrdě to, co je ve skutečnosti jen pravděpodobný problém.</li>
+<li><strong>Metodika/statistika:</strong> <a href="review_bp_6.html">analýza 6</a> je relativně benevolentní; <a href="review_bp_7.html">analýza 7</a> je naopak nejtvrdší. Přesvědčivější je střední pozice: metodika je obhajitelná, ale statisticky limitovaná.</li>
+</ul>
+
+<h3>Body s vysokou jistotou</h3>
+<ul>
+<li><code>NK-κB</code> je prokázaná chyba v textu i v seznamu zkratek.</li>
+<li><code>G-protein</code> v purifikaci protilátek je prokázaný terminologický problém.</li>
+<li>Bibliografie obsahuje prokázané duplicity u identických DOI.</li>
+<li>Položka <code>Apoorva ... (b.r.)</code> je v rozporu s vlastním in-text odkazem <code>(2024)</code> i s DOI nesoucím rok 2024.</li>
+<li>Práce používá laboratorní slang nevhodný pro akademický text.</li>
+<li>Použití dat z experimentů Mgr. Kotounové je přiznáno, ale zaslouží ještě jasnější vymezení.</li>
+</ul>
+
+<h3>Slabě podložené body</h3>
+<ul>
+<li>Silné soudy o „AI-generovaném textu" založené převážně na rytmu věty, nominalizacích nebo kvalitní angličtině.</li>
+<li>Tvrzení, že anglický odstavec v anotaci je nepatřičný „anglický text v češtině".</li>
+<li>Kategorické soudy, že <code>Sabir &amp; Jan (2026)</code> je nutně chybný bibliografický údaj.</li>
+<li>Kategorické soudy, že <code>Wahaab et al. (2024)</code> je nutně špatně, bez rozlišení online-first a issue-year.</li>
+<li>Layoutové soudy, které nejsou z dostupného textového vstupu doložitelné.</li>
+</ul>
+
+<h3>Závěry s nejvyšší důkazní silou</h3>
+<ul>
+<li>Oponenturně nejnebezpečnější nejsou spekulované AI-signály, ale tvrdé, snadno viditelné chyby: <code>NK-κB</code>, <code>G-protein</code>, duplicity v literatuře, rozpor <code>Apoorva</code>, slang metodiky.</li>
+<li>Práce sama v úvodu poctivě přiznává, že neměří protivirovou imunitní odpověď přímo; námitka „název je širší než experiment" je tedy relevantní, ale ne likvidační.</li>
+<li>Statistická část není nekorektní, ale její interpretační síla je menší, než by naznačovala sebejistější formulace některých review.</li>
+</ul>
+
+<h3>Závěry nepřevzitelné do finální syntézy</h3>
+<ul>
+<li>Podezření, že <code>Liang &amp; Dai (2024)</code> nemusí existovat nebo nemusí být peer-reviewed.</li>
+<li>Tvrzení, že <code>Fares et al. (2020)</code> v bibliografii chybí.</li>
+<li>Tvrzení, že AI-deklarace je formálně nedostatečná jen proto, že nevyjmenovává přesné procento zásahů.</li>
+<li>Tvrzení, že samotná plynulost angličtiny je silný indikátor generování obsahu.</li>
+</ul>
+
+<h3>Oblasti přehlédnuté všemi 7 externími analýzami</h3>
+<ul>
+<li>Nikdo neprovedl systematický audit úplnosti seznamu zkratek. Přitom v textu běžně vystupují zkratky a označení jako <code>SN</code>, <code>PBS</code>, <code>SEM</code>, <code>HBVP</code>, <code>HMC3</code>, <code>SK-N-SH</code>, <code>AGS</code> nebo <code>PFU/ml</code>, které v seznamu zkratek chybějí.</li>
+<li>Nikdo explicitně nepojmenoval, že bilingvní bibliografický list může být zdrojem falešně pozitivních AI-signálů. Právě tato slepá skvrna vedla alespoň jednu analýzu k chybné interpretaci anglické anotace jako „smíšeného jazyka".</li>
+<li>Nikdo neoddělil dostatečně přísně „prokázanou chybu práce" od „chybného fact-checku externí analýzy". Výsledkem je, že se v některých review mísí skutečné vady bakalářky s vadami samotného review procesu.</li>
+</ul>
+</section>
+
+<section id="final-synthesis">
+<h2>Metaanalýza a finální syntéza</h2>
+
+<h3>Soulad se zadáním a akademickým účelem</h3>
+<p>Práce je v jádru v souladu se zadáním, jen název tematizuje širší rámec, než experiment skutečně měří. Tento nesoulad je ale v samotné práci přiznán:</p>
+<blockquote>„Práce tedy neposuzuje protivirovou imunitní odpověď přímo, ale zaměřuje se na jeden z faktorů, který s ní může přímo souviset."</blockquote>
+<p>To je důležité. Nejde tedy o skrytou koncepční chybu, ale o otázku, zda je toto zúžení dostatečně explicitně dotaženo i v diskuzi a závěru. Můj závěr: ano, práce je akademicky legitimní, ale formulace názvu a přechodu od teorie k experimentu zvyšuje nárok na obhajobové vysvětlení.</p>
+
+<h3>Struktura práce a logická návaznost</h3>
+<p>Makrostruktura je dobrá. Teoretická část, cíle, metodika, výsledky a diskuze tvoří srozumitelný celek. Slabším místem není chaos, ale spíše redundance a ne zcela čistá hierarchie některých podkapitol o NS1. Analýzy, které z práce dělají strukturální problém, nejsou přesvědčivé. Jde spíš o práci, která je strukturovaná dostatečně, nikoli výjimečně.</p>
+
+<h3>Formální náležitosti a soulad s P5</h3>
+<p>Po ověření proti oficiálnímu P5 PřF JU ze dne 1. 11. 2024 lze říci:</p>
+<ul>
+<li>přítomnost titulního listu, bibliografického údaje, anglické anotace a AI-deklarace je doložená,</li>
+<li>P5 skutečně vyžaduje PDF/A bez vodoznaků, Times New Roman 12, řádkování 1,5, zarovnání do bloku, závazný titulní list, konkrétní text prohlášení, a při použití AI i doplnění nástroje a důvodu,</li>
+<li>práce má AI-deklaraci věcně správně, protože uvádí nástroj i účel,</li>
+<li>přesnou technickou kompatibilitu PDF/A a přítomnost podpisu/konkrétního data však z textového výstupu potvrdit nelze,</li>
+<li>samotné prohlášení není doslovnou kopií formulace P5, takže nejde o čistý „splněno bez výhrad".</li>
+</ul>
+<p>Tvrzení některých analýz, že AI-deklarace je příliš obecná, nepovažuji za přesvědčivé. Tvrzení, že je vše formálně bez problému, také ne. Přesvědčivější je střední pozice: práce je formálně blízko souladu, ale část bodů zůstává otevřená a jeden bod – doslovná formulace prohlášení – je pravděpodobně jen aproximací požadavku.</p>
+
+<h3>Dodržení citačního stylu a práce se zdroji</h3>
+<p>Tady je práce nejslabší po jazyce. Rozhodující není detail typu <code>DOI ano/ne</code>, ale kombinace čtyř druhů potíží:</p>
+<ul>
+<li>prokázané duplicitní záznamy,</li>
+<li>rozpor mezi in-text a bibliografií u <code>Apoorva</code>,</li>
+<li>volba slabšího zdroje <code>StatPearls</code> pro elementární imunologii,</li>
+<li>občasné přenášení poznatků z jiných flavivirů na TBEV bez dostatečně viditelného signalizování hranice jistoty.</li>
+</ul>
+<p>Naopak nepřijímám podezření, že <code>Liang &amp; Dai (2024)</code> je sporný zdroj. Ověření ukazuje, že jde o existující článek ve <em>Frontiers in Microbiology</em>, publikovaný 14. srpna 2024. Stejně tak nepřijímám kategorický soud, že <code>Sabir &amp; Jan (2026)</code> je nutně chybný rok. Po aktuálním ověření lze spolehlivě říci jen to, že jde o bibliograficky a metodicky slabší volbu zdroje, ne o prokázanou neexistenci.</p>
+
+<h3>Jazyk, styl a terminologie</h3>
+<p>To je nejslabší vrstva práce. Přesnější je ale mluvit o kombinaci tří problémů než o nějaké obecné „špatné češtině":</p>
+<ul>
+<li>lokální terminologické chyby s vysokým dopadem (<code>NK-κB</code>, <code>G-protein</code>, <code>CCR5</code>),</li>
+<li>laboratorní a polohovorové formulace v metodice a výsledcích,</li>
+<li>těžkopádnost a kalky, které zhoršují čitelnost, ale samy o sobě nejsou důkazem AI generování.</li>
+</ul>
+<p>Nejpřesnější interpretace AI otázky je tato: práce vykazuje stylovou heterogenitu konzistentní s deklarovanou AI korekturou, nikoli konzistentní s důkazem, že obsah vznikl strojově. Analýzy, které z plynulé angličtiny nebo z nominalizací dělají skoro forenzní důkaz, jdou dál, než dovoluje evidence.</p>
+
+<h3>Argumentace, metodologie a kritické myšlení</h3>
+<p>Experimentální jádro je obhajitelné. Výsledky nejsou bezcenné, metodika není zjevně chybná a diskuze se umí opřít o literaturu. Slabina leží spíš v interpretabilditě některých statistických kroků:</p>
+<ul>
+<li>Spearmanova korelace nad čtyřmi časovými body má velmi nízkou vypovídací sílu.</li>
+<li>Poměr <code>virový titr / NS1</code> je analyticky slabší než samostatná práce s oběma proměnnými.</li>
+<li>Přítomnost cizích experimentálních sérií od Mgr. Kotounové je transparentně přiznána, ale autorský přínos by měl být vymezen ještě čistěji.</li>
+</ul>
+<p>Nejpřesvědčivější výklad tedy není „metodika je špatně", ale „metodika je v bakalářském rámci přijatelná, ovšem statisticky a interpretačně skromnější, než by si práce sama přála".</p>
+
+<h3>Rizika plagiátorství, nepřiznané parafráze a AI-generovaného textu</h3>
+<p>Z dostupných vstupů neplyne podklad pro kategorické obvinění z plagiátorství ani z AI-generovaného obsahu. Vizuální zdroje jsou vesměs označené, AI je explicitně deklarovaná a text obsahuje dostatek lidsky specifických, neuhlazených a lokálně nekonzistentních míst, aby hypotéza „masově vygenerovaného textu" nebyla přesvědčivá.</p>
+<p>Správný závěr je opatrnější:</p>
+<ul>
+<li><strong>prokázaná chyba</strong>: jazyková a terminologická nedotaženost,</li>
+<li><strong>pravděpodobný problém</strong>: přílišná závislost na jazykové korektuře bez následné lidské redakce,</li>
+<li><strong>podezření vyžadující ověření</strong>: těsnost některých parafrází vůči review literatuře, což ale bez similarity systému nelze rozhodnout.</li>
+</ul>
+</section>
+
+<section id="priority-fixes">
+<h2>Top priority fixes</h2>
+<ol>
+<li>Opravit <code>NK-κB</code> na <code>NF-κB</code> v textu i seznamu zkratek.</li>
+<li>Opravit <code>G-protein</code> na <code>Protein G</code> ve všech relevantních pasážích metodiky.</li>
+<li>Ručně vyčistit bibliografii: odstranit duplicity <code>Conde</code>, <code>Lindqvist</code>, <code>Muller &amp; Young</code>, <code>Rastogi</code>.</li>
+<li>Opravit položku <code>Apoorva ... (b.r.)</code> a sjednotit ji s in-text citací.</li>
+<li>Znovu projít slabé nebo hraniční bibliografické položky (<code>Sabir</code>, online-first záznamy) podle autoritativních databází, ne podle exportu citačního manažeru.</li>
+<li>Provést cílenou jazykovou redakci metodiky a výsledků: odstranit slang, pádové chyby, neobratné vazby a technicky neakademické formulace.</li>
+<li>Přidat explicitní větu o limitaci korelačních závěrů při <code>n = 4</code> a obhájit použití poměru pro Two-way ANOVA.</li>
+<li>Ještě ostřeji oddělit vlastní experimentální výkon autorky od dat navázaných na experimenty Mgr. Kotounové.</li>
+<li>Zkontrolovat úplnost seznamu zkratek a doplnit chybějící položky.</li>
+<li>Před finálním odevzdáním ověřit skutečný soulad prohlášení, data, podpisu a technických parametrů PDF s P5.</li>
+</ol>
+</section>
+
+<section id="defense-risks">
+<h2>Rizika pro oponenturu a obhajobu</h2>
+<ul>
+<li><span class="badge badge-high">VYSOKÁ</span> Oponent zachytí <code>NK-κB</code>, pokud má byť základní imunologické zázemí.</li>
+<li><span class="badge badge-high">VYSOKÁ</span> Oponent může velmi rychle znejistět po pohledu na duplicitní bibliografii; to podkopává důvěru i tam, kde je obsah dobrý.</li>
+<li><span class="badge badge-high">VYSOKÁ</span> <code>Protein G</code> versus <code>G-protein</code> je přesně ten typ chyby, který působí hůř než řada větších stylistických nedostatků.</li>
+<li><span class="badge badge-medium">STŘEDNÍ</span> Bude padat otázka, co přesně je vlastní experiment autorky a co už je převzatá nebo navazující datová vrstva.</li>
+<li><span class="badge badge-medium">STŘEDNÍ</span> Padne otázka, proč byla použita Spearmanova korelace při <code>n = 4</code> a proč byl analyzován poměr místo dvou proměnných zvlášť.</li>
+<li><span class="badge badge-low">NÍZKÁ</span> Mohou padnout dotazy na použití AI, ale pokud autorka zůstane u deklarovaného rozsahu jazykové korektury, nejde o hlavní obrannou linii.</li>
+</ul>
+</section>
+
+<section id="final-verdict">
+<h2>Finální verdikt</h2>
+<p>Práce je obsahově obhajitelná a její experimentální jádro má reálnou hodnotu. Současně ale v současné podobě není formálně ani jazykově dostatečně dotažená na to, aby se dala bez zbytečného rizika označit za připravenou k odevzdání. Největší hrozbou není metodická prázdnota, ale zbytečně viditelné chyby, které působí dojmem nedotaženosti a oslabují důvěru ve zbytek textu.</p>
+<p>Nejpřesnější celkové hodnocení tedy zní: <strong>obsahově slibná a obhajitelná práce, která však před odevzdáním potřebuje tvrdou terminologickou, bibliografickou a jazykovou sanaci.</strong></p>
+</section>
+
+<section id="open-uncertainties">
+<h2>Otevřené nejistoty a co ještě ověřit</h2>
+<ul>
+<li>Zda finální odevzdaná verze skutečně splňuje technický požadavek P5 na <code>PDF/A</code>.</li>
+<li>Zda je v reálné odevzdané podobě bibliografický list opatřen konkrétním datem a podpisem, nebo jde jen o pracovní export.</li>
+<li>Zda rozdíl mezi <code>p. 56</code> a koncem obsahu na s. 48 odpovídá přílohám či front matter, nebo jde o nepřesný bibliografický údaj.</li>
+<li>Jak přesně chce školitelské pracoviště formulovat hranici mezi vlastními daty autorky a navazujícími experimentálními sériemi Mgr. Kotounové.</li>
+<li>Který bibliografický rok je zvolen u online-first článků v celém seznamu a zda je tento princip použit konzistentně.</li>
+</ul>
+</section>
+
+<hr>
+
+<section id="forensic-annex" class="forensic">
+<h2>Forenzní annex</h2>
+<p class="intro-warning">Tato sekce záměrně nepůsobí diplomaticky. Neopakují se v ní hlavní závěry; rozšiřuje je o tvrdší diagnostiku práce i samotných externích analýz.</p>
+
+<h3>1. Co je v práci skutečně nebezpečné</h3>
+<ul>
+<li><code>NK-κB</code> není „překlep jako každý jiný". Je to chyba, která okamžitě signalizuje rozpojení terminologické kontroly.</li>
+<li><code>G-protein</code> v kontextu purifikace protilátek není kosmetika. Je to chyba, která při obhajobě zní jako záměna dvou různých biologických entit.</li>
+<li>Duplicitní bibliografie není jen estetický problém. Je to viditelná známka, že autor nebo redakční dohled pustili ven seznam literatury bez základního auditu.</li>
+<li>Přiznaná AI korektura práci eticky nepoškozuje. To, co ji poškozuje, je nevyrovnaný výsledek: část textu je uhlazená, část laboratorně syrová. Problém je redakční selhání, ne samotné přiznání nástroje.</li>
+</ul>
+
+<h3>2. Kde externí analýzy samy selhaly</h3>
+<ul>
+<li>Některé analýzy zaměnily povinnou anglickou anotaci za „angličtinu v českém textu". To není přísnost; to je chybné čtení vstupu.</li>
+<li>Některé analýzy zacházely s AI-signály jako s téměř forenzním indikátorem, aniž by měly pevnější oporu než stylový dojem.</li>
+<li>Některé analýzy dělaly kategorický fact-check tam, kde by poctivější bylo napsat „pravděpodobný problém, vyžaduje ověření".</li>
+</ul>
+<p>Zvlášť ilustrativní jsou tyto dva příklady:</p>
+<blockquote>„Pasáž v abstraktu 'Because the host immune response is highly complex…' je patrně AI-pročitaná, následují ale český text."</blockquote>
+<p>To je chybné čtení bibliografického listu, nikoli platný nález o práci.</p>
+<blockquote>„Sabir &amp; Jan (2026) … dosud nevydaný zdroj."</blockquote>
+<p>Aktuálně ověřený stav NCBI Bookshelf tomu neodpovídá. Přesnější soud zní: bibliograficky a metodicky slabší volba zdroje, ne bezpečně prokázaná neexistence.</p>
+
+<h3>3. Které závěry bych do oponentury nepřevzal</h3>
+<ul>
+<li>Nepřevzal bych rétoriku o „silných AI-signálech", pokud by měla sloužit jako hlavní linie kritiky práce.</li>
+<li>Nepřevzal bych tvrzení, že práce je metodicky skoro neobhajitelná. To neodpovídá tomu, co je z textu skutečně doložitelné.</li>
+<li>Nepřevzal bych ani opačný extrém, totiž že práce je „v zásadě hotová a chybí jen kosmetika". To podceňuje závažnost terminologických a bibliografických chyb.</li>
+</ul>
+
+<h3>4. Tvrdá diagnostická syntéza</h3>
+<p>Kdyby oponent viděl jen vědeckou myšlenku, práce obstojí. Kdyby viděl jen povrch textu, práce se sama poškodí. Rozdíl mezi přijatelnou a zbytečně zpochybnitelnou prací zde nedělá experiment, ale disciplína při finální redakci.</p>
+<p>Nejtvrdší, ale věcně podložené shrnutí proto zní:</p>
+<ul>
+<li>práce není slabá proto, že by nevěděla, co zkoumá,</li>
+<li>práce je slabá tam, kde působí, jako by po dokončení experimentu nikdo neprovedl poslední intelektuální úklid,</li>
+<li>a přesně to je důvod, proč část externích analýz sahá k přestřeleným interpretacím: text jim k tomu zbytečně dává příležitost.</li>
+</ul>
+<p>Pokud má finální verze obstát, musí odstranit právě ty chyby, které jsou nejvíc vidět po prvním otevření: terminologie, bibliografie, jazyková poloha a čistota autorství dat. Bez toho bude práce obhajitelná jen navzdory své podobě, ne díky ní.</p>
+</section>
+
+</main>
+<footer></footer>
+</body>
+</html>

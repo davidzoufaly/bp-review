@@ -1,6 +1,442 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="cs">
 <head>
-<meta http-equiv="refresh" content="0; url=meta-analyse.html">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meta-meta-analýza bakalářské práce</title>
+<style>
+:root{--bg:#fff;--bg-alt:#fafafa;--text:#1a1a1a;--muted:#555;--accent:#2c5282;--border:#e2e8f0;--hr:#cbd5e0}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--bg)}
+.nav-top{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--border);padding:.6rem 1rem;font-size:.9rem}
+.nav-top .breadcrumb{color:var(--muted)}
+.nav-top .breadcrumb a{color:var(--accent);text-decoration:none}
+.nav-top .breadcrumb a:hover{text-decoration:underline}
+.nav-top .breadcrumb .sep{margin:0 .4rem;color:#a0aec0}
+.nav-top .breadcrumb strong{color:var(--text)}
+.siblings{margin-top:.4rem;display:flex;flex-wrap:wrap;gap:.5rem .9rem;font-size:.85rem}
+.siblings a{color:var(--accent);text-decoration:none}
+.siblings a:hover{text-decoration:underline}
+.siblings [aria-current=page]{font-weight:700;color:var(--text)}
+main{max-width:900px;margin:0 auto;padding:2rem 1.2rem 4rem}
+header{margin-bottom:2rem;padding-bottom:1.2rem;border-bottom:1px solid var(--border)}
+header h1{font-size:1.8rem;margin:.2rem 0;color:var(--text);line-height:1.25}
+header .subtitle{color:var(--muted);margin:.3rem 0;font-size:1.05rem}
+header .meta{color:var(--muted);font-size:.85rem;margin:.3rem 0 0}
+h2{font-size:1.4rem;color:var(--accent);margin-top:2.2rem;margin-bottom:.8rem;line-height:1.3;border-bottom:1px solid var(--border);padding-bottom:.3rem}
+h3{font-size:1.12rem;color:var(--text);margin-top:1.6rem;margin-bottom:.5rem}
+h4{font-size:1rem;margin-top:1.2rem;margin-bottom:.4rem}
+p{margin:.7rem 0}
+ul,ol{margin:.6rem 0;padding-left:1.6rem}
+li{margin:.3rem 0}
+blockquote{border-left:4px solid #cbd5e0;background:#f7fafc;margin:1rem 0;padding:.6rem 1rem;color:#2d3748;font-style:italic}
+code{background:#f1f5f9;padding:.1rem .35rem;border-radius:3px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em}
+hr{border:0;border-top:1px solid var(--hr);margin:2rem 0}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.94rem}
+th,td{border:1px solid var(--border);padding:.5rem .7rem;text-align:left;vertical-align:top}
+th{background:#f7fafc;font-weight:600}
+tbody tr:nth-child(even){background:#fafafa}
+section{margin-bottom:1.6rem;scroll-margin-top:5rem}
+.toc{background:var(--bg-alt);border:1px solid var(--border);padding:1rem 1.2rem;border-radius:4px;margin-bottom:2rem}
+.toc h2{margin-top:0;font-size:1.05rem;color:var(--text);border:0;padding:0}
+.toc ul{list-style:none;padding-left:0;columns:2;column-gap:1.6rem}
+.toc li{break-inside:avoid;margin:.25rem 0}
+.toc a{color:var(--accent);text-decoration:none;font-size:.92rem}
+.toc a:hover{text-decoration:underline}
+.badge{display:inline-block;padding:.1rem .5rem;border-radius:3px;font-size:.78rem;font-weight:700;letter-spacing:.02em;margin:0 .15rem;vertical-align:baseline}
+.badge-critical{background:#c53030;color:#fff}
+.badge-high{background:#dd6b20;color:#fff}
+.badge-medium{background:#d69e2e;color:#1a1a1a}
+.badge-low{background:#38a169;color:#fff}
+.downlinks{background:var(--bg-alt);border:1px solid var(--border);padding:1rem 1.2rem;border-radius:4px;margin:2rem 0}
+.downlinks h2{margin-top:0;font-size:1.1rem;border:0;padding:0}
+.downlinks ul{margin:.3rem 0;padding-left:1.4rem}
+.forensic{background:#fff5f5;border-left:5px solid #c53030;padding:1rem 1.2rem;margin-top:2rem;border-radius:0 4px 4px 0}
+.forensic>.intro-warning{font-size:.88rem;color:#742a2a;font-style:italic;margin:0 0 .8rem}
+footer{max-width:900px;margin:2rem auto 0;padding:1.4rem 1.2rem;border-top:1px solid var(--border);font-size:.82rem;color:var(--muted);text-align:center}
+strong{font-weight:700}
+em{font-style:italic}
+@media (max-width:640px){main{padding:1.4rem .9rem 3rem}header h1{font-size:1.45rem}h2{font-size:1.2rem}.toc ul{columns:1}}
+@media print{.nav-top,.siblings,footer,.toc{display:none}body{font-size:11pt;color:#000;background:#fff}main{max-width:none;padding:0}a{color:#000;text-decoration:none}h2{page-break-after:avoid}section{page-break-inside:avoid}.forensic{background:#fff;border-left:3px solid #000}}
+</style>
 </head>
+<body>
+<nav class="nav-top" aria-label="Navigace">
+<div class="breadcrumb"><strong>Meta-meta-analýza</strong></div>
+</nav>
+<main>
+<header>
+<h1>Meta-meta-analýza bakalářské práce</h1>
+<p class="subtitle">Finální syntéza tří metaanalýz</p>
+<p class="meta">Generováno: 2026-04-18</p>
+</header>
+
+<blockquote>Finální syntéza tří metaanalýz bakalářské práce „Protivirová imunitní odpověď u flavivirů a její možné úskalí: zaměření na NS1 protein" (Lucie Novotná, PřF JU 2026)</blockquote>
+
+<blockquote>Metodická poznámka: Vstupem jsou tři metaanalýzy (M1, M2, M3), z nichž každá už syntetizovala sedm externích review. Text práce (<code>input/bp.txt</code>) byl otevírán pouze cíleně při rozporech. Finální syntéza váží důkazní oporu jednotlivých tvrzení, nerovná jejich průměr. Závažnost: <span class="badge badge-critical">KRITICKÁ</span>, <span class="badge badge-high">VYSOKÁ</span>, <span class="badge badge-medium">STŘEDNÍ</span>, <span class="badge badge-low">NÍZKÁ</span>. Epistemický status: <em>prokázaná chyba</em> / <em>pravděpodobný problém</em> / <em>podezření k ověření</em>.</blockquote>
+
+<nav class="toc" aria-label="Obsah">
+<h2>Obsah</h2>
+<ul>
+<li><a href="#executive-summary">Executive summary</a></li>
+<li><a href="#final-verdict">Finální verdikt</a></li>
+<li><a href="#meta-reviews">Vyhodnocení kvality jednotlivých metaanalýz</a></li>
+<li><a href="#agreements">Shody napříč metaanalýzami</a></li>
+<li><a href="#conflicts">Rozpory mezi metaanalýzami a jejich řešení</a></li>
+<li><a href="#collective-blind-spots">Společně přehlédnuté oblasti</a></li>
+<li><a href="#final-synthesis">Finální syntéza zjištění</a></li>
+<li><a href="#priority-fixes">Top priority fixes</a></li>
+<li><a href="#defense-risks">Rizika pro oponenturu a obhajobu</a></li>
+<li><a href="#open-uncertainties">Otevřené nejistoty</a></li>
+</ul>
+</nav>
+
+<section class="downlinks" aria-label="Zdrojové metaanalýzy">
+<h2>Zdrojové metaanalýzy</h2>
+<ul>
+<li><a href="meta-1.html">Metaanalýza 1</a></li>
+<li><a href="meta-2.html">Metaanalýza 2</a></li>
+<li><a href="meta-3.html">Metaanalýza 3</a></li>
+</ul>
+</section>
+
+<section id="executive-summary">
+<h2>Executive summary</h2>
+<p>Tři metaanalýzy se sbíhají k podobnému jádru, ale výrazně se liší v šíři záběru, v přesnosti fact-checkingu a v ochotě nekriticky přebírat tvrzení slabších externích review.</p>
+<p><strong>Stabilní konsenzus napříč všemi třemi syntézami:</strong></p>
+<ul>
+<li>Práce má reálné experimentální jádro, obhajitelný biologický smysl a transparentně přiznanou AI-asistenci pro jazykovou korekturu.</li>
+<li>Bibliografie obsahuje prokazatelné duplicitní páry se stejným DOI (<code>Conde</code>, <code>Lindqvist</code>, <code>Muller &amp; Young</code>, <code>Rastogi</code>) — nejzávažnější formální vada práce.</li>
+<li>V textu je prokázaná terminologická chyba <code>NK-κB</code> místo <code>NF-κB</code>, reprodukovaná v seznamu zkratek.</li>
+<li><code>CCR5</code> je v textu uveden jako chemokin, ačkoli jde o chemokinový receptor; práce si tím protiřečí, protože seznam zkratek jej definuje správně.</li>
+<li>Položka <code>Apoorva et al.</code> v bibliografii nese <code>(b.r.)</code>, zatímco in-text odkaz má <code>(2024)</code> — přímá vnitřní nekonzistence.</li>
+<li>Jazyk metodiky sklouzává do laboratorního slangu a překladových kalků.</li>
+<li>Statistická část je limitována <code>n = 4</code>; autorka to v textu převážně přiznává.</li>
+<li>Žádná z metaanalýz nepředložila oporu pro kategorické obvinění z plagiátorství ani AI-generování obsahu.</li>
+</ul>
+<p><strong>Meta-meta-analýza ale zjistila i tři jevy, které nelze jen sumarizovat:</strong></p>
+<ol>
+<li><strong><a href="meta-1.html">M1</a> identifikuje dvě unikátní zjištění, která <a href="meta-2.html">M2</a> a <a href="meta-3.html">M3</a> přehlédly.</strong> Numerická neshoda <code>0,56 mg/ml</code> vs <code>0,58 μg/ml</code> ve standardech NS1 (řádový rozdíl × 1 000) a kauzální chyba v textu o fagocytóze mikroglií zvyšující titr. Obojí podle M1 ověřené v bp.txt.</li>
+<li><strong><a href="meta-2.html">M2</a> a <a href="meta-3.html">M3</a> korigují tři chybné fact-checky, které <a href="meta-1.html">M1</a> převzala z externích analýz.</strong> Položka <code>Sabir &amp; Jan (2026)</code> není po ověření NCBI Bookshelf „anachronismem"; StatPearls používá <code>2026 Jan-</code> s aktualizací v prosinci 2025. Opatření P5 nevyžaduje klíčová slova na bibliografickém listu ani studijní program na titulním listu v podobě, jak tvrdila M1 (resp. jedna z jí převzatých externích analýz). Online-first vs issue-year rok u <code>Wahaab et al.</code> není „jediný správný rok", nýbrž legitimní citační nuance.</li>
+<li><strong><a href="meta-3.html">M3</a> jako jediná systematicky diagnostikuje slepé místo seznamu zkratek</strong> — nejen chybné <code>NK-κB</code>, ale i chybějící (<code>IFNAR1</code>, <code>TYK2</code>, <code>HMC3</code>, <code>HBVP</code>, <code>SK-N-SH</code>) a přebytečné položky.</li>
+</ol>
+<p>Po vážení důkazů je finální obraz tento: <strong>práce je obsahově obhajitelná, ale textově a formálně nedotažená způsobem, který zbytečně poskytuje oponentovi snadné terče.</strong> Kumulace několika středně závažných vad (bibliografie, terminologie, metodická transparentnost, jazyk) je nebezpečnější než kterákoli z nich izolovaně.</p>
+</section>
+
+<section id="final-verdict">
+<h2>Finální verdikt</h2>
+<p><strong>Práce je podmíněně připravena k odevzdání po nezbytných opravách.</strong> Vědecké jádro experimentu obstojí — data jsou reálná, metodika je v zásadě reprodukovatelná a závěry jsou v textu převážně formulovány opatrně, s uznáním statistické neprůkaznosti při <code>n = 4</code>.</p>
+<p>Práce však trpí čtyřmi typy selhání, které musí být adresovány před odevzdáním:</p>
+<ol>
+<li><strong>Věcné terminologické chyby</strong> (<code>NK-κB</code>/<code>NF-κB</code>, <code>CCR5</code> jako chemokin, <code>G-protein</code>/<code>Protein G</code>, <code>astroglykóza</code>/<code>astroglióza</code>) — každý z nich je samostatně opravitelný v řádu minut, jejich kumulativní dopad na důvěryhodnost textu je však vysoký.</li>
+<li><strong>Systémové bibliografické vady</strong> (4 duplicitní páry se stejným DOI, <code>Apoorva (b.r.)</code> vs <code>Apoorva 2024</code>) — viditelné na první pohled a signalizují nevyčištěný export z citačního manažeru.</li>
+<li><strong>Metodická neprůhlednost</strong> (statistické spojení sérií s odlišným promývacím protokolem, výměna poloviny média bez korekce ředění, poměrová Two-way ANOVA jako hlavní inferenční konstrukce, neostré oddělení vlastních dat a dat Mgr. Kotounové).</li>
+<li><strong>Jazyková nedotaženost</strong> (laboratorní slang v metodice, kalky, stylová heterogenita mezi uhlazenými a syrovějšími částmi).</li>
+</ol>
+<p>Jazyková revize samostatně by práci nepoložila. Kombinace věcných a bibliografických chyb ano — ne jako odborná diskvalifikace, ale jako snadno napadnutelný povrch při obhajobě. Obhajoba je reálná, pokud autorka přizná vady přesně a ukáže, že navzdory nim experimentální jádro stojí.</p>
+</section>
+
+<section id="meta-reviews">
+<h2>Vyhodnocení kvality jednotlivých metaanalýz</h2>
+
+<h3><a href="meta-1.html">Metaanalýza 1</a></h3>
+<p><strong>Silné stránky.</strong> Nejforenzněji formulovaná syntéza. Jako jediná identifikuje a potvrzuje v bp.txt dvě zjištění přehlédnutá M2 i M3:</p>
+<ul>
+<li><strong>Numerická neshoda</strong> zásobní vs pracovní koncentrace standardu NS1 (<code>0,56 mg/ml</code> vs <code>0,58 μg/ml</code>) s řádovým rozdílem × 1 000, bez vysvětlení v textu.</li>
+<li><strong>Kauzální chyba</strong> v teoretické části: tvrzení, že „rychlé a efektivní pohlcení viru [mikrogliemi] ... může mít za následek vysoké virové titry" — fagocytóza by titr biologicky snižovala, ne zvyšovala.</li>
+</ul>
+<p>Dále forenzní annex systematicky a přesvědčivě pojmenovává oponenturní scénáře a přesně lokalizuje slabiny metodiky (změna promývacího protokolu, diluce po výměně média, poměr <code>titr/NS1</code>).</p>
+<p><strong>Slabiny.</strong> Nekriticky přebírá z některých externích analýz tři sporné závěry:</p>
+<ul>
+<li>Tvrdí, že <code>Sabir &amp; Jan (2026)</code> je anachronický záznam, aniž by provedla aktuální ověření NCBI Bookshelf.</li>
+<li>Implicitně přejímá požadavek klíčových slov z P5 (ač <a href="meta-2.html">M2</a> a <a href="meta-3.html">M3</a> ukazují, že P5 to nepožaduje).</li>
+<li>Bibliografickou diagnózu u online-first článků formuluje kategoričtěji, než dovoluje evidence.</li>
+</ul>
+<p><a href="meta-1.html">M1</a> nejvíce přeceňuje závažnost <code>G-protein/Protein G</code>: označuje ji jako <code>[KRITICKÁ]</code> na úrovni <code>NK-κB</code>. Tato rovina je přehnaná — chyba je reálná a <code>[VYSOKÁ]</code>, ale nepatří do stejné kategorie jako duplicitní bibliografie nebo terminologická chyba reprodukovaná v seznamu zkratek.</p>
+<p><strong>Verdikt.</strong> Diagnosticky nejtvrdší a unikátně přínosná metaanalýza, která ale místy přebírá bez filtru některé slabší závěry z externích review.</p>
+
+<h3><a href="meta-2.html">Metaanalýza 2</a></h3>
+<p><strong>Silné stránky.</strong> Nejlépe odfiltrovaný balanced syntézní postoj. Systematicky označuje, co je <em>prokázaná chyba</em> vs <em>podezření k ověření</em>. Správně koriguje tři rozšířené mýty:</p>
+<ul>
+<li>Rok <code>2026</code> u Sabir &amp; Jan není budoucnost; NCBI Bookshelf to potvrzuje.</li>
+<li>AI-deklarace práce uvádí nástroj i účel a není „příliš vágní".</li>
+<li>Stylistická heterogenita je signál AI-korektury, ne důkaz AI-generování.</li>
+</ul>
+<p>Velmi disciplinovaně oddělí „prokázanou chybu práce" od „chybného fact-checku externí analýzy" — tato meta-úroveň je v M2 nejčistší.</p>
+<p><strong>Slabiny.</strong> Menší pokrytí v detailech než <a href="meta-1.html">M1</a> a <a href="meta-3.html">M3</a>. Chybí explicitní diagnostika seznamu zkratek a kauzální chyba fagocytózy. Numerická neshoda <code>0,56/0,58</code> přehlédnuta. Forenzní annex je nejslabší z trojice — méně konkrétních oponenturních scénářů.</p>
+<p><strong>Verdikt.</strong> Nejvyváženější a nejdisciplinovanější metaanalýza z hlediska epistemické čistoty. Pro finální verdikt je nejspolehlivější vrstvou.</p>
+
+<h3><a href="meta-3.html">Metaanalýza 3</a></h3>
+<p><strong>Silné stránky.</strong> Nejširší pokrytí a nejjemnější odstupňování jistoty. Jako jediná systematicky diagnostikuje problém seznamu zkratek (<code>IFNAR1</code>, <code>TYK2</code>, <code>HMC3</code>, <code>HBVP</code>, <code>SK-N-SH</code> chybí; některé položky přebývají). Rozpoznává vlastní věcnou chybu externí analýzy 3 (tvrzení „10 strukturálních proteinů" — flaviviry mají 3 strukturální a 7 nestrukturálních). Správně upozorňuje, že údaj „více než 70 flavivirů" nelze bez kontextu zdroje hodnotit jako chybu (ICTV nomenklatura se v posledních letech měnila). Nejlépe rozlišuje online-first a issue-year u <code>Wahaab et al.</code> a <code>Apoorva et al.</code>.</p>
+<p><strong>Slabiny.</strong> Stejně jako <a href="meta-2.html">M2</a> přehlíží numerickou neshodu <code>0,56/0,58 mg/ml</code> a kauzální chybu fagocytózy. Místy mírnější verdikt u jednotlivých chyb (<code>CD8+ cytokiny</code> jako „zjednodušující tvrzení" vs <a href="meta-1.html">M1</a> jako „prokázaná nepřesnost") — v tomto bodě je M1 přesvědčivější.</p>
+<p><strong>Verdikt.</strong> Nejkomplexnější a metodicky nejpoctivější metaanalýza. V kombinaci s M1 (forenzní zjištění) a M2 (epistemická disciplína) tvoří nejsilnější vstup pro finální syntézu.</p>
+
+<p><strong>Relativní kvalita:</strong></p>
+<table>
+<thead><tr><th>Dimenze</th><th><a href="meta-1.html">M1</a></th><th><a href="meta-2.html">M2</a></th><th><a href="meta-3.html">M3</a></th></tr></thead>
+<tbody>
+<tr><td>Forenzní hloubka</td><td><strong>Nejsilnější</strong></td><td>Střední</td><td>Silná</td></tr>
+<tr><td>Epistemická disciplína</td><td>Střední</td><td><strong>Nejsilnější</strong></td><td>Silná</td></tr>
+<tr><td>Pokrytí</td><td>Silné</td><td>Střední</td><td><strong>Nejsilnější</strong></td></tr>
+<tr><td>Fact-check spolehlivost</td><td>Střední</td><td><strong>Nejsilnější</strong></td><td>Silná</td></tr>
+<tr><td>Unikátní přínos</td><td>Numerická neshoda, kauzální chyba fagocytózy</td><td>Korekce falešných premis (Sabir, P5)</td><td>Audit seznamu zkratek, taxonomická nuance</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="agreements">
+<h2>Shody napříč metaanalýzami</h2>
+<p>Následující závěry jsou potvrzené všemi třemi syntézami a mají status <strong>prokázaná chyba / pravděpodobný problém</strong> s vysokou důkazní oporou:</p>
+
+<h3>Věcné chyby</h3>
+<ul>
+<li><span class="badge badge-critical">KRITICKÁ</span> <code>NK-κB</code> místo <code>NF-κB</code> v textu i v seznamu zkratek. Chyba je vnitřně nekonzistentní — na jiném místě textu je <code>NF-κB</code> uvedeno správně.</li>
+<li><span class="badge badge-high">VYSOKÁ</span> <code>CCR5</code> označen v textu jako „chemokin", ač v seznamu zkratek je definován správně jako „Receptor pro chemokiny typu C-C (typ 5)". Vnitřní rozpor v jednom dokumentu.</li>
+<li><span class="badge badge-high">VYSOKÁ</span> <code>G-protein</code> použit v sekci 7.4 o purifikaci protilátek, vzápětí správně komerční název „Protein G Sepharose 4 fast flow" — signální G-protein a imunoglobulin-vázající Protein G jsou rozdílné entity.</li>
+</ul>
+
+<h3>Bibliografie</h3>
+<ul>
+<li><span class="badge badge-critical">KRITICKÁ</span> Čtyři duplicitní páry se stejným DOI: <code>Conde et al. (2017a/b)</code>, <code>Lindqvist et al. (2016a/b)</code>, <code>Muller &amp; Young (2013a/b)</code>, <code>Rastogi et al. (2016a/b)</code>. Harvard sufix <code>a/b</code> označuje různé práce téhož kolektivu v témže roce; zde jsou to duplikáty téže práce.</li>
+<li><span class="badge badge-high">VYSOKÁ</span> <code>Apoorva et al. (b.r.)</code> v bibliografii vs <code>(Apoorva et al., 2024)</code> v textu; DOI <code>10.1080/21688370.2024.2424628</code> obsahuje rok 2024.</li>
+</ul>
+
+<h3>Metodika a statistika</h3>
+<ul>
+<li><span class="badge badge-high">VYSOKÁ</span> Statistické spojení biologických replikací s odlišným promývacím protokolem (2 vs 4 cykly) do jediné ANOVA bez citlivostní analýzy; autorčino hodnocení „drobná změna" je hodnotový soud bez metodické opory.</li>
+<li><span class="badge badge-medium">STŘEDNÍ</span> Spearmanovy korelace při <code>n = 4</code> mají omezenou vypovídací sílu; koeficient ρ ≈ 1,000 u endotelů je artefakt monotónního trendu ve čtyřech bodech.</li>
+<li><span class="badge badge-medium">STŘEDNÍ</span> Poměr <code>virový titr / NS1</code> jako hlavní proměnná pro Two-way ANOVA je metodicky slabší než samostatná analýza čitatele a jmenovatele.</li>
+<li><span class="badge badge-medium">STŘEDNÍ</span> Smíšení vlastních dat autorky a dat Mgr. Eliška Kotounové je přiznáno, ale nedostatečně ostře vymezeno.</li>
+</ul>
+
+<h3>Jazyk a styl</h3>
+<ul>
+<li><span class="badge badge-high">VYSOKÁ</span> Laboratorní slang v metodice (<code>dodělané post-hoc testy</code>, <code>stáčený na centrifuze</code>, <code>oživení buněk</code>, <code>Mili Q</code>).</li>
+<li><span class="badge badge-medium">STŘEDNÍ</span> Stylistická heterogenita — uhlazenější front matter a teoretické pasáže kontrastují se syrovější metodikou. Konzistentní s deklarovanou AI-korekturou, nikoli s AI-generováním obsahu.</li>
+</ul>
+
+<h3>AI a etika</h3>
+<ul>
+<li><span class="badge badge-low">NÍZKÁ</span> Deklarace použití <code>ChatGPT</code> je transparentní, obsahuje nástroj i účel. Žádná metaanalýza nepředložila oporu pro tvrzení o AI-generování experimentálního obsahu nebo plagiátorství.</li>
+</ul>
+</section>
+
+<section id="conflicts">
+<h2>Rozpory mezi metaanalýzami a jejich řešení</h2>
+
+<h3>Rozpor 1: <code>Sabir &amp; Jan (2026)</code> — anachronismus, nebo slabý zdroj?</h3>
+<ul>
+<li><strong><a href="meta-1.html">M1</a></strong>: „prokázaná chyba" (rok 2026 anachronický, chybní autoři, špatný formát).</li>
+<li><strong><a href="meta-2.html">M2</a> a <a href="meta-3.html">M3</a></strong>: ověřily aktuální stav NCBI Bookshelf — StatPearls uvádí <code>2026 Jan-</code> s aktualizací prosinec 2025. Rok není chyba. Výhrada je jinde: StatPearls je encyklopedický zdroj metodicky slabší než oborová učebnice či review pro tvrzení o adaptivní imunitě.</li>
+</ul>
+<p><strong>Řešení.</strong> Převažuje M2/M3. Aktivní ověření autoritativního zdroje přebíjí rétorickou jistotu M1. V syntéze je tato položka klasifikována jako <span class="badge badge-medium">STŘEDNÍ</span> bibliograficky-metodická výhrada (volba zdroje), nikoli jako <span class="badge badge-high">VYSOKÁ</span> anachronismus.</p>
+
+<h3>Rozpor 2: Opatření P5 — klíčová slova a studijní program povinné?</h3>
+<ul>
+<li><strong><a href="meta-1.html">M1</a></strong>: mezi doporučenými opravami má „doplnit klíčová slova (cs/en) na bibliografický list dle P5".</li>
+<li><strong><a href="meta-2.html">M2</a> a <a href="meta-3.html">M3</a></strong>: ověřily aktuální znění P5 ze dne 1. 11. 2024 a konstatují, že tyto požadavky P5 neukládá.</li>
+</ul>
+<p><strong>Řešení.</strong> Převažuje M2/M3. M1 převzala premisu z externí analýzy bez ověření normativního pramene. V syntéze se tyto body z top priority fixes odstraňují.</p>
+
+<h3>Rozpor 3: Závažnost <code>G-protein/Protein G</code></h3>
+<ul>
+<li><strong><a href="meta-1.html">M1</a></strong>: <code>[KRITICKÁ]</code>, na úrovni <code>NK-κB</code>, samostatně dostatečná pro záporné stanovisko oponenta.</li>
+<li><strong><a href="meta-2.html">M2</a></strong>: <code>[VYSOKÁ]</code>, v biochemickém kontextu věcně nebezpečná.</li>
+<li><strong><a href="meta-3.html">M3</a></strong>: reálný terminologický problém, ale ne „kritický bod celé práce", symptom nepečlivosti.</li>
+</ul>
+<p><strong>Řešení.</strong> Kompromis M2/M3. Záměna signálního G-proteinu a streptokokového Proteinu G je věcná, ne stylistická chyba, a biochemicky vzdělaný oponent si ji všimne. Ale na rozdíl od <code>NK-κB</code> není reprodukovaná v seznamu zkratek a text vzápětí uvádí správný komerční název „Protein G Sepharose 4 fast flow", což naznačuje, že jde o jazykovou nepečlivost, ne o pojmové nepochopení. Klasifikace <span class="badge badge-high">VYSOKÁ</span>.</p>
+
+<h3>Rozpor 4: <code>Wahaab et al.</code> rok publikace</h3>
+<ul>
+<li><strong><a href="meta-1.html">M1</a></strong>: nezmiňuje explicitně.</li>
+<li>Některé externí analýzy v <a href="meta-2.html">M2</a> a <a href="meta-3.html">M3</a>: „2024 je chyba, mělo by být jinak".</li>
+<li><strong><a href="meta-2.html">M2</a> a <a href="meta-3.html">M3</a></strong>: rozlišují online-first (<code>2024 Dec 24</code>) a issue-year (2025). Není to chyba, ale nekonzistentní citační režim.</li>
+</ul>
+<p><strong>Řešení.</strong> M2 a M3 poskytují přesnější diagnózu. Bod se z „prokázaná chyba" degraduje na <span class="badge badge-medium">STŘEDNÍ</span> nekonzistentní citační praxi u online-first záznamů v celém seznamu.</p>
+
+<h3>Rozpor 5: Numerická neshoda <code>0,56 mg/ml</code> vs <code>0,58 μg/ml</code></h3>
+<ul>
+<li><strong><a href="meta-1.html">M1</a></strong>: prokázaný nesoulad, potvrzeno v bp.txt, vyžaduje vysvětlení autorky.</li>
+<li><strong><a href="meta-2.html">M2</a> a <a href="meta-3.html">M3</a></strong>: nezmiňují.</li>
+</ul>
+<p><strong>Řešení.</strong> Zde M1 sama zjišťuje unikátní nález. Není kontraevidence. V syntéze se zachovává jako <span class="badge badge-medium">STŘEDNÍ</span> <em>pravděpodobný problém</em> s epistemickým statusem „ověřený nesoulad v textu; příčina (zásobní vs pracovní koncentrace?) vyžaduje doplnění autorkou". Technicky ověření v bp.txt nelze nyní z technických důvodů grepem přímo replikovat, ale M1 tvrdí ověřenost explicitně a nebyla zpochybněna jinou evidencí.</p>
+
+<h3>Rozpor 6: Kauzální chyba fagocytóza → virový titr</h3>
+<ul>
+<li><strong><a href="meta-1.html">M1</a></strong>: identifikována; tvrzení, že „rychlé a efektivní pohlcení viru [mikrogliemi] ... může mít za následek vysoké virové titry" je biologicky vadné.</li>
+<li><strong><a href="meta-2.html">M2</a> a <a href="meta-3.html">M3</a></strong>: nezmiňují.</li>
+</ul>
+<p><strong>Řešení.</strong> Unikátní nález M1 bez protievidence. Status <span class="badge badge-medium">STŘEDNÍ</span> <em>pravděpodobná logická chyba v teoretické části</em>, vyžaduje přeformulování.</p>
+
+<h3>Rozpor 7: Astroglykóza vs astroglióza</h3>
+<ul>
+<li><strong><a href="meta-1.html">M1</a></strong>: <code>[VYSOKÁ]</code>, prokázaná terminologická chyba.</li>
+<li><strong><a href="meta-3.html">M3</a></strong>: zmiňuje jako „nestandardní <code>astroglykóze</code>".</li>
+<li><strong><a href="meta-2.html">M2</a></strong>: explicitně nezmiňuje.</li>
+</ul>
+<p><strong>Řešení.</strong> Konsenzus M1/M3. Standardní termín je <em>astroglióza</em> (reaktivní astrocytární odpověď). Klasifikace <span class="badge badge-medium">STŘEDNÍ</span> — chyba je reálná, ale rozsah výskytu v textu je omezený.</p>
+</section>
+
+<section id="collective-blind-spots">
+<h2>Společně přehlédnuté oblasti</h2>
+<p>Následující body buď nebyly pokryty žádnou metaanalýzou, nebo byly pokryty nedostatečně. Jsou to zbytkové slepé skvrny syntézního procesu:</p>
+
+<h3>1. Úplný bibliografický audit po DOI</h3>
+<p>Všechny tři metaanalýzy pracují s několika highlights (duplicity, <code>Apoorva</code>, <code>Sabir</code>, <code>Wahaab</code>, <code>Liang &amp; Dai</code>, <code>Fares</code>). Žádná neprovedla systematickou kontrolu každé položky seznamu literatury proti autoritativním databázím. To zůstává otevřené — s vysokou pravděpodobností existují další nekonzistence u online-first publikací a u záznamů s neúplnými metadaty.</p>
+
+<h3>2. Plagiátorství a textová podobnost</h3>
+<p>Všechny tři metaanalýzy se shodují, že bez similarity reportu (Turnitin, iThenticate) nelze plagiátorství posoudit. Shodně se tedy <em>nevyjadřují</em> — což je epistemicky správné, ale prakticky to znamená, že tato dimenze kvality práce zůstává neověřená. Pro vedoucího práce to je otevřený bod před odevzdáním.</p>
+
+<h3>3. Technická kompatibilita PDF/A, podpis, datum, layout</h3>
+<p>Z textového extraktu <code>bp.txt</code> nelze rozhodnout soulad s P5 v technické rovině. Všechny tři metaanalýzy to přiznávají. Bod zůstává otevřený a musí být ověřen na finálním PDF.</p>
+
+<h3>4. Výměna poloviny média jako analytický faktor</h3>
+<p><a href="meta-1.html">M1</a> a <a href="meta-3.html">M3</a> zmiňují — výměna 125 μl média ve 3. a 6. dni způsobuje ředění, a efekt na interpretaci časových trendů koncentrací NS1 a virového titru není v diskuzi explicitně ošetřen. <a href="meta-2.html">M2</a> tento bod nepokrývá systematicky. Jde o <span class="badge badge-medium">STŘEDNÍ</span> <em>pravděpodobný metodický problém</em> vyžadující explicitní větu v diskuzi.</p>
+
+<h3>5. Tematická eklektičnost ADE u TBEV</h3>
+<p>Pouze <a href="meta-1.html">M1</a> forenzní annex okrajově zmiňuje, že kapitola 4.4 o ADE (antibody-dependent enhancement) je klinicky relevantní primárně u DENV/ZIKV, nikoli u TBEV. Pro experimentální práci zaměřenou na TBEV je to tematické oslabení, které by mělo být buď odůvodněno, nebo kapitola zúžena. Žádná z metaanalýz to plně nerozvedla.</p>
+
+<h3>6. Kontrola tvrzení o NS1 proteinu</h3>
+<p>Formulace „Geny NS1 proteinu kódují 352-aminový polypeptid" je v <a href="meta-3.html">M3</a> zmíněna jako „nehotová". Žádná z metaanalýz neověřila literárně správnou délku NS1 (literaturně ~352 aa pro dospělý flavivirový NS1 je správný řád; formulace je terminologicky nedotažená, ne faktograficky chybná). Zůstává otevřené, zda v celém textu chybí kritické faktografické údaje.</p>
+
+<h3>7. CD8⁺ cytotoxické T-lymfocyty a „protizánětlivé cytokiny"</h3>
+<p><a href="meta-1.html">M1</a> tvrdě jako <span class="badge badge-high">VYSOKÁ</span> <em>prokázaná nepřesnost</em> (CD8+ produkují IFN-γ a TNF-α, prozánětlivé). <a href="meta-3.html">M3</a> měkčí („zjednodušující tvrzení"). <a href="meta-2.html">M2</a> explicitně nezmiňuje. Síla důkazu zůstává nejasná bez přímé citace kontextu v bp.txt; pravděpodobně <span class="badge badge-medium">STŘEDNÍ</span> nepřesnost.</p>
+
+<h3>8. Obhajobová strategie</h3>
+<p>Všechny tři metaanalýzy identifikují rizika, ale žádná neformuluje explicitní doporučenou obhajobovou strategii pro autorku (jak přiznat jednotlivé vady, jaké formulace použít pro obranu poměrové ANOVA, jak rámovat limity n = 4). Pro vedoucího práce to je chybějící praktická vrstva.</p>
+</section>
+
+<section id="final-synthesis">
+<h2>Finální syntéza zjištění</h2>
+
+<h3>A. Věcné terminologické chyby (všechny ověřitelné v textu)</h3>
+<p><span class="badge badge-critical">KRITICKÁ</span> <strong>NK-κB místo NF-κB.</strong> <em>Prokázaná chyba</em> v těle textu i v seznamu zkratek. Vnitřně nekonzistentní, protože <code>NF-κB</code> se v jiné pasáži vyskytuje správně. Tři různé metaanalýzy potvrzují.</p>
+<p><span class="badge badge-high">VYSOKÁ</span> <strong>CCR5 jako „chemokin".</strong> <em>Prokázaná chyba</em> v kapitole 4.3. Vnitřní rozpor s vlastním seznamem zkratek, který definuje CCR5 správně jako receptor.</p>
+<p><span class="badge badge-high">VYSOKÁ</span> <strong>G-protein v sekci 7.4 purifikace.</strong> <em>Prokázaná terminologická chyba</em>. Text v těsném sousedství uvádí správný „Protein G Sepharose 4 fast flow", což signalizuje jazykovou nepečlivost, ne pojmový omyl.</p>
+<p><span class="badge badge-medium">STŘEDNÍ</span> <strong>Astroglykóza místo astroglióza.</strong> <em>Prokázaná terminologická chyba</em> (<a href="meta-1.html">M1</a>, <a href="meta-3.html">M3</a>).</p>
+<p><span class="badge badge-medium">STŘEDNÍ</span> <strong>CD8⁺ T-lymfocyty a „protizánětlivé cytokiny".</strong> <em>Pravděpodobná nepřesnost</em>; zasluhuje přeformulování.</p>
+
+<h3>B. Bibliografické vady</h3>
+<p><span class="badge badge-critical">KRITICKÁ</span> <strong>Čtyři duplicitní páry bibliografických záznamů</strong> se stejným DOI. Nejsnáze viditelná vada pro oponenta.</p>
+<p><span class="badge badge-high">VYSOKÁ</span> <strong><code>Apoorva et al. (b.r.)</code> vs <code>(Apoorva et al., 2024)</code>.</strong> Vnitřní nekonzistence. DOI obsahuje rok 2024.</p>
+<p><span class="badge badge-medium">STŘEDNÍ</span> <strong>Online-first vs issue-year</strong> nekonzistence u <code>Wahaab et al.</code> a dalších — citační režim není sjednocen.</p>
+<p><span class="badge badge-medium">STŘEDNÍ</span> <strong>StatPearls (<code>Sabir &amp; Jan 2026</code>) jako zdroj pro adaptivní imunitu.</strong> <em>Legitimní volba slabšího zdroje</em>, ne chyba existence. Doporučení: nahradit standardní oborovou referencí.</p>
+
+<h3>C. Metodická a statistická rovina</h3>
+<p><span class="badge badge-high">VYSOKÁ</span> <strong>Statistické spojení sérií s odlišným promývacím protokolem.</strong> Text změnu charakterizuje jako „drobnou" bez citlivostní analýzy. Přímo ovlivňuje reziduální virové inokulum v intervalu +0. Chybí diskusní pojednání.</p>
+<p><span class="badge badge-medium">STŘEDNÍ</span> <strong>Výměna 125 μl média ve 3. a 6. dni.</strong> Diluce není korigována v interpretaci koncentrací — jen <a href="meta-1.html">M1</a> a částečně <a href="meta-3.html">M3</a> to explicitně diagnostikují.</p>
+<p><span class="badge badge-medium">STŘEDNÍ</span> <strong>Poměr <code>titr/NS1</code> jako hlavní proměnná Two-way ANOVA.</strong> Analyticky slabší než samostatné modely pro čitatele a jmenovatele; může maskovat biologicky odlišné chování.</p>
+<p><span class="badge badge-medium">STŘEDNÍ</span> <strong>Spearmanova korelace při <code>n = 4</code>.</strong> Statistická signifikance při této velikosti vzorku prakticky nedosažitelná; ρ ≈ 1,000 u endotelů je artefakt. Autorka to v textu převážně přiznává — nejde o overclaim, ale o slabou vypovídací sílu.</p>
+<p><span class="badge badge-high">VYSOKÁ</span> <strong>Neostré oddělení vlastních dat a dat Mgr. Kotounové.</strong> Potvrzeno všemi třemi syntézami. Autorský přínos musí být ostřeji vymezen napříč metodikou, výsledky i diskuzí.</p>
+
+<h3>D. Jazyk, styl a konzistence</h3>
+<p><span class="badge badge-high">VYSOKÁ</span> <strong>Laboratorní slang v metodice.</strong> <code>dodělané post-hoc testy</code>, <code>stáčený na centrifuze</code>, <code>Mili Q</code>.</p>
+<p><span class="badge badge-medium">STŘEDNÍ</span> <strong>Překladové kalky a těžkopádné vazby</strong> (např. „Vyloučení interferonů představuje hlavní antivirový mechanismus...").</p>
+<p><span class="badge badge-medium">STŘEDNÍ</span> <strong>Stylistická heterogenita.</strong> Uhlazenější anotace a teorie vs syrovější metodika. Konzistentní s deklarovanou AI-korekturou.</p>
+<p><span class="badge badge-medium">STŘEDNÍ</span> <strong>Neúplný seznam zkratek.</strong> Chybí <code>IFNAR1</code>, <code>TYK2</code>, <code>HMC3</code>, <code>HBVP</code>, <code>SK-N-SH</code>, <code>SN</code>, <code>PBS</code>, <code>PFU/ml</code> a další. Některé položky jsou přebytečné. Pouze <a href="meta-3.html">M3</a> to diagnostikuje systematicky.</p>
+
+<h3>E. Unikátní nálezy <a href="meta-1.html">M1</a></h3>
+<p><span class="badge badge-medium">STŘEDNÍ</span> <strong>Numerická neshoda <code>0,56 mg/ml</code> vs <code>0,58 μg/ml</code></strong> ve standardech NS1. <em>Ověřený nesoulad v textu; příčina vyžaduje doplnění autorkou</em> (pravděpodobně zásobní vs pracovní koncentrace, ale text vysvětlení neposkytuje).</p>
+<p><span class="badge badge-medium">STŘEDNÍ</span> <strong>Kauzální chyba fagocytóza → vysoké virové titry</strong> v teoretické části. <em>Pravděpodobná logická chyba</em> — fagocytóza by titr biologicky snižovala.</p>
+
+<h3>F. Konceptuální rovina</h3>
+<p><span class="badge badge-medium">STŘEDNÍ</span> <strong>Název vs experimentální záběr.</strong> Název slibuje „protivirovou imunitní odpověď"; experiment měří koncentraci NS1 a virový titr. Autorka si toto napětí uvědomuje a v textu explicitně přiznává:</p>
+<blockquote>„Práce tedy neposuzuje protivirovou imunitní odpověď přímo, ale zaměřuje se na jeden z faktorů, který s ní může přímo souviset."</blockquote>
+<p><em>Nejde o skrytou chybu</em>, ale o <em>rámovací slabinu</em>, která by měla být ostřeji dotažena v úvodu a závěru.</p>
+<p><span class="badge badge-medium">STŘEDNÍ</span> <strong>Přechody DENV/WNV/ZIKV → TBEV.</strong> Analogické přenosy poznatků nejsou vždy explicitně signalizovány jako analogie. Problém argumentační kázně, ne špatné rešerše.</p>
+
+<h3>G. AI a etika</h3>
+<p><span class="badge badge-low">NÍZKÁ</span> <strong>AI-signály ve smyslu indikátorů jazykové editace</strong>, ne důkaz AI-generování. Transparentní deklarace použití <code>ChatGPT</code> s nástrojem i účelem. Žádný podklad pro silnější závěry.</p>
+</section>
+
+<section id="priority-fixes">
+<h2>Top priority fixes</h2>
+
+<h3>Kritické — před odevzdáním nutné</h3>
+<ol>
+<li><span class="badge badge-critical">KRITICKÁ</span> Opravit <code>NK-κB</code> → <code>NF-κB</code> v těle textu i v seznamu zkratek. Kontrola všech výskytů.</li>
+<li><span class="badge badge-critical">KRITICKÁ</span> Odstranit čtyři duplicitní páry v bibliografii (<code>Conde</code>, <code>Lindqvist</code>, <code>Muller &amp; Young</code>, <code>Rastogi</code>); sjednotit in-text citace bez sufixů <code>a/b</code>.</li>
+<li><span class="badge badge-high">VYSOKÁ</span> Opravit <code>G-protein</code> → <code>Protein G</code> v celé sekci 7.4 a v in-text odkazech na purifikaci protilátek.</li>
+<li><span class="badge badge-high">VYSOKÁ</span> Opravit CCR5 formulaci: „chemokiny, zejména CCR5" → „chemokinové receptory, zejména CCR5".</li>
+<li><span class="badge badge-high">VYSOKÁ</span> Vyřešit <code>Apoorva et al.</code> — doplnit rok 2024 do bibliografie, sjednotit s in-text citací.</li>
+<li><span class="badge badge-high">VYSOKÁ</span> Jednoznačně oddělit vlastní data autorky od dat Mgr. Kotounové v metodice, výsledcích i diskuzi; zavést jasné značení (např. poznámka pod čarou u grafů nebo explicitní věta v úvodu kapitoly 8).</li>
+<li><span class="badge badge-high">VYSOKÁ</span> Jazyková redakce metodiky a výsledků: odstranit laboratorní slang, pádové chyby, kalky, <code>Mili Q</code> → <code>Milli-Q</code>, neobratné vazby.</li>
+<li><span class="badge badge-medium">STŘEDNÍ</span> Opravit astroglykóza → astroglióza všude v textu.</li>
+<li><span class="badge badge-medium">STŘEDNÍ</span> Opravit kauzální formulaci „pohlcení viru → vysoké titry" (<a href="meta-1.html">M1</a> nález) na biologicky koherentní výklad.</li>
+<li><span class="badge badge-medium">STŘEDNÍ</span> Vysvětlit numerickou neshodu <code>0,56 mg/ml</code> vs <code>0,58 μg/ml</code> explicitní větou o vztahu zásobní a pracovní koncentrace.</li>
+<li><span class="badge badge-medium">STŘEDNÍ</span> Doplnit explicitní větu do diskuze o statistickém dopadu změny promývacího protokolu (2→4 cykly) napříč replikacemi — alespoň uznat omezení, ideálně provést citlivostní analýzu.</li>
+<li><span class="badge badge-medium">STŘEDNÍ</span> Doplnit explicitní větu o efektu výměny 125 μl média v 3. a 6. dni na interpretaci koncentrací v pozdějších časových bodech.</li>
+<li><span class="badge badge-medium">STŘEDNÍ</span> Revidovat seznam zkratek: doplnit chybějící (<code>IFNAR1</code>, <code>TYK2</code>, <code>HMC3</code>, <code>HBVP</code>, <code>SK-N-SH</code>, <code>SN</code>, <code>PBS</code>, <code>PFU/ml</code>), odstranit přebytečné (<code>JAK2</code> bez výskytu v textu).</li>
+<li><span class="badge badge-medium">STŘEDNÍ</span> Zpřesnit rámování názvu práce v úvodu a závěru — explicitně rozšířit pasáž o tom, že experiment testuje faktor NS1 jako korelát imunitní odpovědi, ne imunitní odpověď přímo.</li>
+</ol>
+
+<h3>Doporučené — zvyšují kvalitu, nejsou blokery</h3>
+<ul>
+<li>Revidovat citace online-first publikací podle jednoho sjednoceného pravidla (online-first rok vs issue-year).</li>
+<li>Zvážit nahrazení <code>StatPearls (Sabir &amp; Jan)</code> standardní oborovou referencí pro adaptivní imunitu.</li>
+<li>Doplnit alespoň jeden kvantitativní výsledek do abstraktu.</li>
+<li>Explicitně signalizovat, kdy práce přenáší poznatky z DENV/WNV/ZIKV analogicky na TBEV.</li>
+<li>Přehodnotit tematickou relevanci kap. 4.4 (ADE) pro TBEV — buď zúžit, nebo lépe odůvodnit.</li>
+<li>Posílit úvod o problémovou vymezení (gap statement) mezi širokým imunologickým rámcem a užším experimentálním cílem.</li>
+</ul>
+
+<h3>Explicitně nepřebírané úpravy (falešné požadavky z některých externích review)</h3>
+<ul>
+<li><del>Doplnit klíčová slova na bibliografický list.</del> <em>P5 to nevyžaduje.</em></li>
+<li><del>Doplnit studijní program/obor na titulní list.</del> <em>P5 to nevyžaduje v podobě citované v některých analýzách.</em></li>
+<li><del>Opravit „anglické věty uprostřed české anotace".</del> <em>Jde o standardní oddělenou bilingvní anotaci.</em></li>
+<li><del>Zpochybnit existenci <code>Liang &amp; Dai (2024)</code>.</del> <em>Článek reálně existuje, Frontiers in Microbiology, 14. srpna 2024.</em></li>
+<li><del>Označit <code>Sabir &amp; Jan (2026)</code> za anachronismus.</del> <em>NCBI Bookshelf StatPearls 2026 Jan- potvrzuje.</em></li>
+<li><del>Opravit <code>Fares et al. (2020)</code> jako „chybějící v bibliografii".</del> <em>V bibliografii je.</em></li>
+</ul>
+</section>
+
+<section id="defense-risks">
+<h2>Rizika pro oponenturu a obhajobu</h2>
+<table>
+<thead><tr><th>Riziko</th><th>Pravděpodobnost záchytu</th><th>Závažnost</th><th>Doporučená obhajobová strategie</th></tr></thead>
+<tbody>
+<tr><td>NK-κB → NF-κB</td><td><strong>Jistá</strong> (každý s imunologickým zázemím)</td><td>Kritická</td><td>Opravit před obhajobou, neobhajovat.</td></tr>
+<tr><td>Duplicitní bibliografie</td><td><strong>Jistá</strong> (pohled na seznam)</td><td>Kritická</td><td>Opravit. Při dotazu: přiznat chybu exportu z citačního manažeru, ne bagatelizovat.</td></tr>
+<tr><td>Protein G vs G-protein</td><td>Vysoká (biochemik)</td><td>Vysoká</td><td>Opravit. Při dotazu: jazyková nepečlivost, ne pojmová.</td></tr>
+<tr><td>CCR5 jako chemokin</td><td>Střední–vysoká</td><td>Vysoká</td><td>Opravit. Vnitřní rozpor se seznamem zkratek je přiznání, že autorka věcně ví — jen v textu zanedbala terminologii.</td></tr>
+<tr><td>Apoorva (b.r.) vs (2024)</td><td>Vysoká</td><td>Vysoká</td><td>Opravit.</td></tr>
+<tr><td>Změna promývacího protokolu</td><td>Střední (metodolog)</td><td>Vysoká</td><td>Přiznat jako limitaci; ideálně doplnit citlivostní analýzu nebo stratifikaci. Formulace „drobná změna" je <strong>nebezpečná formulace</strong>, přeformulovat.</td></tr>
+<tr><td>Neostré oddělení dat s Kotounovou</td><td>Střední–vysoká</td><td>Vysoká</td><td>Přiznat jasně, ostře vymezit vlastní podíl. Transparentnost &gt; defenziva.</td></tr>
+<tr><td>Poměr titr/NS1 jako hlavní proměnná</td><td>Střední (statistik)</td><td>Střední</td><td>Připravit zdůvodnění: exploratorní analytická volba, nikoli jediná inferenční linka; doplnit oddělené modely pro čitatel a jmenovatel.</td></tr>
+<tr><td>Spearman ρ=1,000 při n=4</td><td>Střední</td><td>Střední</td><td>Připravit větu: „Korelace s n = 4 nemají inferenční sílu, slouží jako orientační indikátor monotónního trendu."</td></tr>
+<tr><td>Numerická neshoda 0,56/0,58</td><td>Nízká–střední (pečlivý čtenář)</td><td>Střední</td><td>Doplnit do textu explicitní vztah zásobní vs pracovní koncentrace.</td></tr>
+<tr><td>Diluce výměnou média</td><td>Nízká–střední</td><td>Střední</td><td>Doplnit diskusní pasáž.</td></tr>
+<tr><td>Astroglykóza → astroglióza</td><td>Nízká</td><td>Střední</td><td>Opravit.</td></tr>
+<tr><td>Název vs záběr experimentu</td><td>Nízká–střední</td><td>Střední</td><td>Práce to přiznává; při obhajobě explicitně odkázat na pasáž o „korelátu imunitní odpovědi".</td></tr>
+<tr><td>Kauzální chyba fagocytóza→titr</td><td>Nízká</td><td>Střední</td><td>Přeformulovat.</td></tr>
+<tr><td>Sabir &amp; Jan jako slabý zdroj</td><td>Nízká</td><td>Nízká</td><td>Případně nahradit, jinak obhájit jako kontextovou referenci.</td></tr>
+<tr><td>AI-deklarace</td><td>Nízká</td><td>Nízká</td><td>Odkázat na transparentní deklaraci; nástroj + účel uvedeny.</td></tr>
+<tr><td>Plagiátorství</td><td>Nízká (bez similarity reportu nelze dokázat)</td><td>Potenciálně kritická</td><td>Vedoucí práce musí ověřit Turnitin/iThenticate report před obhajobou.</td></tr>
+</tbody>
+</table>
+<p><strong>Obhajobová doktrína:</strong> Nejlepší strategie není vady bagatelizovat, ale přesně je přiznat, zasadit do správné váhy a ukázat, že navzdory nim experimentální jádro stojí. Kumulace malých chyb je pro dojem obhajoby horší než jedna velká, přiznaná a správně rámovaná.</p>
+</section>
+
+<section id="open-uncertainties">
+<h2>Otevřené nejistoty</h2>
+<p>Po syntéze zůstávají následující body <em>epistemicky otevřené</em> — tj. ani po vážení tří metaanalýz nelze rozhodnout s dostatečnou oporou:</p>
+<ol>
+<li><strong>Úplnost a kompatibilita finálního PDF s P5</strong> (PDF/A, okraje, Times New Roman 12, řádkování 1,5, podpis, konkrétní datum na prohlášení). Vyžaduje otevření finální odevzdané verze.</li>
+<li><strong>Plagiátorství a textová podobnost.</strong> Bez Turnitin/iThenticate nelze rozhodnout. Vedoucí práce by měl report vygenerovat a zkontrolovat parafrázové pasáže teorie proti primárním review článkům.</li>
+<li><strong>Systematický bibliografický audit</strong> každé položky seznamu literatury proti autoritativním databázím. Metaanalýzy prošly highlights; zbytek zůstává nekontrolován.</li>
+<li><strong>Přesná příčina numerické neshody <code>0,56 mg/ml</code> vs <code>0,58 μg/ml</code></strong> — nejpravděpodobnější výklad (zásobní vs pracovní koncentrace) je hypotéza, nikoliv ověřený fakt. Vyžaduje potvrzení autorkou.</li>
+<li><strong>Systematický vliv změny promývacího protokolu na výsledky.</strong> Bez surových dat replikací 1–2 (2 cykly) vs 3–4 (4 cykly) v intervalu +0 nelze určit, zda se výsledky mezi sériemi systematicky liší.</li>
+<li><strong>Rozpor mezi deklarovanými 56 stranami a obsahem končícím na s. 48.</strong> Vysvětlení (přílohy, front matter, seznam literatury) je plausibilní, ale nepotvrzené.</li>
+<li><strong>Úplné vymezení rozsahu dat Mgr. Kotounové.</strong> Ani z textu práce, ani z metaanalýz nelze přesně říci, která konkrétní data u kterých buněčných kultur a v jakém rozsahu pocházejí od ní a která vyprodukovala autorka.</li>
+<li><strong>Přesná finální podoba prohlášení a jeho soulad s P5.</strong> Textový extrakt ukazuje jen „V Českých Budějovicích, 2026 ……………………"; skutečná odevzdaná podoba s podpisem a datem je neověřitelná.</li>
+<li><strong>CD8⁺ a cytokiny — přesná formulace v bp.txt.</strong> <a href="meta-1.html">M1</a> ji označuje jako prokázanou nepřesnost, <a href="meta-3.html">M3</a> jako zjednodušující tvrzení; přímou citací problematické pasáže by se dalo rozhodnout, ale nebyla explicitně reprodukována.</li>
+<li><strong>Zda text obsahuje další skryté terminologické chyby</strong> mimo identifikované (<code>NK-κB</code>, <code>CCR5</code>, <code>G-protein</code>, <code>astroglykóza</code>). Kumulativní povaha symptomu naznačuje, že další menší terminologické vady pravděpodobné; systematický sweep by měl být proveden před odevzdáním.</li>
+</ol>
+</section>
+
+</main>
+<footer></footer>
+</body>
 </html>

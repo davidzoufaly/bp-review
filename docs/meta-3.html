@@ -1,0 +1,798 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Metaanalýza 3 — Review bakalářské práce</title>
+<style>
+:root{--bg:#fff;--bg-alt:#fafafa;--text:#1a1a1a;--muted:#555;--accent:#2c5282;--border:#e2e8f0;--hr:#cbd5e0}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--bg)}
+.nav-top{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--border);padding:.6rem 1rem;font-size:.9rem}
+.nav-top .breadcrumb{color:var(--muted)}
+.nav-top .breadcrumb a{color:var(--accent);text-decoration:none}
+.nav-top .breadcrumb a:hover{text-decoration:underline}
+.nav-top .breadcrumb .sep{margin:0 .4rem;color:#a0aec0}
+.nav-top .breadcrumb strong{color:var(--text)}
+.siblings{margin-top:.4rem;display:flex;flex-wrap:wrap;gap:.5rem .9rem;font-size:.85rem}
+.siblings a{color:var(--accent);text-decoration:none}
+.siblings a:hover{text-decoration:underline}
+.siblings [aria-current=page]{font-weight:700;color:var(--text)}
+main{max-width:900px;margin:0 auto;padding:2rem 1.2rem 4rem}
+header{margin-bottom:2rem;padding-bottom:1.2rem;border-bottom:1px solid var(--border)}
+header h1{font-size:1.8rem;margin:.2rem 0;color:var(--text);line-height:1.25}
+header .subtitle{color:var(--muted);margin:.3rem 0;font-size:1.05rem}
+header .meta{color:var(--muted);font-size:.85rem;margin:.3rem 0 0}
+h2{font-size:1.4rem;color:var(--accent);margin-top:2.2rem;margin-bottom:.8rem;line-height:1.3;border-bottom:1px solid var(--border);padding-bottom:.3rem}
+h3{font-size:1.12rem;color:var(--text);margin-top:1.6rem;margin-bottom:.5rem}
+h4{font-size:1rem;margin-top:1.2rem;margin-bottom:.4rem}
+p{margin:.7rem 0}
+ul,ol{margin:.6rem 0;padding-left:1.6rem}
+li{margin:.3rem 0}
+blockquote{border-left:4px solid #cbd5e0;background:#f7fafc;margin:1rem 0;padding:.6rem 1rem;color:#2d3748;font-style:italic}
+code{background:#f1f5f9;padding:.1rem .35rem;border-radius:3px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em}
+hr{border:0;border-top:1px solid var(--hr);margin:2rem 0}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.94rem}
+th,td{border:1px solid var(--border);padding:.5rem .7rem;text-align:left;vertical-align:top}
+th{background:#f7fafc;font-weight:600}
+tbody tr:nth-child(even){background:#fafafa}
+section{margin-bottom:1.6rem;scroll-margin-top:5rem}
+.toc{background:var(--bg-alt);border:1px solid var(--border);padding:1rem 1.2rem;border-radius:4px;margin-bottom:2rem}
+.toc h2{margin-top:0;font-size:1.05rem;color:var(--text);border:0;padding:0}
+.toc ul{list-style:none;padding-left:0;columns:2;column-gap:1.6rem}
+.toc li{break-inside:avoid;margin:.25rem 0}
+.toc a{color:var(--accent);text-decoration:none;font-size:.92rem}
+.toc a:hover{text-decoration:underline}
+.badge{display:inline-block;padding:.1rem .5rem;border-radius:3px;font-size:.78rem;font-weight:700;letter-spacing:.02em;margin:0 .15rem;vertical-align:baseline}
+.badge-critical{background:#c53030;color:#fff}
+.badge-high{background:#dd6b20;color:#fff}
+.badge-medium{background:#d69e2e;color:#1a1a1a}
+.badge-low{background:#38a169;color:#fff}
+.downlinks{background:var(--bg-alt);border:1px solid var(--border);padding:1rem 1.2rem;border-radius:4px;margin:2rem 0}
+.downlinks h2{margin-top:0;font-size:1.1rem;border:0;padding:0}
+.downlinks ul{margin:.3rem 0;padding-left:1.4rem}
+.forensic{background:#fff5f5;border-left:5px solid #c53030;padding:1rem 1.2rem;margin-top:2rem;border-radius:0 4px 4px 0}
+.forensic>.intro-warning{font-size:.88rem;color:#742a2a;font-style:italic;margin:0 0 .8rem}
+footer{max-width:900px;margin:2rem auto 0;padding:1.4rem 1.2rem;border-top:1px solid var(--border);font-size:.82rem;color:var(--muted);text-align:center}
+strong{font-weight:700}
+em{font-style:italic}
+@media (max-width:640px){main{padding:1.4rem .9rem 3rem}header h1{font-size:1.45rem}h2{font-size:1.2rem}.toc ul{columns:1}}
+@media print{.nav-top,.siblings,footer,.toc{display:none}body{font-size:11pt;color:#000;background:#fff}main{max-width:none;padding:0}a{color:#000;text-decoration:none}h2{page-break-after:avoid}section{page-break-inside:avoid}.forensic{background:#fff;border-left:3px solid #000}}
+</style>
+</head>
+<body>
+<nav class="nav-top" aria-label="Navigace">
+  <div class="breadcrumb"><a href="index.html">← Meta-meta-analýza</a></div>
+  <div class="siblings" aria-label="Ostatní metaanalýzy">
+    <a href="meta-1.html">Metaanalýza 1</a>
+    <a href="meta-2.html">Metaanalýza 2</a>
+    <a href="meta-3.html" aria-current="page">Metaanalýza 3</a>
+  </div>
+</nav>
+<main>
+<header>
+  <h1>Metaanalýza 3 — Review bakalářské práce</h1>
+  <p class="subtitle">Komparativní a syntetické vyhodnocení externích analýz</p>
+</header>
+
+<nav class="toc" aria-label="Obsah">
+  <h2>Obsah</h2>
+  <ul>
+    <li><a href="#executive-summary">Executive summary</a></li>
+    <li><a href="#final-verdict">Finální verdikt</a></li>
+    <li><a href="#ranking">Souhrnné vyhodnocení kvality externích analýz</a></li>
+    <li><a href="#analysis-1-review">Vyhodnocení externí analýzy 1</a></li>
+    <li><a href="#analysis-2-review">Vyhodnocení externí analýzy 2</a></li>
+    <li><a href="#analysis-3-review">Vyhodnocení externí analýzy 3</a></li>
+    <li><a href="#analysis-4-review">Vyhodnocení externí analýzy 4</a></li>
+    <li><a href="#analysis-5-review">Vyhodnocení externí analýzy 5</a></li>
+    <li><a href="#analysis-6-review">Vyhodnocení externí analýzy 6</a></li>
+    <li><a href="#analysis-7-review">Vyhodnocení externí analýzy 7</a></li>
+    <li><a href="#cross-comparison">Porovnání všech 7 externích analýz</a></li>
+    <li><a href="#final-synthesis">Metaanalýza a finální syntéza</a></li>
+    <li><a href="#priority-fixes">Top priority fixes</a></li>
+    <li><a href="#defense-risks">Rizika pro oponenturu a obhajobu</a></li>
+    <li><a href="#open-uncertainties">Otevřené nejistoty a co ještě ověřit</a></li>
+    <li><a href="#forensic-annex">Forenzní annex</a></li>
+  </ul>
+</nav>
+
+<section class="downlinks" aria-label="Zdrojové analýzy">
+  <h2>Zdrojové analýzy</h2>
+  <ul>
+    <li><a href="review_bp_1.html">Analýza 1</a></li>
+    <li><a href="review_bp_2.html">Analýza 2</a></li>
+    <li><a href="review_bp_3.html">Analýza 3</a></li>
+    <li><a href="review_bp_4.html">Analýza 4</a></li>
+    <li><a href="review_bp_5.html">Analýza 5</a></li>
+    <li><a href="review_bp_6.html">Analýza 6</a></li>
+    <li><a href="review_bp_7.html">Analýza 7</a></li>
+  </ul>
+</section>
+
+<blockquote>Komparativní a syntetické vyhodnocení sedmi externích analýz bakalářské práce</blockquote>
+
+<blockquote>Poznámka k metodě: vstupy obsahují sedm externích analýz, přestože šablona zadání místy mluví o „čtyřech“. Tato metaanalýza proto systematicky hodnotí všech sedm dodaných review. Text práce (<code>bp.txt</code>) byl konzultován pouze cíleně při rozporech mezi analýzami nebo pro ověření konkrétních pasáží. Layoutové a PDF-specifické soudy jsou převzaty jen tehdy, pokud jsou nezávisle doložitelné; jinak jsou označeny jako nejisté. Sporné formální a bibliografické body byly navíc cíleně ověřeny proti oficiálním fakultním pokynům a aktuálním metadata zdrojů.</blockquote>
+
+<section id="executive-summary">
+<h2>Executive summary</h2>
+
+<p>Těžiště problému neleží v tom, že by bakalářská práce byla odborně prázdná, metodicky fingovaná nebo zjevně opsaná. Naopak: práce má reálné odborné jádro, nezanedbatelnou experimentální složku a obhajitelný biologický smysl. To potvrzují i nejlepší externí analýzy. Slabina práce je jinde: text je formálně, jazykově a bibliograficky nedotažený a v několika bodech navíc trpí metodologickou nečistotou, která snižuje důvěru v pečlivost zpracování.</p>
+
+<p>Nejspolehlivější závěry napříč analýzami – po cíleném ověření proti <code>bp.txt</code> a autoritativním zdrojům – jsou tyto:</p>
+
+<ul>
+<li><span class="badge badge-critical">KRITICKÁ</span> Seznam literatury obsahuje prokazatelné duplicity a metadata vady. Nejde o drobné kosmetické chyby, ale o chyby, které okamžitě zpochybňují bibliografickou disciplínu.</li>
+<li><span class="badge badge-high">VYSOKÁ</span> Práce obsahuje opakované jazykové a stylistické vady: překladové kalky, laboratorní slang, neobratné vazby a terminologicky slabá místa.</li>
+<li><span class="badge badge-high">VYSOKÁ</span> V textu jsou doložitelné věcné a terminologické chyby, zejména <code>NK-κB</code> místo <code>NF-κB</code>, označení <code>CCR5</code> jako chemokinu a několik dalších nepřesností.</li>
+<li><span class="badge badge-high">VYSOKÁ</span> Metodická část není bezcenná, ale je oslabena tím, že statisticky spojuje data získaná za ne zcela homogenního protokolu a že ne zcela čistě odděluje vlastní experimentální výkon od dat z experimentů jiné osoby.</li>
+<li><span class="badge badge-medium">STŘEDNÍ</span> Název a teoretický rámec práce slibují širší záběr na protivirovou imunitní odpověď, zatímco experimentální část ve skutečnosti testuje užší otázku kolem NS1 a virového titru. Práce si tento nesoulad sama částečně uvědomuje, ale ne zcela jej odpracuje.</li>
+<li><span class="badge badge-medium">STŘEDNÍ</span> Jsou patrné AI-signály ve smyslu jazykově heterogenní editace, nikoli důkaz AI-generovaného obsahu. Transparentní deklarace použití ChatGPT je naopak plus.</li>
+</ul>
+
+<p>Z hodnocených externích analýz jsou pro finální syntézu nejcennější především <a href="review_bp_5.html">analýzy 5</a> a <a href="review_bp_7.html">7</a>, s významným doplňkovým přínosem <a href="review_bp_6.html">analýzy 6</a>. <a href="review_bp_1.html">Analýzy 1</a>, <a href="review_bp_3.html">3</a> a <a href="review_bp_4.html">4</a> obsahují příliš mnoho podcenění, chybného fact-checkingu nebo přímo halucinovaných tvrzení na to, aby jim bylo možné důvěřovat bez tvrdého ověřování.</p>
+
+<p>Celkově: práce je <strong>obsahově obhajitelná, ale v aktuální podobě zbytečně zranitelná</strong>. Oponent dostane do ruky několik snadno doložitelných výtek, které nejsou marginální. Kdyby byla bibliografie očištěna, metodická omezení přiznána přesněji a jazyk prošel důslednou korekturou, působila by práce výrazně důvěryhodněji.</p>
+</section>
+
+<section id="final-verdict">
+<h2>Finální verdikt</h2>
+
+<p>Bakalářská práce není akademicky prázdná ani věcně diskvalifikovaná. Má reálnou experimentální složku, rozumně vystavěnou makrostrukturu a poctivě přiznané limity alespoň v některých klíčových bodech. To je důležité zdůraznit, protože několik slabších externích analýz buď zbytečně dramatizuje jednotlivé terminologické přešlapy, nebo naopak příliš shovívavě bagatelizuje systémové vady.</p>
+
+<p>Současně však platí, že v předložené podobě je práce <span class="badge badge-high">VYSOKÁ</span> textově a formálně pod úrovní, kterou by její odborné jádro zasloužilo. Největší problém není jedna izolovaná chyba, ale kumulace více slabin: nevyčištěná bibliografie, terminologické a jazykové nedostatky, ne zcela čisté vymezení vlastního autorského podílu, metodologicky zranitelná statistická konstrukce a místy nedostatečně disciplinovaný přechod mezi tím, co je známo pro různé flaviviry obecně, a tím, co je skutečně doloženo pro TBEV.</p>
+
+<p>Práci proto nelze férově hodnotit ani jako „stačí minimální doladění“, ani jako práci obsahově selhanou. Přesnější závěr je tento: <strong>obsah práce obhajobu unést může, ale současná textová a formální podoba jí zbytečně podkopává nohy</strong>. Finální syntéza se proto přiklání k přísně kritickému, ale nikoli destruktivnímu hodnocení: práce vyžaduje před odevzdáním nebo před obhajobou důkladnou revizi, nikoli pouze kosmetické úpravy.</p>
+</section>
+
+<section id="ranking">
+<h2>Souhrnné vyhodnocení kvality externích analýz</h2>
+
+<table>
+<thead>
+<tr><th>Slovní ranking</th><th>Analýza</th><th>Důvod</th></tr>
+</thead>
+<tbody>
+<tr><td>nejspolehlivější</td><td><a href="review_bp_5.html">5</a></td><td>Dobře nastavuje priority, zachycuje skutečné vysokorizikové vady a málokdy přestřeluje.</td></tr>
+<tr><td>nejpřísnější</td><td><a href="review_bp_7.html">7</a></td><td>Nejtvrdší a metodicky nejdiagnostičtější čtení; nejlépe vidí obranně nebezpečná místa.</td></tr>
+<tr><td>nejlépe podložená</td><td><a href="review_bp_6.html">6</a></td><td>Velmi široké pokrytí a dobrá práce s konkrétní evidencí, i když s několika chybnými normativními/fact-check závěry.</td></tr>
+<tr><td>nejpovrchnější</td><td><a href="review_bp_1.html">1</a></td><td>Zachytí jen úzkou vrstvu problémů, a navíc zásadně selhává v bibliografii.</td></tr>
+<tr><td>nejslabší v interpretaci</td><td><a href="review_bp_3.html">3</a></td><td>Působí klidně a kompetentně, ale míjí velké problémy a obsahuje i vlastní věcnou chybu.</td></tr>
+</tbody>
+</table>
+
+<p>Tento ranking není mechanické pořadí „od nejlepší do nejhorší“. Je to funkční mapa použitelnosti. <a href="review_bp_7.html">Analýza 7</a> je pro finální verdikt cennější než <a href="review_bp_5.html">5</a> tam, kde jde o metodická a obhajobová rizika; analýza 5 je ale spolehlivější tam, kde je třeba odlišit prokázaný problém od přehnané interpretace. <a href="review_bp_6.html">Analýza 6</a> je velmi užitečná, ale musí se jí odečíst několik falešných výtek vůči fakultním pokynům a jeden zastaralý bibliografický soud.</p>
+</section>
+
+<section id="analysis-1-review">
+<h2>Vyhodnocení externí <a href="review_bp_1.html">analýzy 1</a></h2>
+
+<h3>Co zachytila správně</h3>
+
+<p>Analýza 1 má užitek především v jazykově-stylistické a terminologické vrstvě. Správně identifikuje laboratorní slang a neobratné formulace v metodice, například práci s <code>Mili Q</code>, výraz <code>dodělané post-hoc testy</code> nebo opakované užití <code>G-protein</code> tam, kde kontext ukazuje na <code>Protein G</code>. V této rovině je její čtení užitečné, protože konkrétně ukazuje, že problém není jen v několika překlepech, ale ve stylové neukotvenosti celé metodické pasáže.</p>
+
+<h3>Kde selhává</h3>
+
+<p>Její hlavní slabinou je hrubě chybný soud o citačním aparátu. Analýza doslova tvrdí:</p>
+
+<blockquote>„<strong>Hodnocení:</strong> Vynikající. ... Seznam použité literatury obsahuje úplné bibliografické záznamy včetně DOI odkazů, což je znakem vysoké pečlivosti.“</blockquote>
+
+<p>To je po cíleném ověření proti <code>bp.txt</code> neudržitelné. V seznamu literatury jsou minimálně čtyři jasné duplicitní dvojice se stejným DOI a stejným názvem, tedy nikoli „vysoká pečlivost“, ale naopak zřetelně nevyčištěný export z citačního manažeru. Tato chyba zásadně snižuje důvěryhodnost celé analýzy.</p>
+
+<p>Analýza 1 také přeceňuje význam chyby <code>Protein G/G-protein</code>. Jde o reálný terminologický problém, ale ne o nejvyšší strukturální riziko práce. Tím, že z této chyby dělá téměř centrální hrozbu obhajoby, ztrácí proporce.</p>
+
+<h3>Převzitelnost do finální syntézy</h3>
+
+<p>Použitelná je jen selektivně: pro jazyk metodiky a pro několik terminologických detailů. Pro hodnocení bibliografie, citační disciplíny a celkové váhy problémů je <span class="badge badge-high">VYSOKÁ</span> nespolehlivá.</p>
+</section>
+
+<section id="analysis-2-review">
+<h2>Vyhodnocení externí <a href="review_bp_2.html">analýzy 2</a></h2>
+
+<h3>Co zachytila správně</h3>
+
+<p>Analýza 2 má široké pokrytí a je užitečná zejména tam, kde mapuje kumulaci jazykových vad, kalků a stylistických neobratností. Správně upozorňuje, že práce není jen „lehce jazykově neuhlazená“, ale že jazyková vrstva soustavně snižuje akademický účinek textu. Užitek má i její upozornění na duplicitní bibliografické záznamy a na metodickou křehkost statistik při <code>n = 4</code>.</p>
+
+<h3>Kde přehání nebo chybuje</h3>
+
+<p>Slabší je v normativní části jazykového hodnocení. Místy neodlišuje mezi skutečnou chybou, slabým stylem a osobní preferencí. Za problematické považuji zejména to, že jako „přirozenější“ model pro vědecký text navrhuje formulace typu „Měřili jsme virový titr...“, a tím implicitně trestá neosobní vědecký styl jako takový. To není dobré kritérium.</p>
+
+<p>Druhý problém je faktický: analýza tvrdí o položce <code>Sabir &amp; Jan (2026)</code>, že „rok 2026 je budoucnost“. To již při aktuálním ověření neplatí. Současná stránka NCBI Bookshelf tento záznam skutečně vede pod StatPearls s rokem <code>2026 Jan-</code> a s aktualizací z prosince 2025. Kritika položky tedy může stát na tom, že jde o encyklopedický zdroj méně vhodný pro bakalářskou imunologii, nikoli na tom, že by rok 2026 byl sám o sobě nemožný.</p>
+
+<h3>Převzitelnost do finální syntézy</h3>
+
+<p>Analýza 2 je <span class="badge badge-medium">STŘEDNÍ</span> užitečná. Pomáhá pojmenovat jazykový problém a část bibliografických vad, ale musí se jí tvrdě filtrovat přestřelené soudy a zastaralý fact-check.</p>
+</section>
+
+<section id="analysis-3-review">
+<h2>Vyhodnocení externí <a href="review_bp_3.html">analýzy 3</a></h2>
+
+<h3>Co zachytila správně</h3>
+
+<p>Analýza 3 dává práci kredit za to, co opravdu má: experimentální složku, logickou strukturu a obecně relevantní téma. V tomto smyslu brání přehnaně destruktivnímu čtení a připomíná, že se nehodnotí jen formální vady, ale i skutečný obsah práce.</p>
+
+<h3>Kde selhává</h3>
+
+<p>Je však nápadně slabá v detekci vysokorizikových problémů. Podceňuje bibliografické vady, nevytahuje dostatečně <code>NK-κB</code>, <code>CCR5</code> ani nečisté vymezení vlastního autorského podílu. Ještě horší je, že sama obsahuje věcný omyl:</p>
+
+<blockquote>„Správně; flaviviry mají 10 strukturálních a 7 nestrukturálních proteinů“</blockquote>
+
+<p>To je nesprávně. Flaviviry mají tři strukturální a sedm nestrukturálních proteinů. Analýza tak při kontrole práce sama selhává na základní virologické rovině.</p>
+
+<p>Slabé je i její zpochybňování reálných zdrojů. Otazník nad existencí či legitimitou <code>Liang &amp; Dai (2024)</code> nebo poznámka, že <code>Fares et al. (2020)</code> „není v bibliografii viditelný“, jsou po ověření proti <code>bp.txt</code> neobhajitelné. Oba zdroje v práci jsou.</p>
+
+<h3>Převzitelnost do finální syntézy</h3>
+
+<p>Analýza 3 je použitelná jen jako korektiv proti přehnaně katastrofickému tónu některých jiných review. Diagnosticky je však <span class="badge badge-high">VYSOKÁ</span> slabá a pro fact-check nespolehlivá.</p>
+</section>
+
+<section id="analysis-4-review">
+<h2>Vyhodnocení externí <a href="review_bp_4.html">analýzy 4</a></h2>
+
+<h3>Co zachytila správně</h3>
+
+<p>Analýza 4 je ambiciózní, detailní a místy opravdu užitečná. Správně upozorňuje na bibliografické duplicity a všímá si také potřeby důsledněji sjednotit citační styl a zrevidovat jazyk. Její šíře záběru by z ní potenciálně dělala velmi cenné review.</p>
+
+<h3>Kde halucinuje nebo přehání</h3>
+
+<p>Problém je, že analytická přísnost zde není dostatečně kryta přesností. Nejzávažnější je tvrzení, že abstrakt „míchá češtinu a angličtinu“:</p>
+
+<blockquote>„Abstraktní část se má psát v češtině a angličtině paralelně, ale jednotlivé věty jsou smíšené“</blockquote>
+
+<p>To je po otevření front matter v <code>bp.txt</code> chybné. Práce má oddělenou českou anotaci a oddělenou anglickou anotaci. Nejde o promíchané věty v jedné jazykové sekci.</p>
+
+<p>Dále analýza zavádí vadnou jazykovou normu, když tvrdí, že v určitých souřadných konstrukcích má být před posledním <code>a</code> čárka pouze proto, že věta obsahuje více klauzí. To je nepřesné a v dané podobě metodicky nepoužitelné.</p>
+
+<h3>Převzitelnost do finální syntézy</h3>
+
+<p>Analýza 4 je <span class="badge badge-medium">STŘEDNÍ</span> užitečná jen tam, kde její zjištění byla nezávisle potvrzena. Je to typický případ textu, který zní rigorózněji, než jak je ve skutečnosti spolehlivý.</p>
+</section>
+
+<section id="analysis-5-review">
+<h2>Vyhodnocení externí <a href="review_bp_5.html">analýzy 5</a></h2>
+
+<h3>Co zachytila správně</h3>
+
+<p>Analýza 5 je jedna z nejsilnějších. Má dobrý poměr přísnosti a důkazní kázně. Správně prioritizuje to, co je pro obhajobu skutečně nebezpečné: bibliografické duplicity, <code>NK-κB</code>, <code>CCR5</code>, nesoulad <code>Apoorva et al.</code> mezi textem a bibliografií a napětí mezi názvem práce a skutečným experimentálním záběrem.</p>
+
+<p>Její silná stránka spočívá i v tom, že nepřestřeluje v obecném verdiktu. Nepopírá, že práce má reálné odborné jádro, ale zároveň nemaskuje to, že některé vady jsou pro oponenturu zbytečně snadný terč.</p>
+
+<h3>Kde je potřeba korekce</h3>
+
+<p>Místy používá příliš tvrdou dikci u bodů, které je lepší označit jako nepřesnosti než jako plně prokázané věcné chyby. To platí například pro formulaci o <code>CD8+ T-lymfocytech</code> a „protizánětlivých cytokinech“: problém existuje, ale je přesnější jej číst jako zjednodušující a terminologicky nedostatečně ukotvené tvrzení než jako jednoznačný imunologický nonsens.</p>
+
+<h3>Převzitelnost do finální syntézy</h3>
+
+<p>Analýza 5 je <span class="badge badge-low">NÍZKÁ</span> riziková a <span class="badge badge-high">VYSOKÁ</span> převzitelná. Pro finální syntézu patří k nejspolehlivějším vstupům.</p>
+</section>
+
+<section id="analysis-6-review">
+<h2>Vyhodnocení externí <a href="review_bp_6.html">analýzy 6</a></h2>
+
+<h3>Co zachytila správně</h3>
+
+<p>Analýza 6 je mimořádně užitečná tam, kde hodnotí strukturu práce, zdrojovou základnu, bibliografické vady, metodickou přiměřenost experimentu a celkový obraz práce jako „obsahově slibné, ale textově a formálně nedotažené“. Její silou je, že neupadá ani do nekritické benevolence, ani do čistého demolování.</p>
+
+<p>Správně zachycuje, že práce není jen rešeršní kompilát, ale že experimentální část je skutečná a ne zástupná. To je důležitý korektiv.</p>
+
+<h3>Kde chybuje</h3>
+
+<p>Dva okruhy jsou slabší. První je normativní kontrola proti fakultním pokynům. Analýza tvrdí, že titulní list má povinně obsahovat studijní program/obor a že bibliografický list má povinně obsahovat klíčová slova. To v aktuálním znění opatření P5 uvedeno není. Jde tedy o nepřevzitelné závěry.</p>
+
+<blockquote>„Chybí explicitní uvedení <strong>studijního programu / oboru</strong>, který vzor P3a požaduje...“</blockquote>
+
+<blockquote>„Chybí ale <strong>klíčová slova</strong> v obou jazycích, která doporučení P5 očekává...“</blockquote>
+
+<p>Druhý problém je opět položka <code>Sabir &amp; Jan (2026)</code>, kterou analýza označuje jako anachronickou. Při aktuálním ověření tento argument neobstojí. Nadále ale zůstává legitimní výtka, že pro základní adaptivní imunitu je StatPearls metodicky slabší než standardní učebnicový nebo review zdroj.</p>
+
+<h3>Převzitelnost do finální syntézy</h3>
+
+<p>Analýza 6 je <span class="badge badge-high">VYSOKÁ</span> cenná, ale jen po korekci několika chybných normativních a bibliografických závěrů. V textově podložených částech je jedna z nejlepších.</p>
+</section>
+
+<section id="analysis-7-review">
+<h2>Vyhodnocení externí <a href="review_bp_7.html">analýzy 7</a></h2>
+
+<h3>Co zachytila správně</h3>
+
+<p>Analýza 7 je nejtvrdší a metodicky nejdiagnostičtější. Nejlépe vidí ta místa, která mohou být při obhajobě nejvíc napadnutelná: spojení biologických replikací přes změněný promývací protokol, zavedení poměru <code>virový titr / NS1</code>, ne zcela čisté oddělení vlastních dat od dat z experimentů Mgr. Kotounové a napětí mezi širokým názvem práce a užším reálným experimentem.</p>
+
+<p>Je velmi silná i v tom, že rozpoznává rozdíl mezi „obsahovým jádrem práce“ a „textem, který si sám škodí“. To je přesně místo, kde některé slabší analýzy selhávají.</p>
+
+<h3>Kde je třeba ubrat jistotu</h3>
+
+<p>I tato analýza ale obsahuje několik bodů, které je nutné změkčit. Především zbytečně kategoricky zachází s bibliografickou položkou <code>Sabir &amp; Jan (2026)</code>. Dále má tendenci prezentovat rok u <code>Wahaab et al.</code> jako čistě chybný, ačkoli jde spíše o problém smíšení online-first roku a issue-year. V těchto bodech je třeba odlišit „prokazatelnou chybu“ od „nekonzistentního bibliografického zacházení“.</p>
+
+<h3>Převzitelnost do finální syntézy</h3>
+
+<p>Analýza 7 je pro finální syntézu nejcennější tam, kde jde o metodologické a obhajobové riziko. Je <strong>nejpřísnější</strong> a diagnosticky nejostřejší. Vyžaduje jen korekci několika přehnaně jistých fact-check závěrů.</p>
+</section>
+
+<section id="cross-comparison">
+<h2>Porovnání všech 7 externích analýz</h2>
+
+<h3>Hlavní shody mezi analýzami</h3>
+
+<p>Napříč většinou analýz se opakovaně potvrzují tyto závěry:</p>
+
+<ul>
+<li>práce má skutečné odborné a experimentální jádro; nejde o prázdnou kulisu;</li>
+<li>jazyková a stylistická vrstva je slabší než obsahové jádro;</li>
+<li>bibliografie není čistá;</li>
+<li>experimentální část je užší než název a široký teoretický rámec;</li>
+<li>interpretace korelací a obecně statistické části vyžaduje opatrnost;</li>
+<li>deklarace použití AI je transparentní a sama o sobě není etickým problémem.</li>
+</ul>
+
+<p>Tyto shody mají různou váhu. Například jazykový problém zachycují téměř všechny analýzy, ale jen část z nich jej umí opřít o skutečně reprezentativní příklady. Naopak bibliografické vady jsou nejspolehlivěji rozpoznány jen v <a href="review_bp_5.html">analýzách 5</a>, <a href="review_bp_6.html">6</a> a <a href="review_bp_7.html">7</a>, zatímco <a href="review_bp_1.html">analýza 1</a> v tomto bodě selhala téměř úplně.</p>
+
+<h3>Hlavní rozpory mezi analýzami</h3>
+
+<p>Nejdůležitější rozpory nejsou náhodné; ukazují, kde je třeba tvrdě vážit důkazní sílu.</p>
+
+<h4>1. Je práce téměř hotová, nebo vyžaduje zásadní revizi?</h4>
+
+<p><a href="review_bp_3.html">Analýzy 3</a> a částečně <a href="review_bp_4.html">4</a> působí dojmem, že jde hlavně o lehké doladění. <a href="review_bp_6.html">Analýzy 6</a> a <a href="review_bp_7.html">7</a> naopak tvrdí, že text vyžaduje zásadní revizi. Po ověření se přikláním k druhému výkladu. Důvod není rétorický, ale evidenční: duplicity v literatuře, reálné terminologické chyby a metodicky nečisté spojování heterogenních experimentálních podmínek nelze redukovat na „lehké uhlazení“.</p>
+
+<h4>2. Je citační aparát v zásadě v pořádku?</h4>
+
+<p><a href="review_bp_1.html">Analýza 1</a> jej hodnotí jako „vynikající“. <a href="review_bp_5.html">Analýzy 5</a>, <a href="review_bp_6.html">6</a> a <a href="review_bp_7.html">7</a> naopak vidí vážný problém. Zde je spor ve skutečnosti už rozhodnut cíleným ověřením v <code>bp.txt</code>: bibliografie obsahuje jasné duplicity a další metadata vady. Přesvědčivější jsou tedy analýzy 5–7.</p>
+
+<h4>3. Je položka <code>Sabir &amp; Jan (2026)</code> sama o sobě chybná?</h4>
+
+<p><a href="review_bp_2.html">Analýzy 2</a>, <a href="review_bp_6.html">6</a> a <a href="review_bp_7.html">7</a> ji považují za anachronismus. Po aktuálním ověření se k tomuto závěru nepřikláním. Přesnější interpretace je tato: rok 2026 dnes již není nemožný; problém položky je jinde – v typu zdroje a v tom, že pro bakalářskou práci v imunologii jde o slabší referenci než standardní odborná učebnice či review.</p>
+
+<h4>4. Je abstrakt jazykově smíšený?</h4>
+
+<p><a href="review_bp_4.html">Analýza 4</a> tvrdí, že ano. Text práce to nepotvrzuje. Česká a anglická anotace jsou oddělené. Zde je analýza 4 jednoduše chybná.</p>
+
+<h4>5. Je práce v rozporu s P5 kvůli chybějícímu studijnímu programu a klíčovým slovům?</h4>
+
+<p><a href="review_bp_6.html">Analýza 6</a> to tvrdí. Aktuální znění P5 to nepotvrzuje. Tvrzení je tedy nepřevzitelné.</p>
+
+<h3>Body s vysokou jistotou</h3>
+
+<p>Následující závěry jsou po cíleném ověření dostatečně silné na to, aby vstoupily do finálního verdiktu:</p>
+
+<ul>
+<li><span class="badge badge-critical">KRITICKÁ</span> duplicity v bibliografii (<code>Conde</code>, <code>Lindqvist</code>, <code>Muller &amp; Young</code>, <code>Rastogi</code>);</li>
+<li><span class="badge badge-high">VYSOKÁ</span> nekonzistence <code>Apoorva et al., 2024</code> v textu versus <code>b.r.</code> v bibliografii;</li>
+<li><span class="badge badge-high">VYSOKÁ</span> terminologická chyba <code>NK-κB</code> v těle textu i v seznamu zkratek;</li>
+<li><span class="badge badge-high">VYSOKÁ</span> věcně chybná formulace o <code>CCR5</code> jako chemokinu;</li>
+<li><span class="badge badge-high">VYSOKÁ</span> nehomogenní experimentální protokol statisticky spojený do jedné analýzy;</li>
+<li><span class="badge badge-high">VYSOKÁ</span> nedostatečně čisté oddělení vlastních dat a dat z experimentů jiné osoby;</li>
+<li><span class="badge badge-high">VYSOKÁ</span> opakovaný laboratorní slang a překladové kalky;</li>
+<li><span class="badge badge-medium">STŘEDNÍ</span> napětí mezi názvem práce a skutečným experimentálním záběrem;</li>
+<li><span class="badge badge-medium">STŘEDNÍ</span> AI-signály ve smyslu stylistické heterogenity, nikoli důkaz AI-generování.</li>
+</ul>
+
+<h3>Slabě podložené nebo nepřevzitelné body</h3>
+
+<p>Do finální syntézy naopak nepřebírám tyto závěry:</p>
+
+<ul>
+<li>že bibliografie je „vynikající“;</li>
+<li>že práce potřebuje jen minimální opravy;</li>
+<li>že <code>Sabir &amp; Jan (2026)</code> je nutně chybné jen kvůli roku;</li>
+<li>že abstrakt míchá češtinu a angličtinu;</li>
+<li>že P5 vyžaduje na titulním listu studijní program/obor a na bibliografickém listu klíčová slova;</li>
+<li>že údaj „více než 70 flavivirů“ je automaticky věcně chybný bez ohledu na dobový zdroj a změny taxonomie;</li>
+<li>že rozpor <code>p. 56</code> versus strana 48 sám o sobě dokazuje nesrovnalost rozsahu; číslo 56 je naopak při započtení zkratek a literatury plausibilní.</li>
+</ul>
+
+<h3>Oblasti přehlédnuté všemi nebo téměř všemi analýzami</h3>
+
+<p>Všechny analýzy – nebo téměř všechny – systematicky podcenily několik věcí:</p>
+
+<ul>
+<li>že seznam zkratek je slabý nejen kvůli <code>NK-κB</code>, ale i kvůli chybějícím položkám (<code>IFNAR1</code>, <code>TYK2</code>, <code>HMC3</code>, <code>HBVP</code>, <code>SK-N-SH</code>) a přebytkům (<code>JAK2</code>);</li>
+<li>že u <code>Wahaab</code> a <code>Apoorva</code> je třeba rozlišit online-first datum a issue-year, nikoli mechanicky označovat jeden rok za „jediný správný“ bez vysvětlení;</li>
+<li>že práce sama výslovně přiznává neprokázanou signifikanci korelačních trendů; některé analýzy pak autorce podsouvají silnější overclaim, než jaký v textu skutečně je;</li>
+<li>že taxonomické údaje o „počtu flavivirů“ jsou dnes časově nestabilní kvůli změnám ICTV nomenklatury; proto se tento bod nedá hodnotit bez kontextu zdroje;</li>
+<li>že formální výtky k PDF/A, okrajům, prázdným stránkám nebo rozpadlým tabulkám nelze z textového extraktu spolehlivě rozhodnout.</li>
+</ul>
+</section>
+
+<section id="final-synthesis">
+<h2>Metaanalýza a finální syntéza</h2>
+
+<h3>1. Soulad se zadáním a akademickým účelem</h3>
+
+<p><span class="badge badge-medium">STŘEDNÍ</span> Práce zadání v zásadě plní, ale ne bez konceptuálního napětí. Teoretická část skutečně míří k protivirové imunitní odpovědi u flavivirů se zaměřením na NS1. Experimentální část je však užší: soustředí se na koncentraci NS1 a virový titr v buněčných kulturách po infekci TBEV. Sama práce to poctivě přiznává:</p>
+
+<blockquote>„Práce tedy neposuzuje protivirovou imunitní odpověď přímo, ale zaměřuje se na jeden z faktorů, který s ní může přímo souviset.“</blockquote>
+
+<p>Tato věta je silná i problematická zároveň. Silná proto, že ukazuje určitou metodickou poctivost. Problematická proto, že zároveň odhaluje nesoulad mezi širokým názvem a užším experimentem. Nejde o fatální rozpor, ale o rámovací slabinu, která by měla být přesněji odpracována v úvodu, cílech a závěru.</p>
+
+<h3>2. Struktura práce a logická návaznost</h3>
+
+<p><span class="badge badge-medium">STŘEDNÍ</span> Makrostruktura je funkční. Pořadí teorie → cíle → metody → výsledky → diskuze → závěr je standardní a dává smysl. To je jedna z oblastí, kde se i přísnější analýzy shodují oprávněně.</p>
+
+<p>Mikrostruktura je však slabší. Teoretická část má překryvy a místy spíše kumuluje tematické bloky než aby je hierarchicky čistila. Zejména NS1 je pojednáván ve více oddílech, které nejsou vždy jednoznačně komplementární. Úvod je navíc příliš stručný na to, aby přesvědčivě vymezil mezeru mezi širokým imunologickým rámcem a úzkým experimentálním cílem.</p>
+
+<p>Diskuze je kvalitativně lepší než některé slabší analýzy připouštějí: není to jen opakování grafů. Současně ale ne vždy dostatečně odlišuje, co je interpretace dat, co trend bez signifikance a co extrapolace z literatury.</p>
+
+<h3>3. Formální náležitosti a soulad s fakultními pokyny</h3>
+
+<p><span class="badge badge-medium">STŘEDNÍ</span> Z dostupných vstupů plyne, že práce má základní povinné části: titulní list, bibliografický list s anglickou anotací, prohlášení, obsah, vlastní text, seznam zkratek a literaturu. V tomto ohledu nelze práci označit za formálně rozpadlou.</p>
+
+<p>Při cíleném ověření proti oficiálnímu opatření P5 ale vychází tři důležité korekce vůči externím analýzám:</p>
+
+<ol>
+<li>Není doloženo, že by P5 vyžadovalo studijní program/obor na titulním listu.</li>
+<li>Není doloženo, že by P5 vyžadovalo klíčová slova na bibliografickém listu.</li>
+<li>P5 naopak skutečně stanoví přesnou podobu prohlášení, místo, datum a podpis.</li>
+</ol>
+
+<p>Zde je práce slabší jen částečně a s nejistotou. Text prohlášení není doslova ve vzorovém znění P5 a v textovém extraktu je vidět pouze „V Českých Budějovicích, 2026 ……………………“. To vyvolává <span class="badge badge-medium">STŘEDNÍ</span> formální otázku, ale neumožňuje bezpečně tvrdit porušení pravidel, protože P5 vyžaduje odevzdání vytištěného listu na studijní oddělení a textový extrakt nemusí odrážet konečnou podepsanou podobu.</p>
+
+<p>PDF/A, přesné okraje, písmo, zalomení stránek, vizuální stav tabulek a obrázků z dostupných vstupů samostatně nepotvrzuji. Tyto body zůstávají otevřené.</p>
+
+<h3>4. Dodržení citačního stylu (Harvard), bibliografie a práce se zdroji</h3>
+
+<p><span class="badge badge-critical">KRITICKÁ</span> Tato vrstva je nejsnáze napadnutelná a nejlépe prokazatelná.</p>
+
+<p>In-text citace jsou většinou ve tvaru, který harvardskému cíli odpovídá. Samotný problém neleží primárně v průběžných odkazech, ale v seznamu literatury a v jeho konzistenci.</p>
+
+<p>Nejzávažnější jsou prokazatelné duplicity:</p>
+
+<ul>
+<li><code>Conde et al. (2017a)</code> / <code>Conde et al. (2017b)</code> – stejný název, stejné DOI;</li>
+<li><code>Lindqvist et al. (2016a)</code> / <code>Lindqvist et al. (2016b)</code> – totéž;</li>
+<li><code>Muller &amp; Young (2013a)</code> / <code>Muller &amp; Young (2013b)</code> – totéž;</li>
+<li><code>Rastogi et al. (2016a)</code> / <code>Rastogi et al. (2016b)</code> – totéž.</li>
+</ul>
+
+<p>To není marginální nejednotnost. To je jasný signál, že bibliografie nebyla ručně dočištěna.</p>
+
+<p>Další potvrzená vada:</p>
+
+<blockquote><code>Apoorva, Kumar, A., &amp; Singh, S. K. (b.r.) ...</code> v bibliografii versus <code>(Apoorva et al., 2024)</code> v textu.</blockquote>
+
+<p>Zde nejde o spor interpretací, ale o přímou nekonzistenci uvnitř práce. Přesný „správný“ rok závisí na tom, zda se cituje online-first publikace nebo issue-year, ale <code>b.r.</code> je v této podobě neobhajitelné.</p>
+
+<p>U <code>Wahaab et al.</code> je problém jemnější. Aktuální metadata ukazují online publikaci na konci roku 2024 a issue citation v ročníku 2025. Proto bych zde nehovořil o „jednoznačně chybně uvedeném roce 2024“, nýbrž o <span class="badge badge-medium">STŘEDNÍ</span> bibliografické nekonzistenci a neujasněném citačním režimu.</p>
+
+<p>U <code>Sabir &amp; Jan (2026)</code> se po aktuálním ověření nepřikláním k závěru, že je rok sám o sobě špatně. Výhrada je jiná: pro základní výklad adaptivní imunity je to <span class="badge badge-medium">STŘEDNÍ</span> metodicky slabší zdroj než standardní oborová učebnice či kvalitní review.</p>
+
+<p>Práce se zdroji je tematicky slušná a relativně aktuální. Slabina neleží v chudobě zdrojů, ale v jejich integraci. Teoretická část často přechází od DENV/WNV/ZIKV k „flavivirům obecně“ a pak k TBEV, aniž by vždy přesně signalizovala, co je přenos analogií a co je skutečně doložené pro TBEV. To je <span class="badge badge-medium">STŘEDNÍ</span> problém argumentační kázně, nikoli důkaz špatné rešerše jako takové.</p>
+
+<h3>5. Rizika plagiátorství, nepřiznané parafráze a AI-signály</h3>
+
+<p><span class="badge badge-low">NÍZKÁ</span> Není dostatečný podklad pro tvrzení o plagiátorství. Z dodaných vstupů nevyplývá přímé opsání, dlouhé doslovné shody ani nepřiznané převzetí cizí struktury v takové míře, aby bylo možné dělat kategorické závěry.</p>
+
+<p><span class="badge badge-medium">STŘEDNÍ</span> Jsou však viditelné AI-signály ve smyslu textové heterogenity. Front matter a některé pasáže teorie působí jazykově uhlazeněji a generičtěji než metodika, která naopak nese znaky autentického studentského laboratorního psaní. To je v souladu s přiznaným použitím ChatGPT pro jazykovou korekturu a hledání chyb.</p>
+
+<p>Za důležité považuji odlišit dvě roviny:</p>
+
+<ul>
+<li>legitimní a transparentně přiznaná AI-asistence při editaci textu;</li>
+<li>nepodložené obvinění, že text je „napsaný AI“.</li>
+</ul>
+
+<p>Druhá rovina zde oporu nemá. První rovina naopak oporu má – a sama autorka ji deklaruje. To je třeba číst jako plus z hlediska transparentnosti, ne jako automatický problém.</p>
+
+<h3>6. Gramatika, pravopis, interpunkce, styl a terminologická přesnost</h3>
+
+<p>Tato vrstva je slabá a je třeba ji pojmenovat bez uhýbání.</p>
+
+<h4>Jazyk a styl</h4>
+
+<p><span class="badge badge-high">VYSOKÁ</span> V textu se opakují překladové kalky, neobratné vazby a laboratorní slang. Reprezentativní příklady:</p>
+
+<blockquote>„Vyloučení interferonů představuje hlavní antivirový mechanismus...“</blockquote>
+
+<blockquote>„Geny NS1 proteinu kódují 352-aminový polypeptid...“</blockquote>
+
+<blockquote>„... aby došlo k dostatečnému navázání právě purifikované protilátky na G-protein.“</blockquote>
+
+<blockquote>„Po provedení Two-way ANOVY byly dodělané post-hoc testy...“</blockquote>
+
+<p>Každá z těchto vět sama o sobě působí opravitelně. Problém je jejich kumulace. V součtu vytvářejí dojem, že text neprošel důslednou odbornou jazykovou redakcí.</p>
+
+<h4>Terminologie</h4>
+
+<p><span class="badge badge-high">VYSOKÁ</span> Některé chyby jsou věcné, ne pouze stylistické.</p>
+
+<blockquote>„Bylo prokázáno, že některé chemokiny, zejména CCR5...“</blockquote>
+
+<p>CCR5 není chemokin, ale chemokinový receptor.</p>
+
+<blockquote>„IRF-3, IRF-7 a NK-κB...“</blockquote>
+
+<p>Zde je chyba přímá: má jít o <code>NF-κB</code>. Chyba je navíc reprodukovaná i v seznamu zkratek.</p>
+
+<p>Dále je problematické <code>astroglykóze</code> místo standardního <code>astroglióza/astrogliosis</code>, nejasné zacházení s <code>TBEV</code> v seznamu zkratek a širší nekázeň v seznamu zkratek jako takovém.</p>
+
+<p>K chybě <code>Protein G/G-protein</code>: ano, jde o reálný terminologický problém. Ale nepřijímám přehnané interpretace, že právě tato chyba je „kritickým bodem celé práce“. Je to důležitý symptom nepečlivosti, nikoli jediný nebo nejhlubší defekt práce.</p>
+
+<h3>7. Argumentace, opora tvrzení, hloubka analýzy a fact-checking</h3>
+
+<p><span class="badge badge-medium">STŘEDNÍ</span> Argumentačně práce není dutá. Teoretická část pokrývá relevantní pole a diskuze se skutečně snaží výsledky vysvětlovat. To je třeba započíst ve prospěch práce.</p>
+
+<p>Slabina spočívá v tom, že text někdy přechází příliš hladce mezi:</p>
+
+<ul>
+<li>poznatky o různých flavivirech,</li>
+<li>obecnými mechanismy,</li>
+<li>a tvrzeními implicitně vztahovanými k TBEV.</li>
+</ul>
+
+<p>To se týká zejména imunopatologických pasáží a účinků NS1. Některé přenosy z DENV nebo WNV do širšího rámce flavivirů jsou legitimní jako heuristický kontext, ale měly by být přesněji označeny jako analogie, ne jako implicitně přímé tvrzení o TBEV.</p>
+
+<p>Ve fact-checkingu se práce pohybuje nerovnoměrně. Jsou zde prokazatelné chyby (<code>CCR5</code>, <code>NK-κB</code>), ale i body, kde je třeba opatrnost. Například údaj o „více než 70 různých virech“ nelze bez dalšího označit za jasně chybný, protože taxonomie a nomenklatura flavivirů prošly změnami a záleží na době a zdroji, z něhož se čerpá. Slabší externí analýzy zde často přeskakují od nejistoty k příliš jistému verdiktu.</p>
+
+<h3>8. Metodologická přesnost, statistika a reprodukovatelnost</h3>
+
+<p>Toto je spolu s bibliografií nejdůležitější analytická rovina.</p>
+
+<h4>Co je silná stránka</h4>
+
+<p><span class="badge badge-low">NÍZKÁ</span> Metodika není fiktivní ani formální. Optimalizace ELISA, plaková titrace a práce s více buněčnými kulturami představují reálnou laboratorní práci. Text také obsahuje dost detailů na to, aby čtenář základní design pochopil.</p>
+
+<h4>Co práci oslabuje</h4>
+
+<p><span class="badge badge-high">VYSOKÁ</span> Problémem je, že statistická a metodická vrstva není úplně čistá.</p>
+
+<p>Práce sama uvádí:</p>
+
+<blockquote>„Statistická analýza zahrnovala všechny biologické replikace, a to i přes drobnou změnu v počtu promývacích cyklů napříč experimenty.“</blockquote>
+
+<p>Tato formulace je příliš lehká vzhledem k tomu, co popisuje. Změna promývacího protokolu během série není jen drobná technická poznámka; může ovlivnit srovnatelnost dat.</p>
+
+<p>Další metodicky slabý moment:</p>
+
+<blockquote>„... byl vypočítán poměr virového titru a koncentrace naprodukovaného NS1 proteinu, což umožnilo statisticky vyhodnotit experiment Two-way ANOVOU.“</blockquote>
+
+<p>Poměrová konstrukce může být legitimní exploratorně, ale biologicky snadno maskuje odlišné chování čitatele a jmenovatele. Pokud se na takto konstruovaný poměr navěsí hlavní inferenční rámec, je to metodicky křehké.</p>
+
+<p>K tomu přistupuje ještě další zásah do systému:</p>
+
+<blockquote>„Během experimentu proběhla výměna poloviny média (125 μl)...“</blockquote>
+
+<p>Text dost jasně nevysvětluje, jak byla tato diluce zohledněna při interpretaci časových změn koncentrace NS1 a virového titru.</p>
+
+<p>Další slabina je síla statistických závěrů při <code>n = 4</code>. Zde je ale třeba být fér: práce sama místy zachovává opatrnost a netvrdí signifikanci tam, kde není. To dokládá například formulace:</p>
+
+<blockquote>„Přestože korelační koeficienty naznačily rozdílné trendy, ani u jedné buněčné kultury nebyly rozdíly statisticky signifikantní...“</blockquote>
+
+<p>Nepřijímám tedy přehnané závěry některých review, že autorka systematicky ignoruje ne-signifikanci. Přesnější je říci, že práce se pohybuje na hraně mezi opatrnou interpretací a místy příliš ochotným biologickým dovysvětlováním trendů, které zůstaly statisticky slabé.</p>
+
+<h4>Vlastní data vs. data jiné osoby</h4>
+
+<p><span class="badge badge-high">VYSOKÁ</span> Velmi důležitý je i tento bod:</p>
+
+<blockquote>„Optimalizovanou metodou ELISA byly přeměřené i ostatní buněčné kultury (HMC3, SK-N-SH a HBVP), na kterých provedla Mgr. Eliška Kotounová, Msc totožné experimenty.“</blockquote>
+
+<p>To je korektně přiznané, ale má to být v práci ostřeji rámováno. Čtenář musí jasně vědět, co je vlastní experimentální výkon autorky, co je doměření cizích vzorků a jaká je přesná hranice autorského přínosu.</p>
+
+<h3>9. Kvalita abstraktu, úvodu, diskuze a závěru</h3>
+
+<h4>Abstrakt/anotace</h4>
+
+<p><span class="badge badge-low">NÍZKÁ</span> Obsahově je abstrakt v pořádku. Dobře vystihuje, že práce míří na NS1 jako na faktor související s imunitní odpovědí, nikoli na přímé měření imunitní odpovědi. Výhrady některých analýz o „smíšené češtině a angličtině“ se nepotvrdily.</p>
+
+<h4>Úvod</h4>
+
+<p><span class="badge badge-medium">STŘEDNÍ</span> Úvod je funkční, ale příliš krátký. Téma zavede, nikoli však plně problémově vymezí. Na bakalářskou práci to není fatální, ale vzhledem k tomu, že právě zde mohl být elegantně vysvětlen rozdíl mezi širokým názvem a užším experimentem, jde o promarněné místo.</p>
+
+<h4>Diskuze</h4>
+
+<p><span class="badge badge-medium">STŘEDNÍ</span> Diskuze je lepší, než tvrdí nejkritičtější soudy, ale slabší, než naznačují nejbenevolentnější. Je interpretativní, nikoli jen mechanická. Zároveň však někdy překlenuje statistickou slabost biologickým vysvětlováním, které je rozumné jako hypotéza, nikoli jako silný závěr.</p>
+
+<h4>Závěr</h4>
+
+<p><span class="badge badge-medium">STŘEDNÍ</span> Závěr je opatrný a věcně spíše střízlivý. Není to jeho největší slabina. Slabší je spíš forma: závěr je málo syntetický a více sumarizační než skutečně uzavírající. Potřeboval by jasněji spojit vlastní výsledky s omezeními studie a s tím, co přesně práce přinesla.</p>
+
+<h3>10. Formální prvky, tabulky, obrázky, zkratky a vnitřní konzistence</h3>
+
+<p><span class="badge badge-medium">STŘEDNÍ</span> Bez PDF nelze spolehlivě rozhodnout layoutové výtky typu prázdné stránky, rozpadlé tabulky nebo konkrétní zalomení obrázků. Takové body proto do finálního verdiktu nezařazuji jako jisté.</p>
+
+<p>Co však lze rozhodnout, je vnitřní konzistence textových formálních prvků. Seznam zkratek je slabší, než si většina analýz všimla. Nejde jen o <code>NK-κB</code>. V textu se používají zkratky, které v seznamu chybějí (<code>IFNAR1</code>, <code>TYK2</code>, <code>HMC3</code>, <code>HBVP</code>, <code>SK-N-SH</code>), zatímco některé jiné položky jsou nadbytečné nebo nejasné. To je <span class="badge badge-medium">STŘEDNÍ</span> formální nepořádek.</p>
+
+<p>Vnitřní konzistence je oslabena také bibliografickými nekonzistencemi a ne zcela čistou hranicí mezi vlastním experimentem a sekundárně doměřovanými daty. To je důležitější než jednotlivé typografické drobnosti.</p>
+</section>
+
+<section id="priority-fixes">
+<h2>Top priority fixes</h2>
+
+<ol>
+<li><span class="badge badge-critical">KRITICKÁ</span> Ručně vyčistit bibliografii položku po položce. Odstranit duplicity, sjednotit roky, dořešit <code>Apoorva</code>, vyjasnit bibliografický režim u online-first publikací a zkontrolovat všechny in-text odkazy proti seznamu literatury.</li>
+<li><span class="badge badge-high">VYSOKÁ</span> Provést terminologický sweep napříč celým textem: <code>NF-κB</code>, <code>CCR5</code>, <code>astroglióza</code>, <code>Protein G</code>, formulace kolem NS1 a seznam zkratek.</li>
+<li><span class="badge badge-high">VYSOKÁ</span> Přepsat metodicko-statistické rámování tak, aby bylo zcela jasné: co bylo analyzováno, jak byly spojeny či nespojeny série s odlišným promývacím protokolem, jak byla zohledněna výměna poloviny média a proč byl použit poměr <code>titr/NS1</code>.</li>
+<li><span class="badge badge-high">VYSOKÁ</span> Jednoznačně oddělit vlastní data od dat získaných na jiných buněčných kulturách jinou osobou; uvést to konzistentně v metodice, výsledcích i diskuzi.</li>
+<li><span class="badge badge-high">VYSOKÁ</span> Udělat systematickou jazykovou redakci se zaměřením na překladové kalky, laboratorní slang, vazby a interpunkci; nikoli kosmetickou kontrolu překlepů.</li>
+<li><span class="badge badge-medium">STŘEDNÍ</span> Zesílit úvod a závěr tak, aby přesněji rámovaly užší experimentální cíl a limity přenosu zjištění k „protivirové imunitní odpovědi“ obecně.</li>
+<li><span class="badge badge-medium">STŘEDNÍ</span> Zrevidovat seznam zkratek, formální podobu prohlášení a další textově ověřitelné formální detaily.</li>
+</ol>
+</section>
+
+<section id="defense-risks">
+<h2>Rizika pro oponenturu a obhajobu</h2>
+
+<p>Nejzranitelnější místa nejsou nutně ta nejhlubší vědecká, ale ta nejsnáze doložitelná. Oponent pravděpodobně udeří na toto:</p>
+
+<ul>
+<li>bibliografické duplicity a nekonzistence;</li>
+<li><code>NF-κB/NK-κB</code> a <code>CCR5</code>;</li>
+<li>otázku, zda práce opravdu zkoumá imunitní odpověď, nebo jen NS1 a titr;</li>
+<li>otázku, co přesně je vlastní experiment autorky a co pochází z experimentů jiné osoby;</li>
+<li>otázku, proč byla statisticky spojena data přes změněný protokol a proč byl použit poměr <code>titr/NS1</code>;</li>
+<li>otázku, co lze a nelze vyvozovat z korelací při <code>n = 4</code>.</li>
+</ul>
+
+<p>Obhajoba je reálně možná, ale jen pokud bude autorka schopna odpovídat věcně, nikoli defenzivně. Nejlepší strategie není vady bagatelizovat, ale přesně je přiznat, zasadit do správné váhy a ukázat, že navzdory nim je experimentální jádro práce legitimní.</p>
+</section>
+
+<section id="open-uncertainties">
+<h2>Otevřené nejistoty a co ještě ověřit</h2>
+
+<ul>
+<li>Z textového extraktu nelze bezpečně ověřit PDF/A, přesné okraje, typografické parametry ani vizuální stav tabulek a obrázků.</li>
+<li>Bez similarity reportu nelze dělat kategorické závěry o plagiátorství.</li>
+<li>Bez primárních dat nelze definitivně rozhodnout, jak silně změna promývacího protokolu či výměna média zkreslila výsledky; lze jen říci, že text tento problém neřeší dost přesně.</li>
+<li>U některých bibliografických položek je třeba rozlišit online-first datum a issue-year; přesná finální forma by měla být sjednocena podle jednoho citačního pravidla.</li>
+<li>U práce s AI lze mluvit jen o indikátorech jazykové editace, nikoli o důkazu AI-generovaného obsahu.</li>
+</ul>
+</section>
+
+<hr>
+
+<section id="forensic-annex" class="forensic">
+<h2>Forenzní annex</h2>
+
+<p class="intro-warning">Tato sekce obsahuje tvrdší, diagnosticky orientovanou vrstvu hodnocení. Nerozšiřuje hlavní report stylistickou variací, ale doplňuje jej o nejostřeji formulované závěry, nepřevzitelné soudy z externích analýz a body, které by byly při obhajobě nejspíš nejtvrději napadeny.</p>
+
+<h3>1. Nejtvrdší zjištění o práci</h3>
+
+<p>Nejtvrdší závěr není, že práce „neví, co dělá“. Nejtvrdší závěr je, že <strong>text opakovaně dává signály menší pečlivosti, než odpovídá odbornému jádru práce</strong>. Tři nejvážnější symptomy jsou tyto:</p>
+
+<ul>
+<li><span class="badge badge-critical">KRITICKÁ</span> bibliografie vypadá jako nevyčištěný export z citačního manažeru;</li>
+<li><span class="badge badge-high">VYSOKÁ</span> terminologické chyby jsou viditelné i v základních biologických pojmech;</li>
+<li><span class="badge badge-high">VYSOKÁ</span> metodika a statistika jsou popsané tak, že samy otevírají nepříjemné otázky o srovnatelnosti dat.</li>
+</ul>
+
+<p>To je přesně typ kombinace, která u oponenta nespouští dojem „obsahově slabá práce“, ale dojem „autorka nebyla dost disciplinovaná ve finálním zpracování“. A to je pro výsledný posudek často skoro stejně nebezpečné.</p>
+
+<h3>2. Největší metodické slabiny práce</h3>
+
+<p>Největší metodická slabina není malé <code>n</code> samo o sobě. Největší metodická slabina je <strong>spojování více nejistot do jedné inferenční linky</strong>:</p>
+
+<ol>
+<li>změna promývacího protokolu během série,</li>
+<li>výměna poloviny média během experimentu,</li>
+<li>poměrová konstrukce <code>titr / NS1</code>,</li>
+<li>korelace při <code>n = 4</code>,</li>
+<li>ne zcela ostré oddělení vlastních a převzatých experimentálních dat.</li>
+</ol>
+
+<p>Jednotlivě by tyto body ještě šly obhájit jako omezení běžná pro bakalářskou práci. V součtu už tvoří <span class="badge badge-high">VYSOKÁ</span> metodické riziko. To je přesně důvod, proč <a href="review_bp_7.html">analýza 7</a> působí přesvědčivěji než benevolentnější review: lépe vidí kumulaci slabin, ne jen jednotlivé technické detaily.</p>
+
+<h3>3. Nejrizikovější tvrzení v práci</h3>
+
+<p>Za nejrizikovější nepovažuji obecné věty o významu flavivirů, ale tvrzení, která jsou snadno a přesně napadnutelná.</p>
+
+<blockquote>„Bylo prokázáno, že některé chemokiny, zejména CCR5...“</blockquote>
+
+<p>To je věcně slabé až chybné; oponent se zde může zeptat, zda autorka rozlišuje chemokin a chemokinový receptor.</p>
+
+<blockquote>„IRF-3, IRF-7 a NK-κB...“</blockquote>
+
+<p>To je explicitní terminologický omyl.</p>
+
+<blockquote>„Geny NS1 proteinu kódují 352-aminový polypeptid...“</blockquote>
+
+<p>To je formulace, která v odborném textu působí nehotově a terminologicky nekompetentně.</p>
+
+<blockquote>„Práce tedy neposuzuje protivirovou imunitní odpověď přímo...“</blockquote>
+
+<p>Tato věta není chyba. Je ale riziková, protože sama otevírá otázku, zda název práce neslibuje víc, než experiment skutečně dělá.</p>
+
+<h3>4. Nejproblematičtější citační a zdrojové vady</h3>
+
+<p>Nejproblematičtější není, že v seznamu literatury chybí sem tam DOI u starší položky. Nejproblematičtější je, že jsou tam jasné duplicity a vnitřní nekonzistence. To je přesně ten typ vady, který oponent rozpozná během dvou minut.</p>
+
+<p>Druhá vážná věc je nekonzistence mezi bibliografií a textem (<code>Apoorva</code>). Třetí je neujasněné zacházení s bibliografickým rokem u online-first článků. Čtvrtá je volba <code>StatPearls</code> jako opory pro základní adaptivní imunitu. To není zakázané, ale vedle jinak slušné literatury to působí slabě.</p>
+
+<h3>5. Nejvýraznější AI-signály</h3>
+
+<p>Nejvýraznější AI-signál není konkrétní „chatgpt věta“. Je to <strong>zlom stylové textury</strong> mezi jednotlivými částmi práce.</p>
+
+<ul>
+<li>anotace a některé pasáže teorie působí jazykově uhlazeně, genericky a formulačně hladce;</li>
+<li>metodika a část výsledků naopak nesou autentický laboratorní slang a syrovější studentskou syntax.</li>
+</ul>
+
+<p>To přesně odpovídá scénáři, kdy byl text místy editován nástrojem typu ChatGPT, ale ne plošně a ne se stejnou intenzitou. Proto je správné mluvit o <strong>indikátorech editace</strong>, nikoli o důkazu AI-generovaného textu. Transparentní deklarace použití AI tento závěr navíc činí eticky podstatně méně problematickým.</p>
+
+<h3>6. Nejproblematičtější pasáže z externích analýz</h3>
+
+<p>Nejproblematičtější nejsou ty pasáže, které jsou přísné, ale ty, které znějí jistě bez odpovídající opory.</p>
+
+<p>Z <a href="review_bp_1.html">analýzy 1</a>:</p>
+
+<blockquote>„<strong>Hodnocení:</strong> Vynikající. ... Seznam použité literatury obsahuje úplné bibliografické záznamy...“</blockquote>
+
+<p>To je prostě v rozporu s textem práce.</p>
+
+<p>Z <a href="review_bp_3.html">analýzy 3</a>:</p>
+
+<blockquote>„Správně; flaviviry mají 10 strukturálních a 7 nestrukturálních proteinů“</blockquote>
+
+<p>Tím se analýza sama diskvalifikuje v základním virologickém faktu.</p>
+
+<p>Z <a href="review_bp_4.html">analýzy 4</a>:</p>
+
+<blockquote>„Abstraktní část se má psát v češtině a angličtině paralelně, ale jednotlivé věty jsou smíšené“</blockquote>
+
+<p>To je vyvráceno samotným front matter práce.</p>
+
+<p>Z <a href="review_bp_6.html">analýzy 6</a>:</p>
+
+<blockquote>„Chybí explicitní uvedení <strong>studijního programu / oboru</strong>...“<br>
+„Chybí ale <strong>klíčová slova</strong>...“</blockquote>
+
+<p>To neodpovídá aktuálnímu znění P5.</p>
+
+<p>Z <a href="review_bp_2.html">analýzy 2</a>:</p>
+
+<blockquote>„rok 2026 je budoucnost. Mělo by být 2025 nebo novější rok.“</blockquote>
+
+<p>Tento soud byl přebit aktuálním bibliografickým stavem zdroje.</p>
+
+<h3>7. Kde externí analýzy halucinují nebo přehánějí</h3>
+
+<ul>
+<li><strong><a href="review_bp_1.html">Analýza 1</a></strong> halucinuje kvalitu bibliografie tím, že ji chválí navzdory jasným duplicitám.</li>
+<li><strong><a href="review_bp_3.html">Analýza 3</a></strong> má vlastní věcnou chybu a navíc bez opory zpochybňuje reálné zdroje.</li>
+<li><strong><a href="review_bp_4.html">Analýza 4</a></strong> halucinuje smíšený abstrakt a používá nepřesné jazykové normy.</li>
+<li><strong><a href="review_bp_6.html">Analýza 6</a></strong> přehání formální nesoulad s P5 tam, kde norma nic takového neukládá.</li>
+<li><strong><a href="review_bp_2.html">Analýzy 2</a>, <a href="review_bp_6.html">6</a> a <a href="review_bp_7.html">7</a></strong> přehánějí jistotu u <code>Sabir &amp; Jan (2026)</code>.</li>
+</ul>
+
+<p>Naopak tam, kde některé analýzy přehnaně útočí na AI, je třeba brzdit. V práci jsou AI-signály, ale ne opora pro kategorické tvrzení, že text je generovaný AI.</p>
+
+<h3>8. Kde externí analýzy selhaly ve fact-checkingu</h3>
+
+<p>Selhání fact-checkingu má několik typů:</p>
+
+<ol>
+<li><strong>Nekontrolovaný normativní soud</strong> – P5 a údajné povinné klíčové slovo či studijní program.</li>
+<li><strong>Zastaralý bibliografický soud</strong> – <code>Sabir &amp; Jan (2026)</code>.</li>
+<li><strong>Špatně přečtený vlastní vstup</strong> – údajně „smíšený“ česko-anglický abstrakt.</li>
+<li><strong>Nedostatečná kontrola existence zdrojů v bibliografii</strong> – <code>Fares et al.</code> a <code>Liang &amp; Dai</code>.</li>
+<li><strong>Vlastní věcná chyba recenzenta</strong> – „10 strukturálních proteinů“.</li>
+</ol>
+
+<p>To je důležité proto, že některé review působí na první pohled velmi autoritativně. U této sady vstupů ale platí, že <strong>rétorická jistota a skutečná spolehlivost se nerozcházejí jen občas, ale opakovaně</strong>.</p>
+
+<h3>9. Co bylo systematicky přehlédnuto všemi nebo téměř všemi analýzami</h3>
+
+<p>Největší společné slepé místo je seznam zkratek. Většina review si všimla <code>NK-κB</code>, ale téměř žádné systematicky neřeší, že seznam je obecně neuklizený: chybí v něm použité zkratky a některé jiné položky jsou nadbytečné nebo terminologicky ne zcela čisté.</p>
+
+<p>Druhé slepé místo je, že některé analýzy napadají interpretaci korelací, aniž by dost ocenily, že práce sama explicitně přiznává ne-signifikanci a potřebu dalších replikátů.</p>
+
+<p>Třetí slepé místo je bibliografická nuance u online-first publikací. Přesně zde se pozná rozdíl mezi přísnou a pečlivou analýzou: přísná analýza rok neuhodne, ale vysvětlí, kde vzniká nekonzistence a jak ji opravit.</p>
+
+<h3>10. Co by mohlo být při obhajobě nejvíc napadnutelné</h3>
+
+<p>Při obhajobě bych očekával nejtvrdší útok na těchto šest frontách:</p>
+
+<ol>
+<li><strong>Proč se práce jmenuje o protivirové imunitní odpovědi, když experiment neměří imunitní odpověď přímo?</strong></li>
+<li><strong>Jak přesně jsou oddělena vlastní data od dat z experimentů Mgr. Kotounové?</strong></li>
+<li><strong>Proč byly do jedné statistické analýzy spojeny série s odlišným promývacím protokolem?</strong></li>
+<li><strong>Jak byla zohledněna výměna poloviny média při interpretaci koncentrací?</strong></li>
+<li><strong>Jak obhájit poměr <code>virový titr / NS1</code> jako hlavní analytickou proměnnou?</strong></li>
+<li><strong>Jak si vysvětlit základní terminologické chyby (<code>NF-κB</code>, <code>CCR5</code>) a proč je bibliografie v takovém stavu?</strong></li>
+</ol>
+
+<p>To jsou otázky, které neútočí na celé téma, ale na pečlivost, přesnost a metodickou disciplínu. A právě proto jsou nebezpečné: jsou krátké, konkrétní a snadno doložitelné.</p>
+</section>
+
+</main>
+<footer></footer>
+</body>
+</html>
